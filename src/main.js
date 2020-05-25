@@ -20,8 +20,24 @@ import App from './App.vue';
 
 // router setup
 import router from "./routes/starterRouter";
+
+/**
+ * We'll load the axios HTTP library which allows us to easily issue requests
+ * to our Laravel back-end. This library automatically handles sending the
+ * CSRF token as a header based on the value of the "XSRF" token cookie.
+ */
+
+import axios from 'axios';
+
 // plugin setup
 Vue.use(DashboardPlugin);
+
+
+const base = axios.create({
+  baseURL: `http://13.233.98.172/`//process.env.SERVER_URL
+});
+
+Vue.prototype.$http = base; 
 
 /* eslint-disable no-new */
 new Vue({

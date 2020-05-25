@@ -42,46 +42,14 @@
         </a>
       </li>
     </b-navbar-nav>
-    <b-navbar-nav class="align-items-center ml-auto ml-md-0">
-      <b-nav-item-dropdown right>
-        <b-dropdown-item  class="pr-0" href="#" >
-          <b-media no-body class="align-items-center">
-                  <span class="avatar avatar-sm">
-                    <b-img alt="Image placeholder" rounded="circle" src="img/theme/team-4.jpg" />
-                  </span>
-            <b-media-body class="ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
-            </b-media-body>
-          </b-media>
-        </b-dropdown-item>
-        <b-dropdown>
-          <b-dropdown-header class="noti-title">
-            <h6 class="text-overflow m-0">Welcome!</h6>
-          </b-dropdown-header >
-          <b-dropdown-item href="#!">
-            <i class="ni ni-single-02"></i>
-            <span>My profile</span>
-          </b-dropdown-item>
-          <b-dropdown-item href="#!">
-            <i class="ni ni-settings-gear-65"></i>
-            <span>Settings</span>
-          </b-dropdown-item>
-          <b-dropdown-item href="#!">
-            <i class="ni ni-calendar-grid-58"></i>
-            <span>Activity</span>
-          </b-dropdown-item>
-          <b-dropdown-item href="#!">
-            <i class="ni ni-support-16"></i>
-            <span>Support</span>
-          </b-dropdown-item>
-          <div class="dropdown-divider"></div>
-          <b-dropdown-item href="#!">
-            <i class="ni ni-user-run"></i>
-            <span>Logout</span>
-          </b-dropdown-item>
-        </b-dropdown>
-      </b-nav-item-dropdown>
-    </b-navbar-nav>
+    <ul class="nav navbar-nav flex-row float-right">
+          <li class="nav-item">
+            <router-link class="nav-link pr-3" to="/login">Sign in</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="btn btn-outline-primary" to="/register">Sign up</router-link>
+          </li>
+        </ul>
   </base-nav>
 </template>
 <script>
