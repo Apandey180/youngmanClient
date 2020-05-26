@@ -45,25 +45,25 @@
           text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (1)"
         },
         {
-          id: 1,
+          id: 2,
           title: "Category Name",
           image: "img/theme/img-1-1000x900.jpg",
           alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (1)"
+          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (2)"
         },
         {
-          id: 1,
+          id: 3,
           title: "Category Name",
           image: "img/theme/img-1-1000x900.jpg",
           alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (1)"
+          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (3)"
         },
         {
-          id: 1,
+          id: 4,
           title: "Category Name",
           image: "img/theme/img-1-1000x900.jpg",
           alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (1)"
+          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (4)"
         }
       ],
       slide: 0,

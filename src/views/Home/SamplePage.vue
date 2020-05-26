@@ -7,9 +7,10 @@
     </base-header>
     <b-container fluid class="mt--6">
       <b-row class="starter-page">
-        <home-carousel></home-carousel>
-        <featured-categories></featured-categories>
-        <widgets></widgets>
+        <home-carousel/>
+        <featured-categories/>
+        <paginated-list/>
+        
       </b-row>
       
     </b-container>
@@ -19,12 +20,14 @@
   import HomeCarousel from './HomeCarousel';
   import FeaturedCategories from './FeaturedCategories';
   import Widgets from '../Widgets';
+  import PaginatedList from './PaginatedList';
 
   export default {
     name: 'starter-page',
     components: {
       HomeCarousel,
       FeaturedCategories,
+      PaginatedList,
       Widgets
     },
     data() {
