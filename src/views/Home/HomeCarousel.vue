@@ -4,7 +4,7 @@
       id="carousel-1"
       v-model="slide"
       :interval="2000"
-      img-height="480"
+      img-height="200"
       controls
       indicators
       background="#ababab"
