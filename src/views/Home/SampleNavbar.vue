@@ -43,13 +43,63 @@
       </li>
     </b-navbar-nav>
     <ul class="nav navbar-nav flex-row float-right">
-          <li class="nav-item">
+          <li class="nav-item" v-if="!isLoggedIn">
             <router-link class="nav-link pr-3" to="/login">Sign in</router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item"  v-if="!isLoggedIn">
             <router-link class="btn btn-outline-primary" to="/register">Sign up</router-link>
           </li>
-        </ul>
+
+    </ul>
+
+    <b-navbar-nav class="align-items-center ml-auto ml-md-0" v-if="isLoggedIn">
+      <base-dropdown menu-on-right
+                     class="nav-item"
+                     tag="li"
+                     title-tag="a"
+                     title-classes="nav-link pr-0">
+        <a href="#" class="nav-link pr-0" @click.prevent slot="title-container">
+          <b-media no-body class="align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="img/theme/team-4.jpg">
+                  </span>
+            <b-media-body class="ml-2 d-none d-lg-block">
+              <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+            </b-media-body>
+          </b-media>
+        </a>
+
+        <template>
+
+          <b-dropdown-header class="noti-title">
+            <h6 class="text-overflow m-0">Welcome!</h6>
+          </b-dropdown-header>
+          <b-dropdown-item href="#!">
+            <i class="ni ni-single-02"></i>
+            <span>My profile</span>
+          </b-dropdown-item>
+          <b-dropdown-item href="#!">
+            <i class="ni ni-settings-gear-65"></i>
+            <span>Settings</span>
+          </b-dropdown-item>
+          <b-dropdown-item href="#!">
+            <i class="ni ni-calendar-grid-58"></i>
+            <span>Activity</span>
+          </b-dropdown-item>
+          <b-dropdown-item href="#!">
+            <i class="ni ni-support-16"></i>
+            <span>Support</span>
+          </b-dropdown-item>
+          <div class="dropdown-divider"></div>
+          <b-dropdown-item href="#!" @click="logout">
+            <i class="ni ni-user-run"></i>
+            <span>Logout</span>
+          </b-dropdown-item>
+
+        </template>
+      </base-dropdown>
+    </b-navbar-nav>
+
   </base-nav>
 </template>
 <script>
@@ -76,25 +126,48 @@
         activeNotifications: false,
         showMenu: false,
         searchModalVisible: false,
-        searchQuery: ''
+        searchQuery: '',
+        name: null,
+        user_type: 0,
+        isLoggedIn: localStorage.getItem('youngman.jwt') != null
       };
     },
+    mounted() {
+      this.setDefaults()
+    },
     methods: {
-      capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      },
-      toggleNotificationDropDown() {
-        this.activeNotifications = !this.activeNotifications;
-      },
-      closeDropDown() {
-        this.activeNotifications = false;
-      },
-      toggleSidebar() {
-        this.$sidebar.displaySidebar(!this.$sidebar.showSidebar);
-      },
-      hideSidebar() {
-        this.$sidebar.displaySidebar(false);
-      }
+      setDefaults() {
+            if (this.isLoggedIn) {
+                let user = JSON.parse(localStorage.getItem('youngman.user'))
+                this.name = user.name
+                this.user_type = user.is_admin
+            }
+        },
+        change() {
+            this.isLoggedIn = localStorage.getItem('youngman.jwt') != null
+            this.setDefaults()
+        },
+        logout(){
+            localStorage.removeItem('youngman.jwt')
+            localStorage.removeItem('youngman.user')
+            this.change()
+            this.$router.push('/')
+        },
+        capitalizeFirstLetter(string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+        },
+        toggleNotificationDropDown() {
+          this.activeNotifications = !this.activeNotifications;
+        },
+        closeDropDown() {
+          this.activeNotifications = false;
+        },
+        toggleSidebar() {
+          this.$sidebar.displaySidebar(!this.$sidebar.showSidebar);
+        },
+        hideSidebar() {
+          this.$sidebar.displaySidebar(false);
+        }
     }
   };
 </script>
