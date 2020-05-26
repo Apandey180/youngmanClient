@@ -10,7 +10,6 @@
         <home-carousel/>
         <featured-categories/>
         <paginated-list/>
-        
       </b-row>
       
     </b-container>

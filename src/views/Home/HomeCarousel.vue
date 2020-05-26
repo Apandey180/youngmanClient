@@ -1,14 +1,13 @@
 <template>
   <div>
     <b-carousel
-      id="carousel-1"
+      id="home-carousel"
       v-model="slide"
       :interval="2000"
-      img-height="200"
+      img-width="1024"
+      img-height="480"
       controls
       indicators
-      background="#ababab"
-      style="text-shadow: 1px 1px 2px #333;"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
@@ -16,7 +15,6 @@
       <b-carousel-slide
         v-for="item in carouselItems"
         :key="item.id"
-        :caption="item.text"
         :img-src="item.image"
       ></b-carousel-slide>
     </b-carousel>
@@ -60,3 +58,21 @@ export default {
   }
 };
 </script>
+
+<style>
+.carousel .carousel-inner {
+  height: 480px;
+}
+
+.carousel-inner .carousel-item img{
+  min-height:200px;
+  object-fit:cover;
+}
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 480px;
+}
+</style>

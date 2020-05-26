@@ -1,15 +1,12 @@
 <template>
   <div>
-    <base-header class="pb-6">
       <b-row align-v="center" class="py-4">
         <b-col lg="6" cols="7">
-          <h6 class="h2 text-white d-inline-block mb-0">Featured Categories</h6>
+          <h6 class="h2 d-inline-block mb-0">Featured Categories</h6>
         </b-col>
-    
       </b-row>
-      <!-- Card stats -->
-      <b-row>
 
+      <b-row>
         <b-col v-for="item in featuredCategories" :key="item.id" xl="3" md="6">
           <!-- Image-Text card -->
           <b-card no-body title="Title">
@@ -22,9 +19,7 @@
             </b-card-body>
           </b-card>
         </b-col>
-       
       </b-row>
-    </base-header>
   
   </div>
 </template>

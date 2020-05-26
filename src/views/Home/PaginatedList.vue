@@ -1,4 +1,10 @@
 <template>
+<div>
+      <b-row align-v="center" class="py-4">
+        <b-col lg="6" cols="7">
+          <h6 class="h2 d-inline-block mb-0">Items</h6>
+        </b-col>
+      </b-row>
 <!-- TODO: Covert this to grid layout -->
 <div id="lists">
  
@@ -14,7 +20,7 @@
               <b-card-text class="mt-4">{{item.text}}</b-card-text>
             </b-card-body>
           </b-card>
- </b-card-group>
+        </b-card-group>
   </div>
  
   <b-pagination
@@ -24,6 +30,7 @@
       aria-controls="lists"
       align="center"
     ></b-pagination>
+</div>
 </div>
 </template>
 
@@ -36,28 +43,28 @@ export default {
       items: [
         {
           id: 1,
-          title: "Category Name",
+          title: "Item Name",
           image: "img/theme/img-1-1000x900.jpg",
           alt: "Image Placeholder",
           text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (1)"
         },
         {
           id: 2,
-          title: "Category Name",
+          title: "Item Name",
           image: "img/theme/img-1-1000x900.jpg",
           alt: "Image Placeholder",
           text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (2)"
         },
         {
           id: 3,
-          title: "Category Name",
+          title: "Item Name",
           image: "img/theme/img-1-1000x900.jpg",
           alt: "Image Placeholder",
           text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (3)"
         },
         {
           id: 4,
-          title: "Category Name",
+          title: "Item Name",
           image: "img/theme/img-1-1000x900.jpg",
           alt: "Image Placeholder",
           text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (4)"
@@ -67,28 +74,28 @@ export default {
           title: "Category Name",
           image: "img/theme/img-1-1000x900.jpg",
           alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (1)"
+          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (5)"
         },
         {
           id: 6,
           title: "Category Name",
           image: "img/theme/img-1-1000x900.jpg",
           alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (2)"
+          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (6)"
         },
         {
           id: 7,
           title: "Category Name",
           image: "img/theme/img-1-1000x900.jpg",
           alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (3)"
+          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (7)"
         },
         {
           id: 8,
           title: "Category Name",
           image: "img/theme/img-1-1000x900.jpg",
           alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (4)"
+          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (8)"
         }
       ]
     }
