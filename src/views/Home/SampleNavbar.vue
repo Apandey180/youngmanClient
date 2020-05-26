@@ -2,7 +2,7 @@
   <base-nav
     container-classes="container-fluid"
     class="navbar-top border-bottom navbar-expand"
-    :class="$route.meta.navbarClasses ? $route.meta.navbarClasses : 'bg-success navbar-dark'"
+    style="background-color:#ffe411 !important"
     type=""
   >
     <!-- Search form -->
