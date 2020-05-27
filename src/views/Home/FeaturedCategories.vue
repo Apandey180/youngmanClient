@@ -60,9 +60,7 @@
           alt: "Image Placeholder",
           text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (4)"
         }
-      ],
-      slide: 0,
-      sliding: null
+      ]
     };
   },
 };
