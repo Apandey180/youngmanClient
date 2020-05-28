@@ -12,6 +12,8 @@ const state = () => ({
   materials_selected: [], 
   additional_selected: [],
   width_selected: [], 
+
+  recent_products: []
 })
 
 // getters
@@ -61,7 +63,13 @@ const actions = {
     shop.getAllWidth(width => {
       commit('setWidth', width)
     })
-  }
+  },
+
+  getRecentProducts ({ commit }) {
+    shop.getRecentProducts(recentProducts => {
+      commit('setRecentProducts', recentProducts)
+    })
+  },
 }
 
 // mutations
@@ -84,6 +92,10 @@ const mutations = {
 
   setWidth (state, width_options) {
     state.width_options = width_options
+  },
+
+  setRecentProducts (state, recent_products) {
+    state.recent_products = recent_products
   },
 
   decrementProductInventory (state, { id }) {

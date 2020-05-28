@@ -99,6 +99,37 @@ const _width_options = [
 { text: 'Single Width(700MM)', value: 1},
 { text: 'Double Width(1450MM)', value: 2},
 ]
+
+const _recent = [
+  {
+    id: 1,
+    title: "Item Name",
+    image: "img/theme/img-1-1000x900.jpg",
+    alt: "Image Placeholder",
+    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (1)"
+  },
+  {
+    id: 2,
+    title: "Item Name",
+    image: "img/theme/img-1-1000x900.jpg",
+    alt: "Image Placeholder",
+    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (2)"
+  },
+  {
+    id: 3,
+    title: "Item Name",
+    image: "img/theme/img-1-1000x900.jpg",
+    alt: "Image Placeholder",
+    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (3)"
+  },
+  {
+    id: 4,
+    title: "Item Name",
+    image: "img/theme/img-1-1000x900.jpg",
+    alt: "Image Placeholder",
+    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (4)"
+  }
+]
   
   export default {
     getProducts (cb) {
@@ -119,6 +150,10 @@ const _width_options = [
 
     getAllWidth (cb) {
       setTimeout(() => cb(_width_options), 100)
+    },
+
+    getRecentProducts(cb) {
+      setTimeout(() => cb(_recent), 100)
     },
 
     buyProducts (products, cb, errorCb) {
