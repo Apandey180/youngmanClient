@@ -11,7 +11,7 @@
     <b-card-body >
      <b-row>
             <b-col sm="12" md="12" lg="12">
-            <b-form-group label="Additional">
+            <b-form-group label="Categories">
             <b-form-checkbox-group
                 v-model="categories_selected"
                 :options="categories_options"
@@ -75,51 +75,88 @@
 </template>
 
 <script>
+import { mapState, mapActions, mapGetters } from 'vuex';
 export default {
     data(){
         return{
-            categories_options : [
-                {
-                    value:1,
-                    text:"All",
-                },
-                {
-                    value:2,
-                    text:"Scaffold",
-                },
-                {
-                    value:3,
-                    text:"Ladder",
-                },
-                {
-                    value:4,
-                    text:"Work Platforms",
-                }
-            ],
-
-            categories_selected : [
-                {value:1}
-            ],
-
-            materials_options : [
-                {value:1,text:"FRP"},
-                {value:2,text:"Aluminium"}
-            ],
-            materials_selected: [1,2],
-            additional_selected: [2,3,4],           
-            additional_options: [
-              { text: 'Tool Tray', value: 1 },
-              { text: 'Wheels', value: 2 },
-              { text: 'Side Support', value: 3 },
-              { text: 'Guardrail', value: 4 }
-            ],
-            width_selected: [1,2],            
-            width_options: [
-              { text: 'Single Width(700MM)', value: 1},
-              { text: 'Double Width(1450MM)', value: 2},
-            ],
+            
         };
     },
+    computed: {
+        categories_options() {
+            return this.$store.state.products.categories_options
+        },
+        materials_options() {
+            return this.$store.state.products.materials_options
+        },
+        additional_options() {
+            return this.$store.state.products.additional_options
+        },
+        width_options() {
+            return this.$store.state.products.width_options
+        },
+
+        
+        categories_selected: {
+           get(){
+             return this.$store.state.products.categories_selected;
+           },
+           set(categories_selected){
+             return categories_selected
+           } 
+        },
+        materials_selected: {
+            get(){
+             return this.$store.state.products.materials_selected;
+           },
+           set(materials_selected){
+             return materials_selected
+           } 
+        },
+        additional_selected: {
+            get(){
+             return this.$store.state.products.additional_selected;
+           },
+           set(additional_selected){
+             return additional_selected
+           } 
+        },
+        width_selected: {
+            get(){
+             return this.$store.state.products.width_selected;
+           },
+           set(width_selected){
+             return width_selected
+           } 
+        }, 
+    },
+
+    watch: {
+        // TODO Gauri: watch not working https://vuejs.org/v2/api/#watch Debug to check if this is called
+    categories_selected: function(newValue, oldValue) {
+      console.log(`Updating categories_selected from ${oldValue} to ${newValue}`);
+      this.$store.dispatch('products/getAllProducts')
+    },
+    materials_selected: function(newValue, oldValue) {
+      console.log(`Updating materials_selected from ${oldValue} to ${newValue}`);
+      this.$store.dispatch('products/getAllProducts')
+    },
+    additional_selected: function(newValue, oldValue) {
+      console.log(`Updating additional_selected from ${oldValue} to ${newValue}`);
+      this.$store.dispatch('products/getAllProducts')
+    },
+    width_selected: function(newValue, oldValue) {
+      console.log(`Updating width_selected from ${oldValue} to ${newValue}`);
+      this.$store.dispatch('products/getAllProducts')
+    },
+  },
+
+  created () {
+    this.$store.dispatch('products/getAllCategories');
+    this.$store.dispatch('products/getAllMaterials');
+    this.$store.dispatch('products/getAllAdditional');
+    this.$store.dispatch('products/getAllWidth');
+  }
 };
 </script>
 

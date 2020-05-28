@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
 import DashboardNavbar from '../Home/SampleNavbar.vue';
 import ContentFooter from '../Home/SampleFooter.vue';
 import ProductFilter from './ProductFilter';
@@ -49,89 +50,34 @@ export default {
   data() {
     return {
       currentPage: 1,
-      perPage: 6,
-      items: [
-        {
-          id: 1,
-          title: "Item Name",
-          image: "img/theme/img-1-1000x900.jpg",
-          alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (1)",
-          price: "7500",
-          offer: "FLAT 5% off",
-          original_price: "8100",
-          rating: "4"
-        },
-        {
-          id: 2,
-          title: "Item Name",
-          image: "img/theme/img-1-1000x900.jpg",
-          alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (2)"
-        },
-        {
-          id: 3,
-          title: "Item Name",
-          image: "img/theme/img-1-1000x900.jpg",
-          alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (3)"
-        },
-        {
-          id: 4,
-          title: "Item Name",
-          image: "img/theme/img-1-1000x900.jpg",
-          alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (4)"
-        },
-        {
-          id: 5,
-          title: "Category Name",
-          image: "img/theme/img-1-1000x900.jpg",
-          alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (5)"
-        },
-        {
-          id: 6,
-          title: "Category Name",
-          image: "img/theme/img-1-1000x900.jpg",
-          alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (6)"
-        },
-        {
-          id: 7,
-          title: "Category Name",
-          image: "img/theme/img-1-1000x900.jpg",
-          alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (7)"
-        },
-        {
-          id: 8,
-          title: "Category Name",
-          image: "img/theme/img-1-1000x900.jpg",
-          alt: "Image Placeholder",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (8)"
-        }
-      ]
+      perPage: 6
     };
   },
   computed: {
     lists () {
       // eslint-disable-next-line  TODO: Fix side-effect in computed property
-      const list = this.items;
-      // Return just page of items needed
+      const list = this.products;
+      // Return just page of products needed
       return list.slice(
         (this.currentPage - 1) * this.perPage,
         this.currentPage * this.perPage
       )
     },
     numPages () {
-      return Math.ceil(this.items.length / this.perPage);
+      return Math.ceil(this.products.length / this.perPage);
     },
     rows() {
-        return this.items.length;
+        return this.products.length;
+    },
+    products() {
+      return this.$store.state.products.all;
     }
   },
-  methods: {
+  methods: mapActions('cart', [
+    'addProductToCart'
+  ]),
+  created () {
+    this.$store.dispatch('products/getAllProducts')
   }
 };
 </script>
