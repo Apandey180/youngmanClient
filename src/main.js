@@ -21,6 +21,11 @@ import App from './App.vue';
 // router setup
 import router from "./routes/starterRouter";
 
+// vuex setup
+import store from "./store";
+
+import { currency } from './common/Currency'
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -31,6 +36,7 @@ import axios from 'axios';
 
 // plugin setup
 Vue.use(DashboardPlugin);
+Vue.filter('currency', currency)
 
 
 const base = axios.create({
@@ -42,6 +48,7 @@ Vue.prototype.$http = base;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   render: h => h(App),
   router
 });
