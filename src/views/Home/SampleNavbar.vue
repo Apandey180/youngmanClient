@@ -286,7 +286,7 @@
           </b-dropdown-item>
           <b-dropdown-item href="#!">
             <i class="ni ni-calendar-grid-58"></i>
-            <span>Activity</span>
+            <span>Orders</span>
           </b-dropdown-item>
           <b-dropdown-item href="#!">
             <i class="ni ni-support-16"></i>
