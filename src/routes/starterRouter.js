@@ -74,6 +74,15 @@ export default new Router({
           is_admin: true
       }
   },
+  {
+    path: '/profile',
+    name: 'profile',
+    component:  () => import('../views/Pages/UserProfile.vue'),
+    meta: {
+        requiresAuth: true,
+        is_admin: true
+    }
+  },
   ],
   scrollBehavior: (to, from ,savedPosition) => {
     if (savedPosition) {

@@ -41,7 +41,207 @@
           <i class="ni ni-zoom-split-in"></i>
         </a>
       </li>
+
+      <b-navbar-nav class="ml-auto">
+        <b-nav-form>
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="#">
+                    <span class="nav-link nav-link-inner--text">Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="#">
+                    <span class="nav-link nav-link-inner--text">Products</span>
+                </a>
+            </li>
+           <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="#">
+                    <span class="nav-link nav-link-inner--text">About</span>
+                </a>
+            </li>
+        </b-nav-form>
+
+      </b-navbar-nav>
+
+      
+
+<b-navbar-nav class="ml-auto">
+    <b-nav-form>
+<li class="nav-item">
+                <a class="nav-link nav-link-icon" href="#">
+                    <i class="nav-link ni ni-cart"></i>
+                    <span class="nav-link-inner--text d-lg-none">Cart</span>
+                </a>
+            </li>
+
+             </b-nav-form>
+
+      </b-navbar-nav>
+
+      <base-dropdown class="nav-item"
+                     tag="li"
+                     title-classes="nav-link"
+                     title-tag="a"
+                     icon="ni ni-bell-55"
+                     menu-classes="dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
+        <template>
+          <!-- Dropdown header -->
+          <div class="px-3 py-3">
+            <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
+          </div>
+          <!-- List group -->
+          <b-list-group flush>
+            <b-list-group-item action href="#!">
+              <b-row align-v="center" >
+                <b-col md="auto">
+                  <!-- Avatar -->
+                  <b-img alt="Image placeholder" src="img/theme/team-1.jpg" class="avatar" rounded="circle" />
+                </b-col>
+                <b-col class="ml--2">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h4 class="mb-0 text-sm">John Snow</h4>
+                    </div>
+                    <div class="text-right text-muted">
+                      <small>2 hrs ago</small>
+                    </div>
+                  </div>
+                  <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                </b-col>
+              </b-row>
+            </b-list-group-item>
+            <a href="#!" class="list-group-item list-group-item-action">
+              <b-row align-v="center">
+                <b-col md="auto">
+                  <!-- Avatar -->
+                  <b-img alt="Image placeholder" src="img/theme/team-2.jpg" class="avatar" rounded="circle" />
+                </b-col>
+                <b-col class="ml--2">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h4 class="mb-0 text-sm">John Snow</h4>
+                    </div>
+                    <div class="text-right text-muted">
+                      <small>3 hrs ago</small>
+                    </div>
+                  </div>
+                  <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
+                </b-col>
+              </b-row>
+            </a>
+            <b-list-group-item action href="#!" >
+              <b-row align-v="center">
+                <b-col md="auto">
+                  <!-- Avatar -->
+                  <b-img alt="Image placeholder" src="img/theme/team-3.jpg" class="avatar" rounded="circle" />
+                </b-col>
+                <b-col class="ml--2">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h4 class="mb-0 text-sm">John Snow</h4>
+                    </div>
+                    <div class="text-right text-muted">
+                      <small>5 hrs ago</small>
+                    </div>
+                  </div>
+                  <p class="text-sm mb-0">Your posts have been liked a lot.</p>
+                </b-col>
+              </b-row>
+            </b-list-group-item>
+            <b-list-group-item action href="#!" >
+              <b-row align-v="center">
+                <b-col md="auto">
+                  <!-- Avatar -->
+                  <b-img alt="Image placeholder" src="img/theme/team-4.jpg" class="avatar" rounded="circle" />
+                </b-col>
+                <b-col class="ml--2">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h4 class="mb-0 text-sm">John Snow</h4>
+                    </div>
+                    <div class="text-right text-muted">
+                      <small>2 hrs ago</small>
+                    </div>
+                  </div>
+                  <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                </b-col>
+              </b-row>
+            </b-list-group-item>
+            <b-list-group-item action href="#!" >
+              <b-row align-v="center">
+                <b-col md="auto">
+                  <!-- Avatar -->
+                  <b-img alt="Image placeholder" src="img/theme/team-5.jpg" class="avatar" rounded="circle" />
+                </b-col>
+                <b-col class="ml--2">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h4 class="mb-0 text-sm">John Snow</h4>
+                    </div>
+                    <div class="text-right text-muted">
+                      <small>3 hrs ago</small>
+                    </div>
+                  </div>
+                  <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
+                </b-col>
+              </b-row>
+            </b-list-group-item>
+          </b-list-group>
+          <!-- View all -->
+          <!-- This item dont have <b-dropdown-item> because item have styles " text-center text-primary font-weight-bold py-3" on tag <a> wich we cant add -->
+          <a href="#!"  class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+        </template>
+      </base-dropdown>
+      <base-dropdown menu-classes="dropdown-menu-lg dropdown-menu-dark bg-default dropdown-menu-right"
+                     class="nav-item"
+                     tag="li"
+                     title-tag="a"
+                     title-classes="nav-link"
+                     icon="ni ni-ungroup">
+        <template>
+          <b-row class="shortcuts px-4">
+            <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-red">
+                      <i class="ni ni-calendar-grid-58"></i>
+                    </span>
+              <small>Calendar</small>
+            </a>
+            <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
+                      <i class="ni ni-email-83"></i>
+                    </span>
+              <small>Email</small>
+            </a>
+            <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-info">
+                      <i class="ni ni-credit-card"></i>
+                    </span>
+              <small>Payments</small>
+            </a>
+            <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                      <i class="ni ni-books"></i>
+                    </span>
+              <small>Reports</small>
+            </a>
+            <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
+                      <i class="ni ni-pin-3"></i>
+                    </span>
+              <small>Maps</small>
+            </a>
+            <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
+                      <i class="ni ni-basket"></i>
+                    </span>
+              <small>Shop</small>
+            </a>
+          </b-row>
+        </template>
+      </base-dropdown>
+  
     </b-navbar-nav>
+    <b-navbar-nav>
     <ul class="nav navbar-nav flex-row float-right">
           <li class="nav-item" v-if="!isLoggedIn">
             <router-link class="nav-link pr-3" to="/login">Sign in</router-link>
@@ -51,6 +251,8 @@
           </li>
 
     </ul>
+    </b-navbar-nav>
+
 
     <b-navbar-nav class="align-items-center ml-auto ml-md-0" v-if="isLoggedIn">
       <base-dropdown menu-on-right
@@ -64,7 +266,7 @@
                     <img alt="Image placeholder" src="img/theme/team-4.jpg">
                   </span>
             <b-media-body class="ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+              <span class="mb-0 text-sm  font-weight-bold">{{capitalizeFirstLetter(name)}}</span>
             </b-media-body>
           </b-media>
         </a>
@@ -74,7 +276,7 @@
           <b-dropdown-header class="noti-title">
             <h6 class="text-overflow m-0">Welcome!</h6>
           </b-dropdown-header>
-          <b-dropdown-item href="#!">
+          <b-dropdown-item href="/profile">
             <i class="ni ni-single-02"></i>
             <span>My profile</span>
           </b-dropdown-item>
@@ -129,7 +331,7 @@
         searchQuery: '',
         name: null,
         user_type: 0,
-        isLoggedIn: localStorage.getItem('youngman.jwt') != null
+        isLoggedIn: localStorage.getItem('youngman.jwt') != null,
       };
     },
     mounted() {

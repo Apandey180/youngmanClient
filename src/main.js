@@ -40,8 +40,13 @@ Vue.filter('currency', currency)
 
 
 const base = axios.create({
-  baseURL: `http://13.233.98.172/`//process.env.SERVER_URL
+  baseURL: process.env.VUE_APP_URL,
 });
+base.defaults.headers = {
+  'Content-Type': 'application/json',
+  'Authorization': 'Basic MhjDLYbr44CfE6hivAGjq3PGUejxUeKTnbPYFbeg',
+  'grant_type' : 'client_credentials'
+} 
 
 Vue.prototype.$http = base; 
 

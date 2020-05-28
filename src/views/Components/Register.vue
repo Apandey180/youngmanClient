@@ -71,6 +71,7 @@
                               :rules="{required: true, min: 6}"
                               v-model="model.password">
                   </base-input>
+
                   <div class="text-muted font-italic"><small>password strength: <span
                     class="text-success font-weight-700">strong</span></small></div>
                   <b-row class=" my-4">
@@ -104,13 +105,28 @@
           name: '',
           email: '',
           password: '',
+          password_confirmation : "",
           agree: false
         }
       }
     },
     methods: {
       onSubmit() {
-        // this will be called only after form is valid. You can do an api call here to register users
+        let name = this.model.name;
+        let email = this.model.email;
+        let password = this.model.password;
+        let c_password = this.model.password;
+
+        this.$http.post('api/register', {name, email, password, c_password}).then(response => {
+                let data = response.data
+                localStorage.setItem('youngman.user', JSON.stringify(data.user))
+                localStorage.setItem('youngman.jwt', data.token)
+                if (localStorage.getItem('youngman.jwt') != null) {
+                    this.$emit('loggedIn')
+                    let nextUrl = this.$route.params.nextUrl
+                    this.$router.push((nextUrl != null ? nextUrl : '/'))
+                }
+            })
         
       }
     }
