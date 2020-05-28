@@ -1,19 +1,25 @@
 <template>
-    <b-container align-v="left" class="border">
-        <b-row>
-            <b-col sm="12" md="12" lg="12">Filter</b-col>
-        </b-row>
+<div>
 
-        <b-row>
+<b-card no-body>
+    <!-- Card header -->
+    <b-card-header >
+      <!-- Title -->
+      <h5 class="h3 mb-0">Filter</h5>
+    </b-card-header>
+    <!-- Card body -->
+    <b-card-body >
+     <b-row>
             <b-col sm="12" md="12" lg="12">
-                <h4>Categories</h4>
+            <b-form-group label="Additional">
+            <b-form-checkbox-group
+                v-model="categories_selected"
+                :options="categories_options"
+                plain
+                stacked
+            ></b-form-checkbox-group>
+            </b-form-group>
             </b-col>
-            <ul class="list-style">
-                <li v-for="category in categories"
-                    :key="category.id">
-                    {{category.name}}
-                </li>
-            </ul>
         </b-row>
 
         <b-row>
@@ -23,33 +29,17 @@
             </b-col>
         </b-row>
 
-        <b-row>
-            <b-col align-v="left" sm="6" md="6" lg="6">
-                <b-dropdown size="sm" text="Min" variant="outline-dark" class="m-2">
-                  <b-dropdown-item-button>Action</b-dropdown-item-button>
-                  <b-dropdown-item-button>Another action</b-dropdown-item-button>
-                  <b-dropdown-item-button>Something else here...</b-dropdown-item-button>
-                </b-dropdown>
-            </b-col>
-            <b-col align-v="right" sm="6" md="6" lg="6">
-                <b-dropdown size="sm" text="Max" variant="outline-dark" class="m-2">
-                  <b-dropdown-item-button>Action</b-dropdown-item-button>
-                  <b-dropdown-item-button>Another action</b-dropdown-item-button>
-                  <b-dropdown-item-button>Something else here...</b-dropdown-item-button>
-                </b-dropdown>
-            </b-col>
-        </b-row>
-
-        <b-row>
+<b-row>
             <b-col sm="12" md="12" lg="12">
-                <h4>Material</h4>
+            <b-form-group label="Material">
+            <b-form-checkbox-group
+                v-model="materials_selected"
+                :options="materials_options"
+                plain
+                stacked
+            ></b-form-checkbox-group>
+            </b-form-group>
             </b-col>
-            <ul class="list-style">
-                <li v-for="material in materials"
-                    :key="material.id">
-                    {{material.name}}
-                </li>
-            </ul>
         </b-row>
 
         <b-row>
@@ -77,46 +67,56 @@
             </b-form-group>
             </b-col>
         </b-row>
-    </b-container>
+
+    </b-card-body>
+  </b-card>
+
+    </div>
 </template>
 
 <script>
 export default {
     data(){
         return{
-            categories : [
+            categories_options : [
                 {
-                    id:1,
-                    name:"All>",
+                    value:1,
+                    text:"All",
                 },
                 {
-                    id:2,
-                    name:"Scaffold>",
+                    value:2,
+                    text:"Scaffold",
                 },
                 {
-                    id:3,
-                    name:"Ladder>",
+                    value:3,
+                    text:"Ladder",
                 },
                 {
-                    id:4,
-                    name:"Work Platforms>",
+                    value:4,
+                    text:"Work Platforms",
                 }
             ],
 
-            materials : [
-                {id:1,name:"FRP>"},
-                {id:2,name:"Aluminium>"}
+            categories_selected : [
+                {value:1}
             ],
-            additional_selected: ['Wheels', 'Side Support', 'Guardrail'],            additional_options: [
-              { text: 'Tool Tray', value: 'Tool Tray' },
-              { text: 'Wheels', value: 'Wheels' },
-              { text: 'Side Support', value: 'Side Support' },
-              { text: 'Guardrail', value: 'Guardrail' }
+
+            materials_options : [
+                {value:1,text:"FRP"},
+                {value:2,text:"Aluminium"}
             ],
-            width_selected: ['Single Width(700MM)', 'Double Width(1450MM)'],            
+            materials_selected: [1,2],
+            additional_selected: [2,3,4],           
+            additional_options: [
+              { text: 'Tool Tray', value: 1 },
+              { text: 'Wheels', value: 2 },
+              { text: 'Side Support', value: 3 },
+              { text: 'Guardrail', value: 4 }
+            ],
+            width_selected: [1,2],            
             width_options: [
-              { text: 'Single Width(700MM)', value: 'Single Width(700MM)' },
-              { text: 'Double Width(1450MM)', value: 'Double Width(1450MM)' },
+              { text: 'Single Width(700MM)', value: 1},
+              { text: 'Double Width(1450MM)', value: 2},
             ],
         };
     },

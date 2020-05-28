@@ -45,12 +45,12 @@
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
             <li class="nav-item">
-                <a class="nav-link nav-link-icon" href="#">
+                <a class="nav-link nav-link-icon" href="/">
                     <span class="nav-link nav-link-inner--text">Home</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-link-icon" href="#">
+                <a class="nav-link nav-link-icon" href="/products">
                     <span class="nav-link nav-link-inner--text">Products</span>
                 </a>
             </li>
@@ -266,7 +266,7 @@
                     <img alt="Image placeholder" src="img/theme/team-4.jpg">
                   </span>
             <b-media-body class="ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm  font-weight-bold">{{capitalizeFirstLetter(name)}}</span>
+              <span class="mb-0 text-sm  font-weight-bold">{{name}}</span>
             </b-media-body>
           </b-media>
         </a>
@@ -356,7 +356,10 @@
             this.$router.push('/')
         },
         capitalizeFirstLetter(string) {
-          return string.charAt(0).toUpperCase() + string.slice(1);
+          if(string != null || string.length != "")
+            return string.charAt(0).toUpperCase() + string.slice(1);
+          else
+            return "";
         },
         toggleNotificationDropDown() {
           this.activeNotifications = !this.activeNotifications;
