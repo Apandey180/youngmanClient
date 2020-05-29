@@ -1,106 +1,80 @@
 <template>
 <div>
-<h3></h3>
-<h2>Rs /month</h2>
-offer avilable for duration above 6 months
+<h3>{{ product.item_price | currency}}/month</h3>
+<small>Offer avilable for duration above 6 months</small>
 
 <h3>Product Delivery</h3>
 
-
-<b-form-input type="text" placeholder="Enter Delivery Pincode"   maxlength="6" pa >
-<b-button variant="primary">Primary</b-button>
+<b-form-input type="number" placeholder="Enter Delivery Pincode"   maxlength="6" pa >
+  <b-button variant="primary">Primary</b-button>
 </b-form-input>
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-6">
-              <h2>Quantity</h2>
+        <b-col sm="12" md="6" lg="6">
+              <h3>Quantity</h3>
 
-            <div class="input-group">
-                
-                  <button v-on:click="decreaseCounter(0)" class="button rounded shadow success">
-                                  <b-icon-dash></b-icon-dash>
+              <base-slider v-model="quantity" step="1"></base-slider>
 
+              <b-row class="mt-3">
+                <b-col cols="6"><span class="range-slider-value">{{quantity}} Pcs</span></b-col>
+              </b-row>
+        </b-col>
+        <b-col sm="12" md="6" lg="6">
+            <h3>Duration(Days)</h3>
 
-                </button>
-                
-    <b-form-input v-model="counter" placeholder="Enter your name"  value="counter" ></b-form-input>
-                
-                  <button v-on:click="increaseCounter(30)" class="button rounded shadow warning">
-                 <b-icon-plus></b-icon-plus>
+            <base-slider v-model="days" step="1"></base-slider>
 
-                </button>
-                
-            </div>
-        </div>
-        <div class="col-sm-6">
-                                      <h2>Duration(Days)</h2>
-
-            <div class="input-group">
-                <button v-on:click="decreasedays(0)" class="button rounded shadow success">
-                                   <b-icon-dash></b-icon-dash>
-
-                </button>
-                
-             <b-form-input v-model="counter1" placeholder="Enter your name"  value="counter1" ></b-form-input>
-                
-                  <button v-on:click="increasedays(31)" class="button rounded shadow warning">
-                                  <b-icon-plus></b-icon-plus>
-
-                </button>
-                
-            </div>
-        </div>
+              <b-row class="mt-3">
+                <b-col cols="6"><span class="range-slider-value">{{days}} Days</span></b-col>
+              </b-row>
+        </b-col>
     </div>
+
+<div>
+    <b-col sm="12" md="12" lg="12">
+      <b-row>
+      <h3>Product Description</h3>
+      </b-row>
+      <b-row>
+        {{product.description}}
+      </b-row>
+    </b-col>
+</div>
+
+<div style="margin:20px;">
+<center>
+      <b-button variant="primary" align="center" @click="addToCart">Add to Cart</b-button>
+      <b-button variant="primary" align="center" @click="rentNow">Rent Now</b-button>
+</center>
+</div>
 </div>
 
 
-<h3>Warranty</h3>
-
-<p>{{product.description}}
-</p>
-
-<h3>Product Description</h3>
-
-<p>{{product.description}}</p>
 </div>
 </template>
 
 <script>
 
-
+import BaseSlider from '@/components/BaseSlider'
 
   export default{
   
 
     props:['product'],
+    components: {
+      BaseSlider
+    },
 
   data() { 
 
     return {
+      quantity: 0,
+      days: 0
 
-counter: 0,
-counter1:0
-
-    }   // Initial Value 
+    }
   },
   methods: {
-    increaseCounter(increaseLimit) { // Increase
-      if (this.counter < increaseLimit) this.counter++;
-    },
-    decreaseCounter(decreaseLimit) { // Decrease
-      if (this.counter > decreaseLimit) this.counter--;
-    }, 
-    resetCounter() { // Reset
-      this.counter = 0;
-    },
-       increasedays(increaseLimit) { // Increase
-      if (this.counter1 < increaseLimit) this.counter1++;
-    },
-    
-    decreasedays(decreaseLimit) { // Decrease
-      if (this.counter1 > decreaseLimit) this.counter1--;
-    }, 
  
   },
   computed: {

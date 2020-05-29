@@ -1,44 +1,42 @@
 <template>
-    <div class="container">
+    <div>
+        <base-header class="pb-6" style="background-color:#ffe411 !important">
+    <b-row align-v="right" class="py-4">
+    </b-row>
+  </base-header>
+  <b-container fluid class="mt--6">
+      <b-card>
+
+        <h2 slot="header" class="mb-0">{{product.item_name}}</h2>
+
         <div class="row">
             <div class="col-md-6 ">
-                <h1>{{product.item_name}}</h1>
+
                 
-                <div class="row">
-
-                    <b-col sm="2" md="2" lg="2" align-v="left">
-                        <img v-for="image in product.images" :key="image.id" v-on:click="changeImage(image)" :src="image.thumb_url" class="thumb-image">
-                    </b-col>  
-
-                    <b-col sm="10" md="10" lg="10" align-v="right">  
-                        <img v-if="current_image !== null" v-bind:src= "current_image_url" class="block-image"><br><br>
-                    </b-col>  
-                </div>
-
-                <center> <b-button variant="primary">Add to Cart</b-button>
-                    <b-button variant="primary">Rent Now</b-button></center>
-
+                
              </div>
             <div class="col-md-6">
                <product-details v-bind:product="product"/>
             </div>
         </div>
 
-             <div class="row">
-            <div class="col-md-6 ">
-                <review/>
-                </div>
-            <div class="col-md-6">
-               <similar-items/>
-            </div>
-        </div>
+        <small slot="footer" class="mb-0">Warranty: {{product.description}}</small>
+      </b-card>
+
+        <b-row>
+        <b-col sm="12" md="6" lg="6">
+            <review/>
+        </b-col>
+        <b-col sm="12" md="6" lg="6">
+            <similar-items/>
+        </b-col>
+        </b-row>
    
+    </b-container>
     </div>
 </template>
 
 <script>
-
-
 
 import ProductDetails from './SingleProduct/ProductDetails'
 import Review from './SingleProduct/Review'
@@ -56,7 +54,8 @@ export default {
     data(){
         return {
             current_image: null,
-            product : null
+            product : null,
+            index: 0,
         }
    },
 
@@ -70,7 +69,12 @@ export default {
         changeImage(image) {
            this.current_image = image;
         
-        }
+        },
+        clickItem(i){
+        this.index = i;
+        },
+        rentNow() {},
+        addToCart() {}
     },
         
     beforeMount(){
@@ -84,6 +88,7 @@ export default {
                 alt: "Image Placeholder",
                 quantity_available: 30,
                 description:"Nulla vitae elit libero, a pharetra augue mollis interdum. (2)",
+                item_price: 4999,
                 images: [{
                     id: 1,
                     thumb_url: "https://picsum.photos/600/300/?image=25",

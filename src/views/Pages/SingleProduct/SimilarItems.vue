@@ -1,7 +1,7 @@
 <template>
 
 <div>
-<h1>Similar Products</h1>
+<h3>Similar Products</h3>
 <b-container class="bv-example-row">
   <b-row>
     <b-col>
