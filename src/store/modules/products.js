@@ -1,4 +1,5 @@
 import shop from '../../api/shop'
+import * as events from '../mutation-types'
 
 // initial state
 const state = () => ({
@@ -43,31 +44,31 @@ const actions = {
 
   getAllCategories ({ commit }) {
     shop.getAllCategories(categories => {
-      commit('setCategories', categories)
+      commit(events.UPDATE_CATEGORIES_FILTER, categories)
     })
   },
 
   getAllMaterials ({ commit }) {
     shop.getAllMaterials(materials => {
-      commit('setMaterials', materials)
+      commit(events.UPDATE_MATERIALS_FILTER, materials)
     })
   },
 
   getAllAdditional ({ commit }) {
     shop.getAllAdditional(additional => {
-      commit('setAdditional', additional)
+      commit(events.UPDATE_ADDITIONAL_FILTER, additional)
     })
   },
 
   getAllWidth ({ commit }) {
     shop.getAllWidth(width => {
-      commit('setWidth', width)
+      commit(events.UPDATE_WIDTH_FILTER, width)
     })
   },
 
   getRecentProducts ({ commit }) {
     shop.getRecentProducts(recentProducts => {
-      commit('setRecentProducts', recentProducts)
+      commit(events.FETCH_RECENT_SEARCH_PRODUCTS, recentProducts)
     })
   },
 }
@@ -78,27 +79,27 @@ const mutations = {
     state.all = products
   },
 
-  setCategories (state, categories_options) {
+  [events.UPDATE_CATEGORIES_FILTER] (state, categories_options) {
     state.categories_options = categories_options
   },
 
-  setMaterials (state, materials_options) {
+  [events.UPDATE_MATERIALS_FILTER] (state, materials_options) {
     state.materials_options = materials_options
   },
 
-  setAdditional (state, additional_options) {
+  [events.UPDATE_ADDITIONAL_FILTER] (state, additional_options) {
     state.additional_options = additional_options
   },
 
-  setWidth (state, width_options) {
+  [events.UPDATE_WIDTH_FILTER] (state, width_options) {
     state.width_options = width_options
   },
 
-  setRecentProducts (state, recent_products) {
+  [events.FETCH_RECENT_SEARCH_PRODUCTS] (state, recent_products) {
     state.recent_products = recent_products
   },
 
-  decrementProductInventory (state, { id }) {
+  [events.DECREMENT_ITEM_QTY_IN_INVENTORY] (state, { id }) {
     const product = state.all.find(product => product.id === id)
     product.inventory--
   }

@@ -1,4 +1,5 @@
 import shop from '../../api/shop'
+import * as events from '../mutation-types'
 
 // initial state
 // shape: [{ id, quantity }]
@@ -24,6 +25,9 @@ const getters = {
     return getters.cartProducts.reduce((total, product) => {
       return total + product.price * product.quantity
     }, 0)
+  },
+  itemsInCart: (state, getters) => {
+    return getters.cartProducts.reduce((accum, item) => accum + item.quantity, 0)
   }
 }
 
@@ -45,31 +49,31 @@ const actions = {
     )
   },
 
-  addProductToCart ({ state, commit }, product) {
+  [events.ADD_TO_CART] ({ state, commit }, product) {
     commit('setCheckoutStatus', null)
     if (product.inventory > 0) {
       const cartItem = state.items.find(item => item.id === product.id)
       if (!cartItem) {
-        commit('pushProductToCart', { id: product.id })
+        commit(events.ADD_TO_CART, { id: product.id })
       } else {
-        commit('incrementItemQuantity', cartItem)
+        commit(events.INCREMENT_ITEM_QTY_IN_CART, cartItem)
       }
       // remove 1 item from stock
-      commit('products/decrementProductInventory', { id: product.id }, { root: true })
+      commit('products/'+ events.DECREMENT_ITEM_QTY_IN_INVENTORY, { id: product.id }, { root: true })
     }
   }
 }
 
 // mutations
 const mutations = {
-  pushProductToCart (state, { id }) {
+  [events.ADD_TO_CART] (state, { id }) {
     state.items.push({
       id,
       quantity: 1
     })
   },
 
-  incrementItemQuantity (state, { id }) {
+  [events.INCREMENT_ITEM_QTY_IN_CART] (state, { id }) {
     const cartItem = state.items.find(item => item.id === id)
     cartItem.quantity++
   },
