@@ -88,9 +88,6 @@
           docClasses.add('perfect-scrollbar-off');
         }
       }
-      //mapActions('cart', [
-      //'addProductToCart'
-      //]),
     }
   };
 </script>

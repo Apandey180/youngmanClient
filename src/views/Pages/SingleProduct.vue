@@ -91,8 +91,10 @@ export default {
         clickItem(i){
         this.index = i;
         },
-        rentNow() {},
-        addToCart() {}
+        rentProduct(product) {
+        
+        },
+        addProductToCart(product) {}
     },
         
     beforeMount(){

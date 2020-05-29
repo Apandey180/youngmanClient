@@ -44,7 +44,7 @@
 
 <div style="margin:20px;">
 <center>
-      <b-button variant="primary" align="center" @click="addToCart">Add to Cart</b-button>
+      <b-button variant="primary" align="center" @click="addProductToCart(product)">Add to Cart</b-button>
       <b-button variant="primary" align="center" @click="rentNow">Rent Now</b-button>
 </center>
 </div>

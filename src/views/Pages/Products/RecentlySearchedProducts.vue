@@ -33,6 +33,9 @@ export default {
         return this.$store.state.products.recent_products
       }
     },
+    methods: {
+    
+    },
     created () {
       this.$store.dispatch('products/getRecentProducts');
     }

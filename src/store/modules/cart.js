@@ -49,7 +49,7 @@ const actions = {
     )
   },
 
-  [events.ADD_TO_CART] ({ state, commit }, product) {
+  addProductToCart ({ state, commit }, product) {
     commit('setCheckoutStatus', null)
     if (product.inventory > 0) {
       const cartItem = state.items.find(item => item.id === product.id)
