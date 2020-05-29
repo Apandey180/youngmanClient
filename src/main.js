@@ -19,7 +19,7 @@ import DashboardPlugin from './plugins/dashboard-plugin';
 import App from './App.vue';
 
 // router setup
-import router from "./routes/starterRouter";
+import router from "./routes/router";
 
 // vuex setup
 import store from "./store";

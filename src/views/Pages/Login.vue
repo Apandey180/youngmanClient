@@ -7,8 +7,6 @@
           <b-row class="justify-content-center">
             <b-col xl="5" lg="6" md="8" class="px-5">
               <h1 class="text-white">Welcome!</h1>
-              <p class="text-lead text-white">Use these awesome forms to login or create new account in your project for
-                free.</p>
             </b-col>
           </b-row>
         </div>
@@ -29,8 +27,8 @@
               <div class="text-muted text-center mt-2 mb-3"><small>Sign in with</small></div>
               <div class="btn-wrapper text-center">
                 <a href="#" class="btn btn-neutral btn-icon">
-                  <span class="btn-inner--icon"><img src="img/icons/common/github.svg"></span>
-                  <span class="btn-inner--text">Github</span>
+                  <span class="btn-inner--icon"><img src="img/icons/common/facebook.svg"></span>
+                  <span class="btn-inner--text">Facebook</span>
                 </a>
                 <a href="#" class="btn btn-neutral btn-icon">
                   <span class="btn-inner--icon"><img src="img/icons/common/google.svg"></span>
@@ -98,6 +96,27 @@
     methods: {
       onSubmit() {
         // this will be called only after form is valid. You can do api call here to login
+        let email = this.model.email
+        let password = this.model.password
+
+        this.$http.post('api/login', {email, password}).then(response => {
+            let user = response.data.user
+            let is_admin = user.is_admin
+
+            localStorage.setItem('youngman.user', JSON.stringify(user))
+            localStorage.setItem('youngman.jwt', response.data.token)
+
+            if (localStorage.getItem('youngman.jwt') != null) {
+                this.$emit('loggedIn')
+                if (this.$route.params.nextUrl != null) {
+                    this.$router.push(this.$route.params.nextUrl)
+                } else {
+                    this.$router.push((is_admin == 1 ? 'admin' : 'dashboard'))
+                }
+            }
+        });
+                
+
       }
     }
   };

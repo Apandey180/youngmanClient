@@ -7,8 +7,7 @@
           <b-row class="justify-content-center">
             <b-col xl="5" lg="6" md="8" class="px-5">
               <h1 class="text-white">Create an account</h1>
-              <p class="text-lead text-white">Use these awesome forms to login or create new account in your project for
-                free.</p>
+              <p class="text-lead text-white">Create an account to join Youngman family</p>
             </b-col>
           </b-row>
         </div>
@@ -30,8 +29,8 @@
               <div class="text-muted text-center mt-2 mb-4"><small>Sign up with</small></div>
               <div class="text-center">
                 <a href="#" class="btn btn-neutral btn-icon mr-4">
-                  <span class="btn-inner--icon"><img src="img/icons/common/github.svg"></span>
-                  <span class="btn-inner--text">Github</span>
+                  <span class="btn-inner--icon"><img src="img/icons/common/facebook.svg"></span>
+                  <span class="btn-inner--text">Facebook</span>
                 </a>
                 <a href="#" class="btn btn-neutral btn-icon">
                   <span class="btn-inner--icon"><img src="img/icons/common/google.svg"></span>
@@ -72,6 +71,7 @@
                               :rules="{required: true, min: 6}"
                               v-model="model.password">
                   </base-input>
+
                   <div class="text-muted font-italic"><small>password strength: <span
                     class="text-success font-weight-700">strong</span></small></div>
                   <b-row class=" my-4">
@@ -105,13 +105,29 @@
           name: '',
           email: '',
           password: '',
+          password_confirmation : "",
           agree: false
         }
       }
     },
     methods: {
       onSubmit() {
-        // this will be called only after form is valid. You can do an api call here to register users
+        let name = this.model.name;
+        let email = this.model.email;
+        let password = this.model.password;
+        let c_password = this.model.password;
+
+        this.$http.post('api/register', {name, email, password, c_password}).then(response => {
+                let data = response.data
+                localStorage.setItem('youngman.user', JSON.stringify(data.user))
+                localStorage.setItem('youngman.jwt', data.token)
+                if (localStorage.getItem('youngman.jwt') != null) {
+                    this.$emit('loggedIn')
+                    let nextUrl = this.$route.params.nextUrl
+                    this.$router.push((nextUrl != null ? nextUrl : '/'))
+                }
+            })
+        
       }
     }
 
