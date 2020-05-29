@@ -21,29 +21,10 @@
         <span aria-hidden="true">×</span>
       </button>
     </b-form>
-    <!-- Navbar links -->
-    <b-navbar-nav class="align-items-center ml-md-auto">
-      <!-- This item dont have <b-nav-item> becouse they add class 'nav-link' which is not needed here -->
-      <li class="nav-item d-xl-none">
-        <!-- Sidenav toggler -->
-        <div class="pr-3 sidenav-toggler sidenav-toggler-dark"
-             @click="toggleSidebar">
-          <div class="sidenav-toggler-inner">
-            <i class="sidenav-toggler-line"></i>
-            <i class="sidenav-toggler-line"></i>
-            <i class="sidenav-toggler-line"></i>
-          </div>
-        </div>
-      </li>
-      <!-- This item dont have <b-nav-item> because item have data-action/data-target on tag <a>, wich we cant add -->
-      <li class="nav-item d-sm-none">
-        <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
-          <i class="ni ni-zoom-split-in"></i>
-        </a>
-      </li>
 
-      <b-navbar-nav class="ml-auto">
-        <b-nav-form>
+      <b-navbar-nav class="align-items-center ml-md-auto">
+  
+           <ul class="navbar-nav bd-navbar-nav flex-row">
             <li class="nav-item">
                 <a class="nav-link nav-link-icon" href="/">
                     <span class="nav-link nav-link-inner--text">Home</span>
@@ -59,24 +40,21 @@
                     <span class="nav-link nav-link-inner--text">About</span>
                 </a>
             </li>
-        </b-nav-form>
+            </ul>
 
       </b-navbar-nav>
 
       
 
 <b-navbar-nav class="ml-auto">
-    <b-nav-form>
-<li class="nav-item">
-                <a class="nav-link nav-link-icon" href="#">
-                    <i class="nav-link ni ni-cart"></i>
-                    <span class="nav-link-inner--text d-lg-none">Cart</span>
-                </a>
-            </li>
 
-             </b-nav-form>
-
-      </b-navbar-nav>
+      <ul class="nav navbar-nav flex-row float-right">
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="#">
+              <i class="nav-link ni ni-cart"></i>
+          </a>
+        </li>
+      </ul>
 
       <base-dropdown class="nav-item"
                      tag="li"
@@ -239,26 +217,25 @@
           </b-row>
         </template>
       </base-dropdown>
-  
-    </b-navbar-nav>
-    <b-navbar-nav>
-    <ul class="nav navbar-nav flex-row float-right">
-          <li class="nav-item" v-if="!isLoggedIn">
-            <router-link class="nav-link pr-3" to="/login">Sign in</router-link>
-          </li>
-          <li class="nav-item"  v-if="!isLoggedIn">
-            <router-link class="btn btn-outline-primary" to="/register">Sign up</router-link>
-          </li>
 
-    </ul>
-    </b-navbar-nav>
+<ul class="nav navbar-nav flex-row float-right">
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="/login">
+              Sign in
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="/register">
+              Sign up
+          </a>
+        </li>
+      </ul>
 
-
-    <b-navbar-nav class="align-items-center ml-auto ml-md-0" v-if="isLoggedIn">
-      <base-dropdown menu-on-right
+    <base-dropdown menu-on-right
                      class="nav-item"
                      tag="li"
                      title-tag="a"
+                     v-if="isLoggedIn"
                      title-classes="nav-link pr-0">
         <a href="#" class="nav-link pr-0" @click.prevent slot="title-container">
           <b-media no-body class="align-items-center">
@@ -300,7 +277,8 @@
 
         </template>
       </base-dropdown>
-    </b-navbar-nav>
+
+ </b-navbar-nav>
 
   </base-nav>
 </template>

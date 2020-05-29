@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import DashboardLayout from '../views/Home/SampleLayout.vue';
-import Starter from '../views/Home/SamplePage.vue';
+import DashboardLayout from '../views/Home/Header.vue';
+import Starter from '../views/Pages/Home.vue';
+import Register from '../views/Pages/Register.vue';
 
 Vue.use(Router);
 
@@ -18,23 +19,23 @@ export default new Router({
           path: 'dashboard',
           name: 'dashboard',
           components: { default: Starter }
-        }
+        },
+        {
+          path: 'products',
+          name: 'products',
+          component:  () => import('../views/Pages/Products.vue'),
+        },
       ]
     },
     {
       path: '/register',
       name: 'register',
-      component: () => import('../views/Pages/Register.vue')
+      component: Register
     },
     {
       path: '/login',
       name: 'login',
       component: () => import('../views/Pages/Login.vue')
-    },
-    {
-      path: '/products',
-      name: 'products',
-      component:  () => import('../views/Pages/Products.vue'),
     },
     {
       path: '/products/:id',

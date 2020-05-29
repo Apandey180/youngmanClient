@@ -10,17 +10,16 @@
         <home-carousel/>
         <featured-categories/>
         <paginated-list/>
-        <widgets/>
       </b-row>
       
     </b-container>
   </div>
 </template>
 <script>
-  import HomeCarousel from './HomeCarousel';
-  import FeaturedCategories from './FeaturedCategories';
+  import HomeCarousel from './Home/HomeCarousel';
+  import FeaturedCategories from './Home/FeaturedCategories';
   import Widgets from '../Widgets';
-  import PaginatedList from './PaginatedList';
+  import PaginatedList from './Home/PaginatedList';
 
   export default {
     name: 'starter-page',
