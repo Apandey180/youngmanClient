@@ -25,6 +25,11 @@ export default new Router({
           name: 'products',
           component:  () => import('../views/Pages/Products.vue'),
         },
+        {
+          path: '/products/:id',
+          name: 'single-products',
+          component:  () => import('../views/Pages/SingleProduct.vue')
+        },
       ]
     },
     {
@@ -36,11 +41,6 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: () => import('../views/Pages/Login.vue')
-    },
-    {
-      path: '/products/:id',
-      name: 'single-products',
-      component:  () => import('../views/Components/SingleProduct.vue')
     },
     {
       path: '/confirmation',

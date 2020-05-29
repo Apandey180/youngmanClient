@@ -1,7 +1,4 @@
 <template>
-<div>
-<sample-navbar/>
-
     <div class="container">
         <div class="row">
             <div class="col-md-6 ">
@@ -37,19 +34,15 @@
         </div>
    
     </div>
-    <sample-footer/>
-</div>
 </template>
 
 <script>
 
 
 
-import ProductDetails from './ProductDetails'
-import Review from './Review'
-import SimilarItems from './SimilarItems'
-import SampleNavbar from '../Home/SampleNavbar'
-import SampleFooter from '../Home/SampleFooter'
+import ProductDetails from './SingleProduct/ProductDetails'
+import Review from './SingleProduct/Review'
+import SimilarItems from './SingleProduct/SimilarItems'
 
 export default {
   
@@ -57,9 +50,7 @@ export default {
   {
       ProductDetails,
       Review,
-      SimilarItems,
-      SampleNavbar,
-      SampleFooter
+      SimilarItems
     },
   
     data(){
