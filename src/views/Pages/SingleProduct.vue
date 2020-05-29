@@ -12,6 +12,24 @@
         <div class="row">
             <div class="col-md-6 ">
 
+                <b-carousel
+                id="product-image-carousel"
+                v-model="slide"
+                :interval="2000"
+                img-width="1024"
+                img-height="1024"
+                controls
+                indicators
+                @sliding-start="onSlideStart"
+                @sliding-end="onSlideEnd"
+                >
+                <!-- Text slides with image -->
+                <b-carousel-slide
+                    v-for="item in product.images"
+                    :key="item.id"
+                    :img-src="item.image_url"
+                ></b-carousel-slide>
+                </b-carousel>
                 
                 
              </div>
@@ -91,24 +109,18 @@ export default {
                 item_price: 4999,
                 images: [{
                     id: 1,
-                    thumb_url: "https://picsum.photos/600/300/?image=25",
-                    image_url: "https://picsum.photos/600/300/?image=25"
-                },
-                {
-                    id: 2,
-                    thumb_url: "https://picsum.photos/600/300/?image=25",
-    
-                    image_url: "https://picsum.photos/600/300/?image=25"
+                    thumb_url: "https://webcomicms.net/sites/default/files/clipart/146321/blue-square-cliparts-146321-2629400.png",
+                    image_url: "https://webcomicms.net/sites/default/files/clipart/146321/blue-square-cliparts-146321-2629400.png"
                 },
                 {
                     id: 3,
-                    thumb_url: "https://picsum.photos/600/300/?image=25",
-                    image_url: "https://picsum.photos/600/300/?image=25"
+                    thumb_url: "https://3.imimg.com/data3/BE/CA/MY-10669832/red-colour-500x500.jpg",
+                    image_url: "https://3.imimg.com/data3/BE/CA/MY-10669832/red-colour-500x500.jpg"
                 },
                 {
                     id: 4,
-                    thumb_url: "https://picsum.photos/600/300/?image=25",
-                    image_url: "https://picsum.photos/600/300/?image=25"
+                    thumb_url: "https://cdn.shopify.com/s/files/1/0361/8133/products/product-cropping-test-001_1024x1024_cropped.png?v=1440430124",
+                    image_url: "https://cdn.shopify.com/s/files/1/0361/8133/products/product-cropping-test-001_1024x1024_cropped.png?v=1440430124"
                 }]
              
             };

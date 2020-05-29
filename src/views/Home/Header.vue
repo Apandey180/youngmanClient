@@ -121,7 +121,7 @@
         pageTransitionDuration: 200,
         year: new Date().getFullYear(),
         name: null,
-        isLoggedIn: false//localStorage.getItem('youngman.jwt') != null,
+        isLoggedIn: localStorage.getItem('youngman.jwt') != null,
       };
     },
     computed: {
