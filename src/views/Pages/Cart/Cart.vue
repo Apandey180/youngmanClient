@@ -15,9 +15,9 @@
       </ul>
       <p>Total: {{ total | currency }}</p>
       <p>
-        <button :disabled="!products.length" @click="checkout(products)">
-          Checkout
-        </button>
+          <router-link to="/checkout">
+          <base-button type="primary" :disabled="!products.length">Checkout</base-button>
+          </router-link>
       </p>
       <p v-show="checkoutStatus">Checkout {{ checkoutStatus }}.</p>
          </b-card>

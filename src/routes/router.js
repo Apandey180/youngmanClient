@@ -35,6 +35,11 @@ export default new Router({
           name: 'cart',
           component:  () => import('../views/Pages/Cart')
         },
+        {
+          path: '/checkout',
+          name: 'checkout',
+          component: () => import('../views/Pages/Checkout')
+        }
       ]
     },
     {
@@ -51,12 +56,6 @@ export default new Router({
       path: '/confirmation',
       name: 'confirmation',
       component:  () => import('../views/Components/Confirmation.vue')
-  },
-  {
-      path: '/checkout',
-      name: 'checkout',
-      component:  () => import('../views/Components/Checkout.vue'),
-      props: (route) => ({ pid: route.query.pid })
   },
   {
       path: '/dashboard',
