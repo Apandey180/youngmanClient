@@ -1,58 +1,74 @@
 <template>
-    <div>
-        <base-header class="pb-6" style="background-color:#ffe411 !important">
-        <b-row align-v="right" class="py-4"> </b-row>
-        </base-header>
-        <b-container fluid class="mt--6">
-        <b-row>
+  <div>
+    <base-header class="pb-6" style="background-color:#ffe411 !important">
+      <b-row align-v="right" class="py-4"> </b-row>
+    </base-header>
+    <b-container fluid class="mt--6">
+      <b-row>
         <b-col lg="12">
-            <div>
-  <b-tabs pills class="nav-pills-circle">
-    <b-tab active>
-      <template v-slot:title>
-        <i class="ni ni-cloud-upload-96 mr-2"></i>
-      </template>
-      <customer-details/>
-    </b-tab>
+          <div>
+            <b-tabs pills class="nav-pills-circle">
+              <b-tab active>
+                <template v-slot:title>
+                  <i class="ni ni-cloud-upload-96 mr-2"></i>
+                </template>
+                <customer-details />
+              </b-tab>
 
-    <b-tab>
-      <template v-slot:title>
-        <i class="ni ni-cloud-upload-96 mr-2"></i>
-      </template>
-      <p class="p-3">Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-    </b-tab>
+              <b-tab>
+                <template v-slot:title>
+                  <i class="ni ni-cloud-upload-96 mr-2"></i>
+                </template>
+                <document-upload />
+              </b-tab>
 
-    <b-tab>
-      <template v-slot:title>
-        <i class="ni ni-calendar-grid-58 mr-2"></i>
-      </template>
-      <p class="p-3">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
-    </b-tab>
-  </b-tabs>
-</div>
-
-            
+              <b-tab>
+                <template v-slot:title>
+                  <i class="ni ni-calendar-grid-58 mr-2"></i>
+                </template>
+                <shipping-details />
+              </b-tab>
+              <b-tab>
+                <template v-slot:title>
+                  <i class="ni ni-calendar-grid-58 mr-2"></i>
+                </template>
+                <payment-method />
+              </b-tab>
+              <b-tab>
+                <template v-slot:title>
+                  <i class="ni ni-calendar-grid-58 mr-2"></i>
+                </template>
+                <order-status />
+              </b-tab>
+            </b-tabs>
+          </div>
         </b-col>
-        
-        </b-row>
-        </b-container>
-    </div>
+      </b-row>
+    </b-container>
+  </div>
 </template>
 
 <script>
+import { mapGetters, mapState } from "vuex";
+import CustomerDetails from "./CustomerDetails";
+import DocumentUpload from "./DocumentUpload";
+import OrderStatus from "./OrderStatus";
+import PaymentMethod from "./PaymentMethod";
+import ShippingDetails from "./ShippingDetails";
 
-  import { mapGetters, mapState } from "vuex";
-  import CustomerDetails from './CustomerDetails';
 export default {
-    data() {
-        return {
-            save_to_billing_address: true
-        };
-        
-    },
-    components: {
-        CustomerDetails
-    },
+  data() {
+    return {
+      save_to_billing_address: true
+    };
+  },
+  components: {
+    CustomerDetails,
+    DocumentUpload,
+    OrderStatus,
+    PaymentMethod,
+    ShippingDetails
+  },
   computed: {
     ...mapState({
       checkoutStatus: state => state.cart.checkoutStatus
@@ -69,5 +85,4 @@ export default {
   }
 };
 </script>
-<style>
-</style>
+<style></style>

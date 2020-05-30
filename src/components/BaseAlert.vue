@@ -34,6 +34,8 @@
 </template>
 <script>
   import { FadeTransition } from 'vue2-transitions';
+  import swal from 'sweetalert2'
+  import 'sweetalert2/dist/sweetalert2.css'
 
   export default {
     name: 'base-alert',
