@@ -16,13 +16,17 @@
       <p class="card-text mt-4">{{item.text}}</p>
       <h5 class="card-title h2 mb-0" v-if="item.price != ''">Rs.{{item.price}}/Month</h5>
 
-      <b-form-rating id="rating" inline no-border v-model="item.rating" v-if="item.rating != ''"></b-form-rating>
-
     <div>
       <b-col lg="12" sm="12" class="text-right">
           <base-button size="sm" type="neutral" @click="addProductToCart(item)">Add to Cart</base-button>
           <base-button size="sm" type="neutral" @click="rentProduct(item)">Rent Now</base-button>
         </b-col>
+    </div>
+    <div>
+      <b-col lg="12" sm="12" class="text-right">
+        <b-form-rating id="rating" sm="6" lg="6" inline no-border v-model="item.rating" v-if="item.rating != ''"></b-form-rating>
+        <router-link :to="url" sm="6" lg="6" exact>View Details</router-link>
+      </b-col>
     </div>
     </div>
   </div>
@@ -33,8 +37,10 @@ export default {
   props:['item'],
   data () {
     return { 
-      
     };
+  },
+  computed: {
+    url() { return "/products/"+this.item.id }
   },
   methods: {
     addProductToCart(product) {
