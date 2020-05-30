@@ -51,6 +51,7 @@ const actions = {
 
   addProductToCart ({ state, commit }, product) {
     commit('setCheckoutStatus', null)
+    debugger;
     if (product.inventory > 0) {
       const cartItem = state.items.find(item => item.id === product.id)
       if (!cartItem) {

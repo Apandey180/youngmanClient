@@ -30,6 +30,11 @@ export default new Router({
           name: 'single-products',
           component:  () => import('../views/Pages/SingleProduct.vue')
         },
+        {
+          path: '/cart/',
+          name: 'cart',
+          component:  () => import('../views/Pages/Cart')
+        },
       ]
     },
     {

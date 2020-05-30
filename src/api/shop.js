@@ -11,56 +11,64 @@ const _products = [
     price: "7500",
     offer: "FLAT 5% off",
     original_price: "8100",
-    rating: "4"
+    rating: "4",
+    inventory: "20"
   },
   {
     id: 2,
     title: "Item Name",
     image: "img/theme/img-1-1000x900.jpg",
     alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (2)"
+    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (2)",
+    inventory: "20"
   },
   {
     id: 3,
     title: "Item Name",
     image: "img/theme/img-1-1000x900.jpg",
     alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (3)"
+    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (3)",
+    inventory: "20"
   },
   {
     id: 4,
     title: "Item Name",
     image: "img/theme/img-1-1000x900.jpg",
     alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (4)"
+    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (4)",
+    inventory: "20"
   },
   {
     id: 5,
     title: "Category Name",
     image: "img/theme/img-1-1000x900.jpg",
     alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (5)"
+    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (5)",
+    inventory: "20"
   },
   {
     id: 6,
     title: "Category Name",
     image: "img/theme/img-1-1000x900.jpg",
     alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (6)"
+    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (6)",
+    inventory: "20"
   },
   {
     id: 7,
     title: "Category Name",
     image: "img/theme/img-1-1000x900.jpg",
     alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (7)"
+    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (7)",
+    inventory: "20"
   },
   {
     id: 8,
     title: "Category Name",
     image: "img/theme/img-1-1000x900.jpg",
     alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (8)"
+    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (8)",
+    inventory: "20"
   }
 ]
 

@@ -33,22 +33,22 @@
        </div>
 
        <b-navbar-nav class="mr-auto">
-         <b-nav-item to="/dashboard">
+         <b-nav-item to="/dashboard"  exact exact-active-class="active">
              <span class="nav-link-inner--text">Home</span>
          </b-nav-item>
-         <b-nav-item to="/products" >
+         <b-nav-item to="/products"  exact exact-active-class="active">
              <span class="nav-link-inner--text">Products</span>
          </b-nav-item>
-         <b-nav-item to="/training">
+         <b-nav-item to="/training"  exact exact-active-class="active">
              <span class="nav-link-inner--text">Training</span>
          </b-nav-item>
-         <b-nav-item to="/about">
+         <b-nav-item to="/about"  exact exact-active-class="active">
              <span class="nav-link-inner--text">About</span>
          </b-nav-item>
        </b-navbar-nav>
        <hr class="d-lg-none">
        <b-navbar-nav  class="align-items-lg-center ml-lg-auto">
-         <b-nav-item link-classes="nav-link-icon" href="/cart"
+         <b-nav-item link-classes="nav-link-icon" to="/cart" exact exact-active-class="active"
               data-toggle="tooltip" data-original-title="Cart" >
             
              <span style="font-size: 24px; color: Grey;">
