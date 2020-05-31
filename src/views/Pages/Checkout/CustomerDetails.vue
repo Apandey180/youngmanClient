@@ -12,7 +12,7 @@
                     <b-col lg="6" sm="12">
                         <base-input label="Company Name" input-classes="form-control-sm" placeholder="Company Name"/>
                         <base-input label="Head of Purchase">
-                         <select class="form-control" id="exampleFormControlSelect1">
+                         <select class="form-control" id="headOfPurchaseSelect">
                            <option></option>
                            <option></option>
                            <option></option>
@@ -24,7 +24,7 @@
                         <base-input label="Email" input-classes="form-control-sm" placeholder="Email"/>
                         <base-input label="Mobile Number" input-classes="form-control-sm" placeholder="Mobile Number"/>
                         <base-input label="Head of Accounts">
-                         <select class="form-control" id="exampleFormControlSelect2">
+                         <select class="form-control" id="headOfAccaountsSelect">
                            <option></option>
                            <option></option>
                            <option></option>
@@ -36,10 +36,10 @@
                         <base-input label="Email" input-classes="form-control-sm" placeholder="Email"/>
                         <base-input label="Mobile Number" input-classes="form-control-sm" placeholder="Mobile Number"/>
                         <base-input label="Billing Address">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" resize="none" placeholder="Billing Address"></textarea>
+                        <textarea class="form-control" id="billingAddress1" rows="3" resize="none" placeholder="Billing Address"></textarea>
                         </base-input  >
                          <base-input label="State">
-                         <select class="form-control" id="exampleFormControlSelect3">
+                         <select class="form-control" id="state1">
                            <option></option>
                            <option></option>
                            <option></option>
@@ -54,7 +54,7 @@
                     <b-col lg="6" sm="12">
                       <base-input label="GSTIN" input-classes="form-control-sm" placeholder="GSTIN"/>
                        <base-input label="CEO">
-                         <select class="form-control" id="exampleFormControlSelect4">
+                         <select class="form-control" id="ceoSelect">
                            <option></option>
                            <option></option>
                            <option></option>
@@ -66,7 +66,7 @@
                       <base-input label="Email" input-classes="form-control-sm" placeholder="Email"/>
                       <base-input label="Mobile Number" input-classes="form-control-sm" placeholder="Mobile Number"/>
                       <base-input label="Head of Project">
-                         <select class="form-control" id="exampleFormControlSelect5">
+                         <select class="form-control" id="headOfProjectSelect">
                            <option></option>
                            <option></option>
                            <option></option>
@@ -78,10 +78,10 @@
                         <base-input label="Email" input-classes="form-control-sm" placeholder="Email"/>
                         <base-input label="Mobile Number" input-classes="form-control-sm" placeholder="Mobile Number"/>
                          <base-input label="Billing Address">
-                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" resize="none" placeholder="Billing Address"></textarea>
+                        <textarea class="form-control" id="billingAddress2" rows="3" resize="none" placeholder="Billing Address"></textarea>
                         </base-input  >
                          <base-input label="State">
-                         <select class="form-control" id="exampleFormControlSelect6">
+                         <select class="form-control" id="state2">
                            <option></option>
                            <option></option>
                            <option></option>
