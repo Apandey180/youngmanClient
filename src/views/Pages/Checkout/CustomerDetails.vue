@@ -12,7 +12,7 @@
                     <b-col lg="6" sm="12">
                         <base-input label="Company Name" input-classes="form-control-sm" placeholder="Company Name"/>
                         <base-input label="Head of Purchase">
-                         <select class="form-control" id="headOfPurchaseSelect">
+                         <select class="form-control" id="headOfPurchase">
                            <option></option>
                            <option></option>
                            <option></option>
@@ -24,7 +24,7 @@
                         <base-input label="Email" input-classes="form-control-sm" placeholder="Email"/>
                         <base-input label="Mobile Number" input-classes="form-control-sm" placeholder="Mobile Number"/>
                         <base-input label="Head of Accounts">
-                         <select class="form-control" id="headOfAccaountsSelect">
+                         <select class="form-control" id="headOfAccounts">
                            <option></option>
                            <option></option>
                            <option></option>
@@ -54,7 +54,7 @@
                     <b-col lg="6" sm="12">
                       <base-input label="GSTIN" input-classes="form-control-sm" placeholder="GSTIN"/>
                        <base-input label="CEO">
-                         <select class="form-control" id="ceoSelect">
+                         <select class="form-control" id="ceo">
                            <option></option>
                            <option></option>
                            <option></option>
@@ -66,7 +66,7 @@
                       <base-input label="Email" input-classes="form-control-sm" placeholder="Email"/>
                       <base-input label="Mobile Number" input-classes="form-control-sm" placeholder="Mobile Number"/>
                       <base-input label="Head of Project">
-                         <select class="form-control" id="headOfProjectSelect">
+                         <select class="form-control" id="headOfProject">
                            <option></option>
                            <option></option>
                            <option></option>
