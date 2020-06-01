@@ -22,28 +22,13 @@
 </template>
 
 <script>
+import home from '../../../api/home';
 export default {
   components: {
   },
   data() {
     return {
-      carouselItems: [
-        {
-          id: 1,
-          image: "https://source.unsplash.com/LAaSoL0LrYs/1920x1080",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (1)"
-        },
-        {
-          id: 2,
-          image: "https://source.unsplash.com/LAaSoL0LrYs/1920x1080",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (2)"
-        },
-        {
-          id: 3,
-          image: "https://source.unsplash.com/LAaSoL0LrYs/1920x1080",
-          text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (3)"
-        }
-      ],
+      
       slide: 0,
       sliding: null
     };
@@ -55,6 +40,14 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
     }
+  }, 
+  computed: {
+    carouselItems() {
+            return this.$store.state.home.carousel
+        }
+  },
+  created () {
+    this.$store.dispatch('home/getCarouselData');
   }
 };
 </script>

@@ -8,10 +8,10 @@
 
       <b-row>
         <b-col v-for="item in featuredCategories" :key="item.id" xl="3" md="6">
-    
+          <!-- Image-Text card -->
           <b-card no-body :img-src="item.image" img-height=300 img-top  :alt="item.alt">
            
-
+            <!-- Card body -->
             <b-card-body>
               <b-card-title class="h2 mb-0">{{item.name}}</b-card-title>
             </b-card-body>
