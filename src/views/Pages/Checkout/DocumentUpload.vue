@@ -9,11 +9,6 @@
                 <form>
                   
                   
-
-                  
-                  <router-link to="/">
-                    <base-button type="primary" class="mb-3">Next</base-button>
-                  </router-link>
                 </form>
               </b-card-body>
             </b-card>

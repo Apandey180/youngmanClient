@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer fixed-bottom px-4 mx-2" style="background-color:#232323;">
+  <footer class="footer px-4 mx-2" style="background-color:#232323;">
     <b-row align-v="center" class="justify-content-lg-between">
       <b-col lg="6">
         <div class="copyright text-center text-lg-left text-muted">
