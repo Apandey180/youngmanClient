@@ -1,76 +1,8 @@
 /**
  * Mocking client-server processing
  */
-const _products = [
-  {
-    id: 1,
-    title: "Item Name",
-    image: "img/theme/img-1-1000x900.jpg",
-    alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (1)",
-    price: "7500",
-    offer: "FLAT 5% off",
-    original_price: "8100",
-    rating: "4",
-    inventory: "20"
-  },
-  {
-    id: 2,
-    title: "Item Name",
-    image: "img/theme/img-1-1000x900.jpg",
-    alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (2)",
-    inventory: "20"
-  },
-  {
-    id: 3,
-    title: "Item Name",
-    image: "img/theme/img-1-1000x900.jpg",
-    alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (3)",
-    inventory: "20"
-  },
-  {
-    id: 4,
-    title: "Item Name",
-    image: "img/theme/img-1-1000x900.jpg",
-    alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (4)",
-    inventory: "20"
-  },
-  {
-    id: 5,
-    title: "Category Name",
-    image: "img/theme/img-1-1000x900.jpg",
-    alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (5)",
-    inventory: "20"
-  },
-  {
-    id: 6,
-    title: "Category Name",
-    image: "img/theme/img-1-1000x900.jpg",
-    alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (6)",
-    inventory: "20"
-  },
-  {
-    id: 7,
-    title: "Category Name",
-    image: "img/theme/img-1-1000x900.jpg",
-    alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (7)",
-    inventory: "20"
-  },
-  {
-    id: 8,
-    title: "Category Name",
-    image: "img/theme/img-1-1000x900.jpg",
-    alt: "Image Placeholder",
-    text: "Nulla vitae elit libero, a pharetra augue mollis interdum. (8)",
-    inventory: "20"
-  }
-]
+import apiClient from './apiclient';
+
 
 const _categories_options = [
   {
@@ -141,7 +73,11 @@ const _recent = [
   
   export default {
     getProducts (cb) {
-      setTimeout(() => cb(_products), 100)
+      apiClient.get('/api/products').then(resp => {
+
+          console.log(resp.data);
+          cb(resp.data)
+      });
     },
   
     getAllCategories (cb) {

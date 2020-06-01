@@ -1,5 +1,5 @@
 <template>
-	<b-card no-body :img-src="item.image" img-top alt="Image placeholder">
+	<b-card no-body :img-src="item.image" img-height=300 img-top alt="Image placeholder">
             <!-- Card image -->
            
             <!-- Card body -->
@@ -55,10 +55,3 @@ export default {
   }
 };
 </script>
-
-<style>
-.img_container { position: relative; }
-.img_container img { display: block; }
-.img_container .fav_icon { position: absolute; top:0; right:0; }
-.img_container .img-offer { position: absolute; bottom:0; left:0; }
-</style>
