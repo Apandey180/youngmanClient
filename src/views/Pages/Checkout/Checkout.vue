@@ -5,44 +5,30 @@
     </base-header>
     <b-container fluid class="mt--6">
       <b-row>
-        <b-col lg="12">
-          <div>
-            <b-tabs pills class="nav-pills-circle">
-              <b-tab active>
-                <template v-slot:title>
-                  <i class="ni ni-cloud-upload-96 mr-2"></i>
-                </template>
+          <b-col lg="12" sm="12">
+          <form-wizard @on-complete="onComplete">
+                <tab-content title="Customer Details"
+                            icon="ni ni-single-02">
                 <customer-details />
-              </b-tab>
-
-              <b-tab>
-                <template v-slot:title>
-                  <i class="ni ni-cloud-upload-96 mr-2"></i>
-                </template>
+                </tab-content>
+                <tab-content title="Document Upload"
+                            icon="ni ni-cloud-upload-96">
                 <document-upload />
-              </b-tab>
-
-              <b-tab>
-                <template v-slot:title>
-                  <i class="ni ni-calendar-grid-58 mr-2"></i>
-                </template>
+                </tab-content>
+                <tab-content title="Shipping Details"
+                            icon="ni ni-delivery-fast">
                 <shipping-details />
-              </b-tab>
-              <b-tab>
-                <template v-slot:title>
-                  <i class="ni ni-calendar-grid-58 mr-2"></i>
-                </template>
+                </tab-content>
+                <tab-content title="Payment"
+                            icon="ni ni-credit-card">
                 <payment-method />
-              </b-tab>
-              <b-tab>
-                <template v-slot:title>
-                  <i class="ni ni-calendar-grid-58 mr-2"></i>
-                </template>
+                </tab-content>
+                <tab-content title="Order status"
+                            icon="ni ni-check-bold">
                 <order-status />
-              </b-tab>
-            </b-tabs>
-          </div>
-        </b-col>
+                </tab-content>
+            </form-wizard>
+          </b-col>
       </b-row>
     </b-container>
   </div>
@@ -56,6 +42,9 @@ import OrderStatus from "./OrderStatus";
 import PaymentMethod from "./PaymentMethod";
 import ShippingDetails from "./ShippingDetails";
 
+import {FormWizard, TabContent} from 'vue-form-wizard'
+import 'vue-form-wizard/dist/vue-form-wizard.min.css'
+
 export default {
   data() {
     return {
@@ -67,7 +56,9 @@ export default {
     DocumentUpload,
     OrderStatus,
     PaymentMethod,
-    ShippingDetails
+    ShippingDetails,
+    FormWizard,
+    TabContent
   },
   computed: {
     ...mapState({
@@ -81,7 +72,10 @@ export default {
   methods: {
     checkout(products) {
       this.$store.dispatch("cart/checkout", products);
-    }
+    },
+    onComplete: function(){
+          alert('Yay. Done!');
+       }
   }
 };
 </script>

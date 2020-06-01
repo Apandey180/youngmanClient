@@ -24,6 +24,7 @@ import router from "./routes/router";
 // vuex setup
 import store from "./store";
 
+// currency filter
 import { currency } from './common/Currency'
 
 /**
