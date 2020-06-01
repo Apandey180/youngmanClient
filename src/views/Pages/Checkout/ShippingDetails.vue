@@ -8,7 +8,7 @@
               <b-card-body>
                 <form>
                   <b-row>
-                    <b-col lg="6" sm="12">
+                    <b-col lg="8" sm="12">
                         
 
                         <base-input label="Consignee" input-classes="form-control-sm" placeholder="Consignee"/>
@@ -32,11 +32,24 @@
 
                     </b-col>
                     
-					          <b-col lg="6" sm="12">
-                        
-                     <h2>3000</h2>
+					          <b-col lg="4" sm="12">
+          <card
+            header-classes="bg-transparent"
+            body-classes="px-lg-7"
+            class="card-pricing border-0 text-center mb-4"
+          >
+            <!--Header-->
+            <h4
+              slot="header"
+              class="text-uppercase ls-1 text-primary py-3 mb-0"
+            >
+              Cart Total
+            </h4>
 
-                    </b-col>
+            <!--Body-->
+            <div class="display-2">{{ total | currency }}</div>
+          </card>
+        </b-col>
                     </b-row>   
 
                 </form>
@@ -47,7 +60,7 @@
 export default {
     data() {
         return {
-
+            total: 3000,
         };
     }
 }
