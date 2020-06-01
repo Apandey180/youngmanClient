@@ -11,12 +11,17 @@
             <p v-show="!products.length">
               <i>Please add some products to cart.</i>
             </p>
-            <ul>
+            <div v-for="product in list" :key="product.id"  > 
+             <cart-item v-bind:product="product"  >
+            </cart-item>
+
+            </div>
+            <!-- <ul>
               <li v-for="product in products" :key="product.id">
                 {{ product.title }} - {{ product.price | currency }} x
                 {{ product.quantity }}
               </li>
-            </ul>
+            </ul> -->
             <p>Total: {{ total | currency }}</p>
             <p>
               <router-link to="/checkout">
@@ -74,7 +79,16 @@
 </template>
 <script>
 import { mapGetters, mapState } from "vuex";
+import CartItem from "./CartItem";
+
 export default {
+
+  data(){
+
+    return {
+      list : null
+    }  
+  },
   computed: {
     ...mapState({
       checkoutStatus: state => state.cart.checkoutStatus
@@ -88,6 +102,46 @@ export default {
     checkout(products) {
       this.$store.dispatch("cart/checkout", products);
     }
-  }
-};
+  },
+  components: {
+    CartItem
+  },
+
+  beforeMount(){
+
+         
+    this.list = [
+
+      {id: 1,
+      title: "Ladder",
+      item_name: "Aluminium Scaffold",
+      image_url: "img/theme/team-2.jpg"
+
+      },
+
+     {id: 2,
+      title: "Aluminium Scaffold",
+      item_name: "Aluminium Scaffold",
+      image_url: "img/theme/team-2.jpg"
+
+      },
+
+      {id: 3,
+      title: "Lifto",
+      item_name: "Lifto",
+      image_url: "img/theme/team-2.jpg"
+
+      }
+
+
+    ]
+    }
+
+      
+    
+    
+
+  
+}
+
 </script>
