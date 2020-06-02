@@ -53,9 +53,10 @@
             
              <span style="font-size: 24px; color: Grey;">
              <i class="fas fa-shopping-cart mr-2"></i>
-            </span>
-
              <span class="nav-link-inner--text d-lg-none">Cart</span>
+             
+            </span>
+            <span><b-badge pill variant="secondary">3</b-badge></span>
          </b-nav-item>
          
          <!-- This item dont have <b-nav-item> because they add class 'nav-link' which is not needed here -->
