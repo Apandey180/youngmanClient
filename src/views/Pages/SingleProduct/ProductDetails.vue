@@ -45,7 +45,7 @@
 <div style="margin:20px;">
 <center>
       <b-button variant="primary" align="center" @click="addProductToCart(product)">Add to Cart</b-button>
-      <b-button variant="primary" align="center" @click="rentNow">Rent Now</b-button>
+      <b-button variant="primary" align="center" @click="rentNow(product)">Rent Now</b-button>
 </center>
 </div>
 </div>
@@ -75,7 +75,12 @@ import BaseSlider from '@/components/BaseSlider'
     }
   },
   methods: {
- 
+    addProductToCart(product) {
+
+    },
+    rentNow(product) {
+      
+    }
   },
   computed: {
     output() { // Output for computed property!
