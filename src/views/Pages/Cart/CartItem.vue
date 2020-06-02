@@ -5,7 +5,7 @@
  <div class="row align-items-center">
      <div class="col-md-auto"><a href="#" class="avatar avatar-xl rounded-circle">
          </a></div>
-         <div class="ml--2 copl"><h2 class="mb-0"><a href="#!">{{product.title}}</a></h2>
+         <div class="ml--2 copl"><h2 class="mb-0"><a href="#!">{{item.title}}</a></h2>
          
              <form>
                  <base-input type = "number"  input-classes="form-control-sm small" placeholder="Size"/>
@@ -26,7 +26,7 @@
 
 <script>
     export default {
-    
+    props:['item'],
         data() {
             return {
            }

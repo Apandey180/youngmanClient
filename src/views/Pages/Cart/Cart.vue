@@ -11,20 +11,9 @@
             <p v-show="!products.length">
               <i>Please add some products to cart.</i>
             </p>
-          
-            <div v-for="product in products" :key="product.id"  > 
-              
-             <cart-item v-bind:product="product"  >
-           
-            </cart-item>
-
-            </div>
-            <!-- <ul>
-              <li v-for="product in products" :key="product.id">
-                {{ product.title }} - {{ product.price | currency }} x
-                {{ product.quantity }}
-              </li>
-            </ul> -->
+            <b-col sm="1" md="4" lg="4" v-for="item in products" :key="item.id">
+              <cart-item v-bind:item="item"></cart-item >
+            </b-col>
             <p>Total: {{ total | currency }}</p>
             <p>
               <router-link to="/checkout">
@@ -87,8 +76,6 @@ import CartItem from "./CartItem";
 export default {
 
   data(){
-
-props: ['product']
     return {
       list : null
     }  

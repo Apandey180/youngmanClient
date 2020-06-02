@@ -56,7 +56,6 @@
              <span class="nav-link-inner--text d-lg-none">Cart</span>
              
             </span>
-            <span><b-badge pill variant="secondary">3</b-badge></span>
          </b-nav-item>
          
          <!-- This item dont have <b-nav-item> because they add class 'nav-link' which is not needed here -->
