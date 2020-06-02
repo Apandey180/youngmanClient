@@ -14,7 +14,7 @@
         <b-col sm="12" md="6" lg="6">
               <h3>Quantity</h3>
 
-              <base-slider v-model="quantity" step="1"></base-slider>
+              <base-slider v-model="quantity" :options="slider_options"></base-slider>
 
               <b-row class="mt-3">
                 <b-col cols="6"><span class="range-slider-value">{{quantity}} Pcs</span></b-col>
@@ -23,7 +23,7 @@
         <b-col sm="12" md="6" lg="6">
             <h3>Duration(Days)</h3>
 
-            <base-slider v-model="days" step="1"></base-slider>
+            <base-slider v-model="days" :options="slider_options"></base-slider>
 
               <b-row class="mt-3">
                 <b-col cols="6"><span class="range-slider-value">{{days}} Days</span></b-col>
@@ -45,7 +45,7 @@
 <div style="margin:20px;">
 <center>
       <b-button variant="primary" align="center" @click="addProductToCart(product)">Add to Cart</b-button>
-      <b-button variant="primary" align="center" @click="rentNow">Rent Now</b-button>
+      <b-button variant="primary" align="center" @click="rentNow(product)">Rent Now</b-button>
 </center>
 </div>
 </div>
@@ -70,12 +70,18 @@ import BaseSlider from '@/components/BaseSlider'
 
     return {
       quantity: 0,
-      days: 0
+      days: 0,
+      slider_options: {step: 1}
 
     }
   },
   methods: {
- 
+    addProductToCart(product) {
+
+    },
+    rentNow(product) {
+
+    }
   },
   computed: {
     output() { // Output for computed property!
