@@ -11,8 +11,11 @@
             <p v-show="!products.length">
               <i>Please add some products to cart.</i>
             </p>
-            <div v-for="product in list" :key="product.id"  > 
+          
+            <div v-for="product in products" :key="product.id"  > 
+              
              <cart-item v-bind:product="product"  >
+           
             </cart-item>
 
             </div>
@@ -85,6 +88,7 @@ export default {
 
   data(){
 
+props: ['product']
     return {
       list : null
     }  
@@ -105,43 +109,9 @@ export default {
   },
   components: {
     CartItem
-  },
-
-  beforeMount(){
-
-         
-    this.list = [
-
-      {id: 1,
-      title: "Ladder",
-      item_name: "Aluminium Scaffold",
-      image_url: "img/theme/team-2.jpg"
-
-      },
-
-     {id: 2,
-      title: "Aluminium Scaffold",
-      item_name: "Aluminium Scaffold",
-      image_url: "img/theme/team-2.jpg"
-
-      },
-
-      {id: 3,
-      title: "Lifto",
-      item_name: "Lifto",
-      image_url: "img/theme/team-2.jpg"
-
-      }
-
-
-    ]
-    }
-
-      
-    
-    
+  }
+}
 
   
-}
 
 </script>
