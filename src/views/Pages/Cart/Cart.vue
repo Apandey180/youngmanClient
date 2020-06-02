@@ -11,12 +11,20 @@
             <p v-show="!products.length">
               <i>Please add some products to cart.</i>
             </p>
-            <ul>
+          
+            <div v-for="product in products" :key="product.id"  > 
+              
+             <cart-item v-bind:product="product"  >
+           
+            </cart-item>
+
+            </div>
+            <!-- <ul>
               <li v-for="product in products" :key="product.id">
                 {{ product.title }} - {{ product.price | currency }} x
                 {{ product.quantity }}
               </li>
-            </ul>
+            </ul> -->
             <p>Total: {{ total | currency }}</p>
             <p>
               <router-link to="/checkout">
@@ -74,7 +82,17 @@
 </template>
 <script>
 import { mapGetters, mapState } from "vuex";
+import CartItem from "./CartItem";
+
 export default {
+
+  data(){
+
+props: ['product']
+    return {
+      list : null
+    }  
+  },
   computed: {
     ...mapState({
       checkoutStatus: state => state.cart.checkoutStatus
@@ -88,6 +106,12 @@ export default {
     checkout(products) {
       this.$store.dispatch("cart/checkout", products);
     }
+  },
+  components: {
+    CartItem
   }
-};
+}
+
+  
+
 </script>

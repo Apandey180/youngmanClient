@@ -49,7 +49,7 @@
     data() {
       return {
         currentPage: 1,
-        perPage: 6
+        perPage: 6,
       };
     },
     computed: {
