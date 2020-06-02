@@ -1,26 +1,29 @@
 <template>
 
 
- <div class="card-body"><!----><!---->
- <div class="row align-items-center">
-     <div class="col-md-auto"><a href="#" class="avatar avatar-xl rounded-circle">
-         </a></div>
-         <div class="ml--2 copl"><h2 class="mb-0"><a href="#!">{{item.title}}</a></h2>
-         
-             <form>
-                 <base-input type = "number"  input-classes="form-control-sm small" placeholder="Size"/>
+<div  >
+  <b-card no-body class="overflow-hidden" style="width: 100%; height: 250px;">
+    <b-row no-gutters>
+      <b-col md="6">
+        <b-card-img src="https://picsum.photos/400/400/?image=20"  alt="Image" class="rounded-0"></b-card-img>
+      </b-col>
+      <b-col md="6">
+        
+        <b-card-body v-bind:title="item.title" >
+          <b-card-text >
+              <form>
                  <base-input type = "number"  input-classes="form-control-sm small" placeholder="Duration"/>
-                 <base-input  type = "number"  input-classes="form-control-sm small" placeholder="Quantity"/>
+                 <base-input type = "number"  input-classes="form-control-sm small" placeholder="Quantity"/>
+
+                 <button type="button" class="btn base-button btn-primary ">Remove</button>
+
              </form>
-         </div>
-
-        <div class="col-md-auto">
-         <button type="button" class="btn base-button btn-primary ">Remove</button>
-    </div>
+          </b-card-text>
+        </b-card-body>
+      </b-col>
+    </b-row>
+  </b-card>
 </div>
-
-
-</div>   
     
 </template>
 

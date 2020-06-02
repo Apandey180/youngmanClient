@@ -11,7 +11,7 @@
             <p v-show="!products.length">
               <i>Please add some products to cart.</i>
             </p>
-            <b-col sm="1" md="4" lg="4" v-for="item in products" :key="item.id">
+            <b-col sm="12" md="12" lg="12" v-for="item in products" :key="item.id"  style="width: 100%; height:30%;" >
               <cart-item v-bind:item="item"></cart-item >
             </b-col>
             <p>Total: {{ total | currency }}</p>
