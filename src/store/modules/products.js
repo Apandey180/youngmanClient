@@ -29,6 +29,14 @@ const getters = {
   },
   width_selected: (state) => {
     return state.width_selected;
+  },
+
+  getProductById: state => product_id => {
+    debugger;
+    shop.getProductById(product => {
+      debugger;
+      return product;
+    }, product_id);
   }
 }
 
@@ -69,7 +77,7 @@ const actions = {
     shop.getRecentProducts(recentProducts => {
       commit('setRecentProducts', recentProducts)
     })
-  },
+  }
 }
 
 // mutations

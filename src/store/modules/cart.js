@@ -18,7 +18,7 @@ const getters = {
         price: product.price,
         image: product.image,
         quantity,
-        duration: 0
+        duration: product.duration
       }
     })
   },
@@ -56,6 +56,7 @@ const actions = {
   },
 
   addProductToCart ({ state, commit }, product) {
+    debugger;
     commit('setCheckoutStatus', null)
     if (product.inventory > 0) {
       const cartItem = state.items.find(item => item.id === product.id)

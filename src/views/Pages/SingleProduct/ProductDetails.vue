@@ -69,14 +69,16 @@ import BaseSlider from '@/components/BaseSlider'
   data() { 
 
     return {
-      quantity: 0,
-      days: 0,
+      quantity: 1,
+      days: 1,
       slider_options: {step: 1}
     }
   },
   methods: {
     addProductToCart(product) {
-
+      product.quantity = this.quantity;
+      product.days = this.days;
+      this.$store.dispatch('cart/addProductToCart', product);
     },
     rentNow(product) {
 
