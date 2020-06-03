@@ -12,7 +12,7 @@
             <b-button variant="danger" @click="decreaseDuration(item)">Subtract</b-button>
           </b-input-group-prepend>
 
-          <b-form-input type="number" min="0.00" v-model="item.duration" readonly="readonly"></b-form-input>
+          <b-form-input type="number" min="0.00" v-model="cartItem.duration" readonly="readonly"></b-form-input>
 
           <b-input-group-append>
             <b-button variant="success" @click="increaseDuration(item)">Add</b-button>
@@ -28,7 +28,7 @@
             <b-button variant="danger" @click="decrementItemQuantity(item)">Subtract</b-button>
           </b-input-group-prepend>
 
-          <b-form-input type="number" min="0.00" v-model="item.quantity" readonly="readonly"></b-form-input>
+          <b-form-input type="number" min="0.00" v-model="cartItem.quantity" readonly="readonly"></b-form-input>
 
           <b-input-group-append>
             <b-button variant="success" @click="incrementItemQuantity(item)">Add</b-button>
@@ -55,27 +55,27 @@
             return {
            }
         },
-        computed:{
-          ...mapGetters("cart", {
-            quantity: "quantity",
-            duration: "duration"
-    })
+       
+        computed: {
+        cartItem () {
+            return this.$store.state.cart.items.find(cartitems => cartitems.id === this.item.id)
+          },
         },
         methods: {
           incrementItemQuantity(item) {
-            this.$store.dispatch('cart/addProductToCart', product)
+            this.$store.dispatch('cart/addProductToCart', item)
           },
           decrementItemQuantity(item) {
-            this.$store.dispatch('cart/decrementQuantityInCart', product)
+            this.$store.dispatch('cart/decrementQuantityInCart', item)
           },
           removeItemFromCart(item) {
-            this.$store.dispatch('cart/removeItemFromCart', product)
+            this.$store.dispatch('cart/removeItemFromCart', item)
           },
           increaseDuration(item) {
-            this.$store.dispatch('cart/increaseDuration', product)
+            this.$store.dispatch('cart/increaseDuration', item)
           },
           decreaseDuration(item) {
-            this.$store.dispatch('cart/decreaseDuration', product)
+            this.$store.dispatch('cart/decreaseDuration', item)
           }
         }
     }

@@ -1,5 +1,4 @@
 import home from '../../api/home'
-import * as events from '../mutation-types'
 
 // initial state
 // shape: [{ id, quantity }]

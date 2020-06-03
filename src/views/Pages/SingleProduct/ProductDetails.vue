@@ -72,7 +72,6 @@ import BaseSlider from '@/components/BaseSlider'
       quantity: 0,
       days: 0,
       slider_options: {step: 1}
-
     }
   },
   methods: {

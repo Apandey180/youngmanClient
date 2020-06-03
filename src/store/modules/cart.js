@@ -1,5 +1,4 @@
 import shop from '../../api/shop'
-import * as events from '../mutation-types'
 
 // initial state
 // shape: [{ id, quantity }]
@@ -14,11 +13,12 @@ const getters = {
     return state.items.map(({ id, quantity }) => {
       const product = rootState.products.all.find(product => product.id === id)
       return {
+        id: product.id,
         title: product.title,
         price: product.price,
         image: product.image,
         quantity,
-        duration
+        duration: 0
       }
     })
   },
@@ -30,6 +30,10 @@ const getters = {
   },
   itemsInCart: (state, getters) => {
     return getters.cartProducts.reduce((accum, item) => accum + item.quantity, 0)
+  },
+
+  getItemFromCart: (state) => (id) => {
+    return state.items.find(item => item.id === id)
   }
 }
 
@@ -56,9 +60,9 @@ const actions = {
     if (product.inventory > 0) {
       const cartItem = state.items.find(item => item.id === product.id)
       if (!cartItem) {
-        commit(events.ADD_TO_CART, { product: product })
+        commit('addToCart', { product: product })
       } else {
-        commit(events.INCREMENT_ITEM_QTY_IN_CART, cartItem)
+        commit('incrementItemQtyInCart', {id: product.id})
       }
       // remove 1 item from stock
       commit('products/decrementQuantityInInventory', { id: product.id }, { root: true })
@@ -66,22 +70,22 @@ const actions = {
   },
 
   decrementQuantityInCart ({ state, commit }, product) {
-    commit('decrementQuantityInCart', {product: product});
+    commit('decrementQuantityInCart', {id: product.id});
     commit('products/incrementQuantityInInventory', { id: product.id }, { root: true })
   },
 
   increaseDuration ({ state, commit }, product) {
-    commit('increaseDuration', { product: product })
+    commit('increaseDuration', { id: product.id })
   },
 
   decreaseDuration ({ state, commit }, product) {
-    commit('decreaseDuration', { product: product })
+    commit('decreaseDuration', { id: product.id })
   },
 
   removeItemFromCart ({ state, commit }, product) {
     const cartItem = state.items.find(item => item.id === product.id)
     const cartQuantity = cartItem.quantity;
-    commit('removeItemFromCart', {product: product});
+    commit('removeItemFromCart', {id: product.id});
     commit('products/addQuantityToInventory', { id: product.id, quantity: cartQuantity }, { root: true })
   }
 
@@ -89,12 +93,12 @@ const actions = {
 
 // mutations
 const mutations = {
-  [events.ADD_TO_CART] (state, { product }) {
+  addToCart (state, { product }) {
     product.quantity = 1;
     state.items.push(product);
   },
 
-  [events.INCREMENT_ITEM_QTY_IN_CART] (state, { id }) {
+  incrementItemQtyInCart (state, { id }) {
     const cartItem = state.items.find(item => item.id === id)
     cartItem.quantity++
   },

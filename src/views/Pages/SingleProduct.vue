@@ -66,7 +66,9 @@ export default {
     return {
       current_image: null,
       product: null,
-      index: 0
+      index: 0,
+      slide: 0,
+      sliding: null
     };
   },
 
@@ -86,6 +88,12 @@ export default {
     rentProduct(product) {},
     addProductToCart(product) {
         this.$store.dispatch('cart/addProductToCart')
+    },
+     onSlideStart(slide) {
+      this.sliding = true;
+    },
+    onSlideEnd(slide) {
+      this.sliding = false;
     }
   },
 
