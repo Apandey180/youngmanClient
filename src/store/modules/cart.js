@@ -16,7 +16,9 @@ const getters = {
       return {
         title: product.title,
         price: product.price,
-        quantity
+        image: product.image,
+        quantity,
+        duration
       }
     })
   },
@@ -51,7 +53,6 @@ const actions = {
 
   addProductToCart ({ state, commit }, product) {
     commit('setCheckoutStatus', null)
-    debugger;
     if (product.inventory > 0) {
       const cartItem = state.items.find(item => item.id === product.id)
       if (!cartItem) {
@@ -60,9 +61,30 @@ const actions = {
         commit(events.INCREMENT_ITEM_QTY_IN_CART, cartItem)
       }
       // remove 1 item from stock
-      commit('products/'+ events.DECREMENT_ITEM_QTY_IN_INVENTORY, { id: product.id }, { root: true })
+      commit('products/decrementQuantityInInventory', { id: product.id }, { root: true })
     }
+  },
+
+  decrementQuantityInCart ({ state, commit }, product) {
+    commit('decrementQuantityInCart', {product: product});
+    commit('products/incrementQuantityInInventory', { id: product.id }, { root: true })
+  },
+
+  increaseDuration ({ state, commit }, product) {
+    commit('increaseDuration', { product: product })
+  },
+
+  decreaseDuration ({ state, commit }, product) {
+    commit('decreaseDuration', { product: product })
+  },
+
+  removeItemFromCart ({ state, commit }, product) {
+    const cartItem = state.items.find(item => item.id === product.id)
+    const cartQuantity = cartItem.quantity;
+    commit('removeItemFromCart', {product: product});
+    commit('products/addQuantityToInventory', { id: product.id, quantity: cartQuantity }, { root: true })
   }
+
 }
 
 // mutations
@@ -75,6 +97,29 @@ const mutations = {
   [events.INCREMENT_ITEM_QTY_IN_CART] (state, { id }) {
     const cartItem = state.items.find(item => item.id === id)
     cartItem.quantity++
+  },
+
+  decrementQuantityInCart (state, { id }) {
+    const cartItem = state.items.find(item => item.id === id)
+    cartItem.quantity--;
+    if(cartItem.quantity == 0) {
+      state.items.filter(item => item.id !== id)
+    }
+  },
+
+  removeItemFromCart (state, { id }) {
+    state.items.filter(item => item.id !== id)
+  },
+
+  increaseDuration (state, { id }) {
+    const cartItem = state.items.find(item => item.id === id)
+    cartItem.duration++;
+  },
+
+  decreaseDuration (state, { id }) {
+    const cartItem = state.items.find(item => item.id === id)
+    if(cartItem.duration > 2)
+      cartItem.duration--;
   },
 
   setCartItems (state, { items }) {
