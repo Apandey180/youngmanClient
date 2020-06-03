@@ -14,20 +14,38 @@
         <b-col sm="12" md="6" lg="6">
               <h3>Quantity</h3>
 
-              <base-slider v-model="quantity" :options="slider_options"></base-slider>
+               <b-col cols="12">
+                  <b-input-group size="sm" class="mb-2">
+                    <b-input-group-prepend>
+                      <b-button variant="danger" @click="decreaseQuantity()">Subtract</b-button>
+                    </b-input-group-prepend>
 
-              <b-row class="mt-3">
-                <b-col cols="6"><span class="range-slider-value">{{quantity}} Pcs</span></b-col>
-              </b-row>
+                    <b-form-input type="number" min="0.00" v-model="quantity" readonly="readonly"></b-form-input>
+
+                    <b-input-group-append>
+                      <b-button variant="success" @click="increaseQuantity()">Add</b-button>
+                    </b-input-group-append>
+                  </b-input-group>
+                </b-col>
+
+             
         </b-col>
         <b-col sm="12" md="6" lg="6">
             <h3>Duration(Days)</h3>
 
-            <base-slider v-model="days" :options="slider_options"></base-slider>
+            <b-col cols="12">
+                  <b-input-group size="sm" class="mb-2">
+                    <b-input-group-prepend>
+                      <b-button variant="danger" @click="decreaseDuration()">Subtract</b-button>
+                    </b-input-group-prepend>
 
-              <b-row class="mt-3">
-                <b-col cols="6"><span class="range-slider-value">{{days}} Days</span></b-col>
-              </b-row>
+                    <b-form-input type="number" min="0.00" v-model="duration" readonly="readonly"></b-form-input>
+
+                    <b-input-group-append>
+                      <b-button variant="success" @click="increaseDuration()">Add</b-button>
+                    </b-input-group-append>
+                  </b-input-group>
+                </b-col>
         </b-col>
     </div>
 
@@ -70,19 +88,46 @@ import BaseSlider from '@/components/BaseSlider'
 
     return {
       quantity: 1,
-      days: 1,
+      duration: 1,
       slider_options: {step: 1}
     }
   },
   methods: {
     addProductToCart(product) {
       product.quantity = this.quantity;
-      product.days = this.days;
+      product.duration = this.duration;
+      
       this.$store.dispatch('cart/addProductToCart', product);
+      this.notifyVue('success','Item added to cart')
     },
     rentNow(product) {
 
-    }
+    },
+    increaseDuration() {
+      
+        this.duration++;
+    },
+    decreaseDuration() {
+      if(this.duration > 1)
+        this.duration--;
+    },
+    increaseQuantity() {
+      if(this.quantity < this.product.inventory)
+       this.quantity++;
+    },
+
+    decreaseQuantity() {
+      if(this.quantity > 1)
+        this.quantity--;
+    },
+    notifyVue(type = 'default', message) {
+        this.$notify({
+          message: message,
+          timeout: 5000,
+          icon: 'ni ni-bell-55',
+          type
+        });
+      },
   },
   computed: {
     output() { // Output for computed property!

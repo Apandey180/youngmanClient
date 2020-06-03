@@ -18,7 +18,8 @@ const getters = {
         price: product.price,
         image: product.image,
         quantity,
-        duration: product.duration
+        duration: product.duration,
+        inventory: product.inventory
       }
     })
   },
@@ -56,18 +57,21 @@ const actions = {
   },
 
   addProductToCart ({ state, commit }, product) {
-    debugger;
     commit('setCheckoutStatus', null)
-    if (product.inventory > 0) {
-      const cartItem = state.items.find(item => item.id === product.id)
-      if (!cartItem) {
-        commit('addToCart', { product: product })
-      } else {
-        commit('incrementItemQtyInCart', {id: product.id})
-      }
-      // remove 1 item from stock
-      commit('products/decrementQuantityInInventory', { id: product.id }, { root: true })
+    const cartItem = state.items.find(item => item.id === product.id)
+    if (!cartItem) {
+      commit('addToCart', { product: product })
+    } else {
+      //commit('incrementItemQtyInCart', {id: product.id})
     }
+
+    commit('products/decrementQuantityInInventory', { id: product.id, quantity: product.quantity }, { root: true })
+  
+  },
+
+  incrementItemQtyInCart ({ state, commit }, product) {
+    commit('incrementItemQtyInCart', {id: product.id});
+    commit('products/decrementQuantityInInventory', { id: product.id, quantity: 1 }, { root: true })
   },
 
   decrementQuantityInCart ({ state, commit }, product) {
@@ -95,13 +99,12 @@ const actions = {
 // mutations
 const mutations = {
   addToCart (state, { product }) {
-    product.quantity = 1;
     state.items.push(product);
   },
 
-  incrementItemQtyInCart (state, { id }) {
-    const cartItem = state.items.find(item => item.id === id)
-    cartItem.quantity++
+  incrementItemQtyInCart (state, { product }) {
+    const cartItem = state.items.find(item => item.id === product.id)
+    cartItem.quantity += 1;
   },
 
   decrementQuantityInCart (state, { id }) {

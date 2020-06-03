@@ -32,9 +32,7 @@ const getters = {
   },
 
   getProductById: state => product_id => {
-    debugger;
     shop.getProductById(product => {
-      debugger;
       return product;
     }, product_id);
   }
@@ -106,9 +104,9 @@ const mutations = {
     state.recent_products = recent_products
   },
 
-  decrementQuantityInInventory (state, { id }) {
+  decrementQuantityInInventory (state, { id, quantity }) {
     const product = state.all.find(product => product.id === id)
-    product.inventory--
+    product.inventory -= quantity;
   },
 
   incrementQuantityInInventory (state, { id }) {

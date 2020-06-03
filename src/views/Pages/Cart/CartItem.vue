@@ -6,7 +6,7 @@
     <b-card-body v-bind:title="item.title" >
       <b-row>
       <b-col lg="6">
-        <label>Duration</label>
+        <label>Duration(Days)</label>
         <b-input-group size="sm" class="mb-2">
           <b-input-group-prepend>
             <b-button variant="danger" @click="decreaseDuration(item)">Subtract</b-button>
@@ -62,20 +62,34 @@
           },
         },
         methods: {
-          incrementItemQuantity(item) {
-            this.$store.dispatch('cart/addProductToCart', item)
+          incrementItemQuantity(cartItem) {
+            if(cartItem.quantity < this.item.inventory)
+              this.$store.dispatch('cart/incrementItemQtyInCart', cartItem)
+            else
+              //TODO Gauri: show notification
+              return;
           },
-          decrementItemQuantity(item) {
-            this.$store.dispatch('cart/decrementQuantityInCart', item)
+          decrementItemQuantity(cartItem) {
+            debugger;
+            if(cartItem.quantity > 1)
+              this.$store.dispatch('cart/decrementQuantityInCart', cartItem)
+            else 
+              //TODO Gauri: show notification
+              return;
           },
-          removeItemFromCart(item) {
-            this.$store.dispatch('cart/removeItemFromCart', item)
+          removeItemFromCart(cartItem) {
+            this.$store.dispatch('cart/removeItemFromCart', cartItem)
           },
-          increaseDuration(item) {
-            this.$store.dispatch('cart/increaseDuration', item)
+          increaseDuration(cartItem) {
+            this.$store.dispatch('cart/increaseDuration', cartItem)
           },
           decreaseDuration(item) {
-            this.$store.dispatch('cart/decreaseDuration', item)
+            debugger;
+            if(item.duration > 1)
+              this.$store.dispatch('cart/decreaseDuration', item)
+            else
+              //TODO Gauri: show notification
+              return;
           }
         }
     }
