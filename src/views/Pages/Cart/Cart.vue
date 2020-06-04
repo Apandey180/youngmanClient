@@ -21,6 +21,13 @@
                   >Checkout</base-button
                 >
               </router-link>
+
+              <router-link to="/test">
+                <base-button type="primary" :disabled="!products.length"
+                  >Test</base-button
+                >
+              </router-link>
+
             </p>
             <p v-show="checkoutStatus">Checkout {{ checkoutStatus }}.</p>
           </b-card>

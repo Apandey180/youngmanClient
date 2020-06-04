@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import cart from './modules/cart'
 import products from './modules/products'
 import home from './modules/home'
+import test from './modules/test'
 import createLogger from 'vuex/dist/logger'
 
 // https://vuex.vuejs.org
@@ -14,7 +15,8 @@ export default new Vuex.Store({
   modules: {
     cart,
     products,
-    home
+    home,
+    test
   },
   strict: debug,
   plugins: debug ? [createLogger()] : []
