@@ -134,11 +134,14 @@ export default {
     data() {
         return {
 
-          checkboxes: {
+          
            status: 'not_accepted'
-         }
+         
 
         };
+    },
+    methods: {
+      filesChange() {}
     }
 }
 </script>
