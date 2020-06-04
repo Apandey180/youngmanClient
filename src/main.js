@@ -35,6 +35,8 @@ import { currency } from './common/Currency'
 
 import axios from 'axios';
 
+Vue.prototype.$events = new Vue(); // Global event bus
+
 // plugin setup
 Vue.use(DashboardPlugin);
 Vue.filter('currency', currency)

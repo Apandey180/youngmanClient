@@ -8,7 +8,9 @@
           <b-col lg="12" sm="12">
           <form-wizard @on-complete="onComplete">
                 <tab-content title="Customer Details"
-                            icon="ni ni-single-02">
+                            icon="ni ni-single-02"
+                            :before-change="submitCustomerDetails"
+                            >
                 <customer-details />
                 </tab-content>
                 <tab-content title="Document Upload"
@@ -75,6 +77,9 @@ export default {
     },
     onComplete: function(){
           alert('Yay. Done!');
+       },
+       submitCustomerDetails() {
+         //this.$events.$emit('submitCustomerDetails');
        }
   }
 };
