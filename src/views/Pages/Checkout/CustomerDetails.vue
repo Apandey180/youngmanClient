@@ -12,72 +12,77 @@
                   <b-row>
                     <b-col lg="6" sm="12">
                         <base-input label="Company Name" input-classes="form-control-sm" rules="required" v-model="model.companyName" placeholder="Company Name"/>
-                        <base-input label="Head of Purchase" v-model="model.headOfPurchase">
-                         <select class="form-control" id="headOfPurchase">
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                          </select>
-                        </base-input>
-                        <base-input label="Name" v-model="model.customerName" input-classes="form-control-sm" rules="required" placeholder="Name"/>
-                        <base-input label="Email" v-model="model.customerEmail" input-classes="form-control-sm" rules="required" placeholder="Email"/>
-                        <base-input label="Mobile Number" v-model="model.customerPhone" input-classes="form-control-sm" rules="required" placeholder="Mobile Number"/>
-                        <base-input label="Head of Accounts" rules="required" v-model="model.headOfAccounts">
-                         <select class="form-control" id="headOfAccounts">
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                          </select>
-                        </base-input>
-                        <base-input label="Name" v-model="model.contactPersonName" rules="required" input-classes="form-control-sm" placeholder="Name"/>
-                        <base-input label="Email" v-model="model.contactPersonEmail" rules="required" input-classes="form-control-sm" placeholder="Email"/>
-                        <base-input label="Mobile Number" v-model="model.contactPersonMobile" rules="required" input-classes="form-control-sm" placeholder="Mobile Number"/>
-                        <base-input label="Billing Address" rules="required" v-model="model.billingAddress">
-                        <textarea class="form-control"  id="billingAddress1" rows="3" resize="none" placeholder="Billing Address"></textarea>
-                        </base-input  >
-                         <base-input label="State" v-model="model.billingState">
-                         <select class="form-control" id="state1">
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                          </select>
-                        </base-input>
-                      <base-input label="Pincode" rules="required" v-model="model.billingPincode" input-classes="form-control-sm" placeholder="Pincode"/>
+                   <b-form-radio-group v-model="model.radios.radio1">
+                        <div>
+                          <b-form-radio
+                            value="checked"
+                            name="unchecked"
+                            class="mb-3">
+                            Proprietorship
+                          </b-form-radio>
+                        </div>
+                        <div>
+                          <b-form-radio
+                            value="unchecked"
+                            name="checked"
+                            class="mb-3">
+                          Patnership
+                        </b-form-radio>
+                        </div>
+                        <div>
+                          <b-form-radio
+                            value="unchecked"
+                            name="checked"
+                            class="mb-3">
+                           Limited Liability Patnership
+                          </b-form-radio>
+                        </div>
+                        <div>
+                          <b-form-radio
+                            value="unchecked"
+                            name="checked"
+                            class="mb-3">
+                          Private Limited
+                        </b-form-radio>
+                        </div>
+                        
+                        <div>
+                          <b-form-radio
+                            value="unchecked"
+                            name="checked"
+                            class="mb-3">
+                           Limited
+                        </b-form-radio>
+                        </div>
+                    </b-form-radio-group>     
 
+                       <base-input label="MD/CEO/Owner Name" v-model="model.customerName" input-classes="form-control-sm" rules="required" placeholder="Name"/>
+                       <base-input label="MD/CEO/Owner Email" v-model="model.customerEmail" input-classes="form-control-sm" rules="required" placeholder="Email"/>
+                        <base-input label="MD/CEO/Owner Phone" v-model="model.customerPhone" input-classes="form-control-sm" rules="required" placeholder="Mobile Number"/>
+                       <base-input label="Head Of Purchase Name" v-model="model.headOfAccountsName" input-classes="form-control-sm" rules="required" placeholder="Mobile Number"/>
+                       <base-input label="Head Of Purchase Email" v-model="model.headOfAccountsEmail" input-classes="form-control-sm" rules="required" placeholder="Mobile Number"/>
+                       <base-input label="Head Of Purchase Phone" v-model="model.headOfAccountsPhone" input-classes="form-control-sm" rules="required" placeholder="Mobile Number"/>
+
+                        
 
                     </b-col>
                     <b-col lg="6" sm="12">
                       <base-input label="GSTIN" v-model="model.gstin" rules="required" input-classes="form-control-sm" placeholder="GSTIN"/>
-                       <base-input label="CEO" v-model="model.ceo" rules="required">
-                         <select class="form-control" id="ceo">
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                          </select>
-                        </base-input>         
-                      <base-input label="Name" v-model="model.headOfProjectName" rules="required" input-classes="form-control-sm" placeholder="Name"/>
-                      <base-input label="Email" v-model="model.headOfProjectEmail" rules="required" input-classes="form-control-sm" placeholder="Email"/>
-                      <base-input label="Mobile Number" v-model="model.headOfProjectMobileNumber" rules="required" input-classes="form-control-sm" placeholder="Mobile Number"/>
-                      <base-input label="Head of Project" v-model="model.headOfProject" rules="required">
-                         <select class="form-control" id="headOfProject">
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                          </select>
-                        </base-input>
-                    </b-col>
+                      <base-input label="Billing Address" v-model="model.billingAddress" rules="required" input-classes="form-control-sm" placeholder="Billing Address"/>
+                      <base-input label="Billing City" v-model="model.billingCity" rules="required" input-classes="form-control-sm" placeholder="Billing City"/>
+                      <base-input label="Billing Pincode" v-model="model.billingPincode" rules="required" input-classes="form-control-sm" placeholder="Billing Pincode"/>
+                      <b-form-checkbox class="mb-3" v-model="model.checkboxes.unchecked">
+                        check this box if Billing Address and Mailing Address are the same
+                       </b-form-checkbox>
+
+                      <base-input label="Mailing Address" v-model="model.mailingAddress" rules="required" input-classes="form-control-sm" placeholder="Mailing Address"/>
+                      <base-input label="Mailing City" v-model="model.mailingCity" rules="required" input-classes="form-control-sm" placeholder="Mailing City"/>
+                      <base-input label="Mailing Pincode" v-model="model.mailingPincode" rules="required" input-classes="form-control-sm" placeholder="Mailing Pincode"/>
+
+
+
+                     </b-col>
                     </b-row>
-                    <button ref="submitCustomerDetailsButton">Submit</button>
                 </form>
                 </validation-observer>
               </b-card-body>
@@ -94,21 +99,28 @@ export default {
           customerName: '',
           customerEmail: '',
           customerPhone: '',
-          headOfAccounts: '',
+        
 
-          contactPersonName: '',
-          contactPersonEmail: '',
-          contactPersonMobile: '',
+          headOfAccountsName:"",
+          headOfAccountsEmail:"",
+          headOfAccountsPhone:"",
+
           billingAddress: '',
           billingState: '',
           billingPincode: '',
           gstin: '',
           ceo: '',
+          billingCity:"",
+          mailingAddress: "",
+          mailingCity:"",
 
-          headOfProject: '',
-          headOfProjectMobileNumber: '',
-          headOfProjectEmail: '',
-          headOfProjectName: '',
+          radios: {
+          radio1: 'checked'
+        },
+        checkboxes: {
+          unchecked: false,
+          checked: true,
+        },
         }
         };
     },
