@@ -41,6 +41,11 @@ export default new Router({
           component: () => import('../views/Pages/Checkout')
         },
         {
+          path: '/test',
+          name: 'test',
+          component: () => import('../views/Pages/Test')
+        },
+        {
           path: '/training',
           name: 'training',
           component: () => import('../views/Pages/Training')

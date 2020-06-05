@@ -1,5 +1,6 @@
 <template>
   <div>
+    <notifications></notifications>
     <base-nav
       container-classes="container-fluid"
       v-model="showMenu"

@@ -20,8 +20,9 @@
 
                <div>
       <b-col lg="12" sm="12" class="text-right">
-          <base-button size="sm" type="neutral" @click="addProductToCart(item)">Add to Cart</base-button>
-          <base-button size="sm" type="neutral" @click="rentProduct(item)">Rent Now</base-button>
+        <router-link :to="url" sm="6" lg="6" exact>
+          <base-button size="sm" type="neutral">Add to Cart</base-button>
+          </router-link>
         </b-col>
     </div>
     <div>
@@ -44,14 +45,6 @@ export default {
   },
   computed: {
     url() { return "/products/"+this.item.id }
-  },
-  methods: {
-    addProductToCart(product) {
-        this.$store.dispatch('cart/addProductToCart', product)
-      },
-      rentProduct(product) {
-        
-      }
   }
 };
 </script>

@@ -4,7 +4,7 @@
       <b-row align-v="right" class="py-4"> </b-row>
     </base-header>
     <b-container fluid class="mt--6">
-      <b-card>
+      <b-card v-if="product">
         <h2 slot="header" class="mb-0">{{ product.item_name }}</h2>
 
         <div class="row">
@@ -54,6 +54,7 @@
 import ProductDetails from "./SingleProduct/ProductDetails";
 import Review from "./SingleProduct/Review";
 import SimilarItems from "./SingleProduct/SimilarItems";
+import shop from '../../api/shop'
 
 export default {
   components: {
@@ -64,69 +65,32 @@ export default {
 
   data() {
     return {
-      current_image: null,
-      product: null,
-      index: 0
+      slide: 0,
+      sliding: null
     };
   },
 
   computed: {
-    current_image_url() {
-      return this.current_image.image_url;
+    product() {
+      let product_id = `${this.$route.params.id}`;
+      return  shop.getProductById(product_id);
     }
   },
 
   methods: {
-    changeImage(image) {
-      this.current_image = image;
-    },
-    clickItem(i) {
-      this.index = i;
-    },
     rentProduct(product) {},
     addProductToCart(product) {
         this.$store.dispatch('cart/addProductToCart')
+    },
+     onSlideStart(slide) {
+      this.sliding = true;
+    },
+    onSlideEnd(slide) {
+      this.sliding = false;
     }
   },
 
-  beforeMount() {
-    let url = `/api/products/${this.$route.params.id}`;
-    //this.$http.get(url).then(response => this.product = response.data)
-    this.product = {
-      id: 1,
-      title: "Ladder",
-      item_name: "Aluminium Scaffold",
-      image_url: "https://picsum.photos/600/300/?image=25",
-      alt: "Image Placeholder",
-      quantity_available: 30,
-      description:
-        "Nulla vitae elit libero, a pharetra augue mollis interdum. (2)",
-      item_price: 4999,
-      images: [
-        {
-          id: 1,
-          thumb_url:
-            "https://webcomicms.net/sites/default/files/clipart/146321/blue-square-cliparts-146321-2629400.png",
-          image_url:
-            "https://webcomicms.net/sites/default/files/clipart/146321/blue-square-cliparts-146321-2629400.png"
-        },
-        {
-          id: 3,
-          thumb_url:
-            "https://3.imimg.com/data3/BE/CA/MY-10669832/red-colour-500x500.jpg",
-          image_url:
-            "https://3.imimg.com/data3/BE/CA/MY-10669832/red-colour-500x500.jpg"
-        },
-        {
-          id: 4,
-          thumb_url:
-            "https://cdn.shopify.com/s/files/1/0361/8133/products/product-cropping-test-001_1024x1024_cropped.png?v=1440430124",
-          image_url:
-            "https://cdn.shopify.com/s/files/1/0361/8133/products/product-cropping-test-001_1024x1024_cropped.png?v=1440430124"
-        }
-      ]
-    };
-    this.current_image = this.product;
+  mounted() {
   }
 };
 </script>

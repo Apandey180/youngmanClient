@@ -1,5 +1,4 @@
 import shop from '../../api/shop'
-import * as events from '../mutation-types'
 
 // initial state
 const state = () => ({
@@ -30,6 +29,12 @@ const getters = {
   },
   width_selected: (state) => {
     return state.width_selected;
+  },
+
+  getProductById: state => product_id => {
+    shop.getProductById(product => {
+      return product;
+    }, product_id);
   }
 }
 
@@ -44,33 +49,33 @@ const actions = {
 
   getAllCategories ({ commit }) {
     shop.getAllCategories(categories => {
-      commit(events.UPDATE_CATEGORIES_FILTER, categories)
+      commit('setCategories', categories)
     })
   },
 
   getAllMaterials ({ commit }) {
     shop.getAllMaterials(materials => {
-      commit(events.UPDATE_MATERIALS_FILTER, materials)
+      commit('setMaterials', materials)
     })
   },
 
   getAllAdditional ({ commit }) {
     shop.getAllAdditional(additional => {
-      commit(events.UPDATE_ADDITIONAL_FILTER, additional)
+      commit('setAdditional', additional)
     })
   },
 
   getAllWidth ({ commit }) {
     shop.getAllWidth(width => {
-      commit(events.UPDATE_WIDTH_FILTER, width)
+      commit('setWidth', width)
     })
   },
 
   getRecentProducts ({ commit }) {
     shop.getRecentProducts(recentProducts => {
-      commit(events.FETCH_RECENT_SEARCH_PRODUCTS, recentProducts)
+      commit('setRecentProducts', recentProducts)
     })
-  },
+  }
 }
 
 // mutations
@@ -79,30 +84,41 @@ const mutations = {
     state.all = products
   },
 
-  [events.UPDATE_CATEGORIES_FILTER] (state, categories_options) {
+  setCategories (state, categories_options) {
     state.categories_options = categories_options
   },
 
-  [events.UPDATE_MATERIALS_FILTER] (state, materials_options) {
+  setMaterials (state, materials_options) {
     state.materials_options = materials_options
   },
 
-  [events.UPDATE_ADDITIONAL_FILTER] (state, additional_options) {
+  setAdditional (state, additional_options) {
     state.additional_options = additional_options
   },
 
-  [events.UPDATE_WIDTH_FILTER] (state, width_options) {
+  setWidth (state, width_options) {
     state.width_options = width_options
   },
 
-  [events.FETCH_RECENT_SEARCH_PRODUCTS] (state, recent_products) {
+  setRecentProducts (state, recent_products) {
     state.recent_products = recent_products
   },
 
-  [events.DECREMENT_ITEM_QTY_IN_INVENTORY] (state, { id }) {
+  decrementQuantityInInventory (state, { id, quantity }) {
     const product = state.all.find(product => product.id === id)
-    product.inventory--
-  }
+    product.inventory -= quantity;
+  },
+
+  incrementQuantityInInventory (state, { id }) {
+    const product = state.all.find(product => product.id === id)
+    product.inventory++
+  },
+
+  addQuantityToInventory (state, { id, quantity }) {
+    const product = state.all.find(product => product.id === id)
+    product.inventory += quantity
+  },
+
 }
 
 export default {
