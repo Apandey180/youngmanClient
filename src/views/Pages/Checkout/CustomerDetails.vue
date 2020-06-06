@@ -110,7 +110,7 @@ export default {
     },
     mounted() {
        this.$events.$on('submitCustomerDetails', () => {
-          this.$store.dispatch("customer/submitCustomerForm", this.model.customer);
+          this.$store.dispatch("checkout/submitCustomerForm", this.model.customer);
        });
       },
       beforeDestroy() {

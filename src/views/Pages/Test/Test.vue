@@ -52,10 +52,12 @@ export default {
     },
     submitChild() {
       // emit event so that child form tries to submit
-      //this.$events.$emit("submitTest");
+      this.$events.$emit("submitTest");
 
     // create a promise and resolve it if form validation is successful and saved to db successfully
     // reject if error occurs
+    console.log("yayyy");
+    console.log(this.$store.state.test.childData);
 
       return new Promise((resolve, reject) => {
         setTimeout(() => {

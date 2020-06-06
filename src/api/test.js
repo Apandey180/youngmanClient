@@ -2,7 +2,7 @@
  * Mocking client-server processing
  */
   export default {
-    submitChildData (childData, cb, errorCb) {
+    submitChildForm (childData, cb, errorCb) {
       setTimeout(() => {cb()}, 100)
     }
   }

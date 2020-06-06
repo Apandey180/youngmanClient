@@ -1,4 +1,4 @@
-import customer from "../../api/customer";
+import checkout from "../../api/checkout";
 
 // initial state
 const state = () => ({

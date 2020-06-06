@@ -52,6 +52,7 @@ import DocumentUpload from "./DocumentUpload";
 import OrderStatus from "./OrderStatus";
 import PaymentMethod from "./PaymentMethod";
 import ShippingDetails from "./ShippingDetails";
+import checkoutApi from "../../../api/checkout";
 
 import { FormWizard, TabContent } from "vue-form-wizard";
 import "vue-form-wizard/dist/vue-form-wizard.min.css";
@@ -75,7 +76,7 @@ export default {
     ...mapState(
       {
         checkoutStatus: state => state.cart.checkoutStatus,
-        customer: state=> state.customer.customer
+        customer: state=> state.checkout.customer
       }
     ),
     ...mapGetters("cart", {
@@ -93,27 +94,27 @@ export default {
     },
     submitCustomerDetails() {
       this.$events.$emit('submitCustomerDetails');
-      const customerDetails = this.$store.state.customer.customer;
+      const customerDetails = this.$store.state.checkout.customer;
+      // Try to submit customer details form, 
+      // If successful then return true else return false 
 
-      this.$http.post('api/createCustomer', {customerDetails}).then(function (response){
-        console.log(response);
-        Promise.response(true);
-      }).catch( function (error){
-        console.log(error);
-        Promise.reject("Creating customer failed");
-      });
+      const response = checkoutApi.createCustomer(customerDetails);
+      console.log("1");
+      console.log(response);
+      console.log("2");
+      if(response == "Creating customer failed")
+        return false;
+      // return true;
+      return false;
 
-      // this.$http.interceptors.response.use(function (response) {
-      //   console.log("in response")
-      //   return Promise.response(true);
-      // }, function (error) {
-      //   console.log("in error");
-      //   return Promise.reject(false);
+      // this.$http.post('api/createCustomer', customerDetails).then(function (response){
+      //   console.log(response);
+      //   Promise.response(true);
+      // }).catch( function (error){
+      //   console.log(error);
+      //   Promise.reject("Creating customer failed");
       // });
 
-      // Try to submit customer details form, 
-      // If successful then return true else return false  
-      return false;
     },
     submitDocuments() {
       return true;
