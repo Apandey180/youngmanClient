@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from "vuex";
+import { mapGetters, mapState, mapActions } from "vuex";
 import CustomerDetails from "./CustomerDetails";
 import DocumentUpload from "./DocumentUpload";
 import OrderStatus from "./OrderStatus";
@@ -72,9 +72,12 @@ export default {
     TabContent
   },
   computed: {
-    ...mapState({
-      checkoutStatus: state => state.cart.checkoutStatus
-    }),
+    ...mapState(
+      {
+        checkoutStatus: state => state.cart.checkoutStatus,
+        customer: state=> state.customer.customer
+      }
+    ),
     ...mapGetters("cart", {
       products: "cartProducts",
       total: "cartTotalPrice"
@@ -89,10 +92,28 @@ export default {
       //TODO Gauri: redirect to order details page
     },
     submitCustomerDetails() {
-      //this.$events.$emit('submitCustomerDetails');
+      this.$events.$emit('submitCustomerDetails');
+      const customerDetails = this.$store.state.customer.customer;
+
+      this.$http.post('api/createCustomer', {customerDetails}).then(function (response){
+        console.log(response);
+        return Promise.response(true);
+      }).catch( function (error){
+        console.log(error);
+        return Promise.reject("Creating customer failed");
+      });
+
+      this.$http.interceptors.response.use(function (response) {
+        console.log("in response")
+        return Promise.response(true);
+      }, function (error) {
+        console.log("in error");
+        return Promise.reject(false);
+      });
+
       // Try to submit customer details form, 
-      // If successful then return true else return false
-      return true;
+      // If successful then return true else return false  
+      return false;
     },
     submitDocuments() {
       return true;
