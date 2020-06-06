@@ -97,19 +97,19 @@ export default {
 
       this.$http.post('api/createCustomer', {customerDetails}).then(function (response){
         console.log(response);
-        return Promise.response(true);
+        Promise.response(true);
       }).catch( function (error){
         console.log(error);
-        return Promise.reject("Creating customer failed");
+        Promise.reject("Creating customer failed");
       });
 
-      this.$http.interceptors.response.use(function (response) {
-        console.log("in response")
-        return Promise.response(true);
-      }, function (error) {
-        console.log("in error");
-        return Promise.reject(false);
-      });
+      // this.$http.interceptors.response.use(function (response) {
+      //   console.log("in response")
+      //   return Promise.response(true);
+      // }, function (error) {
+      //   console.log("in error");
+      //   return Promise.reject(false);
+      // });
 
       // Try to submit customer details form, 
       // If successful then return true else return false  
