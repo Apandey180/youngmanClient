@@ -9,19 +9,6 @@ export default {
     },
 
     createCustomer(customer){
-      console.log("here");
-      apiClient.post('api/createCustomer',customer).then(response =>{
-        console.log("in response");
-        // return response;
-        if(response.status == 200)
-          // return response.data;
-          return Promise.resolve(response.data);
-        else return "Creating customer failed";
-      })
-      .catch(error =>{
-        console.log("in error");
-        return Promise.reject("Creating customer failed");
-        // return "Creating customer failed";
-      });
+      return apiClient.post('api/createCustomer',customer)
     }
   }

@@ -95,26 +95,17 @@ export default {
     submitCustomerDetails() {
       this.$events.$emit('submitCustomerDetails');
       const customerDetails = this.$store.state.checkout.customer;
-      // Try to submit customer details form, 
-      // If successful then return true else return false 
 
-      const response = checkoutApi.createCustomer(customerDetails);
-      console.log("1");
-      console.log(response);
-      console.log("2");
-      if(response == "Creating customer failed")
-        return false;
-      // return true;
-      return false;
-
-      // this.$http.post('api/createCustomer', customerDetails).then(function (response){
-      //   console.log(response);
-      //   Promise.response(true);
-      // }).catch( function (error){
-      //   console.log(error);
-      //   Promise.reject("Creating customer failed");
-      // });
-
+      const self = this; // Because of lexical scoping of js. https://stackoverflow.com/questions/55361714/javascript-classes-promises-how-to-access-an-outside-variable-inside-a-then-s
+      return new Promise(function(resolve, reject) {
+        checkoutApi.createCustomer(customerDetails).then(response => {
+          self.notify('success', 'Customer details saved')
+          resolve(true);
+        }).catch(error => {
+          self.notify('danger', 'Some error occurred');
+          reject(false)
+        });
+      });
     },
     submitDocuments() {
       return true;
@@ -124,7 +115,15 @@ export default {
     },
     makePayment() {
       return true;
-    }
+    },
+    notify(type = 'default', message) {
+        this.$notify({
+          message: message,
+          timeout: 2000,
+          icon: 'ni ni-bell-55',
+          type
+        });
+      },
   }
 };
 </script>
