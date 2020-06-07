@@ -46,12 +46,13 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from "vuex";
+import { mapGetters, mapState, mapActions } from "vuex";
 import CustomerDetails from "./CustomerDetails";
 import DocumentUpload from "./DocumentUpload";
 import OrderStatus from "./OrderStatus";
 import PaymentMethod from "./PaymentMethod";
 import ShippingDetails from "./ShippingDetails";
+import checkoutApi from "../../../api/checkout";
 
 import { FormWizard, TabContent } from "vue-form-wizard";
 import "vue-form-wizard/dist/vue-form-wizard.min.css";
@@ -72,9 +73,12 @@ export default {
     TabContent
   },
   computed: {
-    ...mapState({
-      checkoutStatus: state => state.cart.checkoutStatus
-    }),
+    ...mapState(
+      {
+        checkoutStatus: state => state.cart.checkoutStatus,
+        customer: state=> state.checkout.customer
+      }
+    ),
     ...mapGetters("cart", {
       products: "cartProducts",
       total: "cartTotalPrice"
@@ -89,10 +93,28 @@ export default {
       //TODO Gauri: redirect to order details page
     },
     submitCustomerDetails() {
-      //this.$events.$emit('submitCustomerDetails');
+      this.$events.$emit('submitCustomerDetails');
+      const customerDetails = this.$store.state.checkout.customer;
       // Try to submit customer details form, 
-      // If successful then return true else return false
-      return true;
+      // If successful then return true else return false 
+
+      const response = checkoutApi.createCustomer(customerDetails);
+      console.log("1");
+      console.log(response);
+      console.log("2");
+      if(response == "Creating customer failed")
+        return false;
+      // return true;
+      return false;
+
+      // this.$http.post('api/createCustomer', customerDetails).then(function (response){
+      //   console.log(response);
+      //   Promise.response(true);
+      // }).catch( function (error){
+      //   console.log(error);
+      //   Promise.reject("Creating customer failed");
+      // });
+
     },
     submitDocuments() {
       return true;

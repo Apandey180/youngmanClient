@@ -33,8 +33,12 @@ export default {
 
     },
     mounted() {
+      console.log("1");
+      console.log(this.model);
+      console.log("2");
         this.$events.$on('submitTest', () => {
-           this.$store.dispatch("test/submitChildForm", this.model);
+          console.log("here");
+           this.$store.dispatch("test/submitChildForm", this.model.companyName);
         });
       },
       beforeDestroy() {
