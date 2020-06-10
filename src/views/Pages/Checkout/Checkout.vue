@@ -60,7 +60,8 @@ import "vue-form-wizard/dist/vue-form-wizard.min.css";
 export default {
   data() {
     return {
-      save_to_billing_address: true
+      save_to_billing_address: true,
+      // self: this
     };
   },
   components: {
@@ -108,10 +109,37 @@ export default {
       });
     },
     submitDocuments() {
-      return true;
+      this.$events.$emit('submitCustomerDocuments');
+      const documents = this.$store.state.checkout.customer_documents;
+      console.log(documents);
+      const self = this; // Because of lexical scoping of js. https://stackoverflow.com/questions/55361714/javascript-classes-promises-how-to-access-an-outside-variable-inside-a-then-s
+      return new Promise(function(resolve, reject) {
+        checkoutApi.submitDocuments(documents).then(response => {
+          console.log(response);
+          self.notify('success', 'Documents Uploaded Successfully')
+          resolve(true);
+        }).catch(error => {
+          console.log(error);
+          self.notify('danger', 'Some error occurred');
+          // reject(false)
+          resolve(true);
+        });
+      });
     },
     submitShippingDetails() {
-      return true;
+      this.$events.$emit('submitShippingDetailsForm');
+      const shippingDetails = this.$store.state.checkout.shipping_details;
+
+      const self = this; // Because of lexical scoping of js. https://stackoverflow.com/questions/55361714/javascript-classes-promises-how-to-access-an-outside-variable-inside-a-then-s
+      return new Promise(function(resolve, reject) {
+        checkoutApi.submitShippingDetailsForm(shippingDetails).then(response => {
+          self.notify('success', 'Shipping Details added')
+          resolve(true);
+        }).catch(error => {
+          self.notify('danger', 'Some error occurred');
+          reject(false)
+        });
+      });
     },
     makePayment() {
       return true;

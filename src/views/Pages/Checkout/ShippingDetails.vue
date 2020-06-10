@@ -11,24 +11,16 @@
                     <b-col lg="8" sm="12">
                         
 
-                        <base-input label="Consignee" input-classes="form-control-sm" placeholder="Consignee"/>
-                    <base-input label="GSTIN" input-classes="form-control-sm" placeholder="GSTIN" />
-                    <base-input label="Site Contact Person Name" input-classes="form-control-sm" placeholder="Site Contact Person Name" />
-                    <base-input label="Email" input-classes="form-control-sm" placeholder="Email" />
-                    <base-input label="Mobile Number" input-classes="form-control-sm" placeholder="Mobile Number" />
+                        <base-input label="Consignee" input-classes="form-control-sm" placeholder="Consignee" v-model="shipping_details.company"/>
+                    <base-input label="GSTIN" input-classes="form-control-sm" placeholder="GSTIN" v-model="shipping_details.gstn" />
+                    <base-input label="Site Contact Person Name" input-classes="form-control-sm" placeholder="Site Contact Person Name" v-model="shipping_details.site_contact_name"/>
+                    <base-input label="Email" input-classes="form-control-sm" placeholder="Email"  v-model="shipping_details.site_contact_email" />
+                    <base-input label="Mobile Number" input-classes="form-control-sm" placeholder="Mobile Number"  v-model="shipping_details.site_contact_phone" />
                     <base-input label="Shipping Address">
-                    <textarea class="form-control" id="shippingAddress" rows="3"></textarea>
+                    <textarea class="form-control" id="shippingAddress" rows="3" v-model="shipping_details.delivery_address_line"></textarea>
                     </base-input>
-                    <base-input label="State">
-                         <select class="form-control" id="state">
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                           <option></option>
-                          </select>
-                        </base-input>
-                    <base-input label="Pincode" input-classes="form-control-sm" placeholder="Pincode" />
+                    <base-input label="State" input-classes="form-control-sm" placeholder="State"  v-model="shipping_details.delivery_address_state" />
+                    <base-input label="Pincode" input-classes="form-control-sm" placeholder="Pincode"  v-model="shipping_details.delivery_address_pincode" />
 
                     </b-col>
                     
@@ -61,7 +53,24 @@ export default {
     data() {
         return {
             total: 3000,
+            shipping_details:{
+              company:'',
+              gstn:'',
+              site_contact_name:'',
+              site_contact_email:'',
+              site_contact_phone:'',
+              delivery_address_line:'',
+              delivery_address_state:'',
+              delivery_address_pincode:''
+            }
         };
-    }
+    },
+    mounted() {
+      this.shipping_details.company = this.$store.state.checkout.customer.company;
+      this.shipping_details.gstn = this.$store.state.checkout.customer.company;
+      this.$events.$on('submitShippingDetailsForm', () => {
+        this.$store.dispatch("checkout/submitShippingDetails", this.shipping_details);
+      });
+    },
 }
 </script>
