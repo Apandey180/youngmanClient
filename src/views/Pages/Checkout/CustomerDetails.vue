@@ -113,7 +113,7 @@ export default {
           this.$store.dispatch("checkout/submitCustomerForm", this.model.customer);
        });
       },
-      beforeDestroy() {
+    beforeDestroy() {
       //  this.$events.$off('submitCustomerDetails');
       }
 }
