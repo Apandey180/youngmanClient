@@ -11,7 +11,13 @@ import razorpay from "../../../api/razorpay";
 export default {
     data() {
         return {
-            order:null
+            order:null,
+            customer: null,
+            payment:{
+                razorpay_payment_id:null,
+                razorpay_order_id:null,
+                razorpay_signature:null
+            }
         };
     },
     methods:{
@@ -33,11 +39,11 @@ export default {
 
             if(!res){
                 alert("Razorpay failed to load");
-                console.log("Razorpay failed to load");
                 return;
             }
 
             await this.createOrder();
+            var self = this;
             
             var options = {
                 "key": process.env.VUE_RAZORPAY_ID, // Enter the Key ID generated from the Dashboard
@@ -48,14 +54,16 @@ export default {
                 "image": "https://example.com/your_logo",
                 "order_id": this.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                 "handler": function (response){
-                    alert(response.razorpay_payment_id);
-                    alert(response.razorpay_order_id);
-                    alert(response.razorpay_signature)
+                    self.payment.razorpay_payment_id = response.razorpay_payment_id;
+                    self.payment.razorpay_order_id = response.razorpay_order_id;
+                    self.payment.razorpay_signature = response.razorpay_signature;
+                    // self.submitPaymentDetails();
+                    // self.$refs.wizard.nextTab();
                 },
                 "prefill": {
-                    "name": "Gaurav Kumar",
-                    "email": "gaurav.kumar@example.com",
-                    "contact": "9999999999"
+                    "name": this.customer.company,
+                    "email": this.customer.email,
+                    "contact": this.customer.phone_number
                 },
                 "theme": {
                     "color": "#ffd600"
@@ -66,6 +74,7 @@ export default {
         },
         createOrder(){
             return new Promise( (resolve) =>{
+                this.customer = this.$store.state.checkout.customer;
                 razorpay.createOrder().then(response => {
                     resolve(true);
                     this.order = response.data;
@@ -74,8 +83,24 @@ export default {
                     reject(false);
                 });
             });
-        }
+        },
+        //try submitting from here instead of checkout
+        // submitPaymentDetails() {
+            // this.$events.$emit('submitPaymentDetails');
+            // const shippingDetails = this.$store.state.checkout.shipping_details;
+            // const self = this; 
+            // return new Promise(function(resolve, reject) {
+            //     checkoutApi.submitShippingDetailsForm(shippingDetails).then(response => {
+            //     self.notify('success', 'Shipping Details added')
+            //     resolve(true);
+            //     }).catch(error => {
+            //     self.notify('danger', 'Some error occurred');
+            //     reject(false)
+            //     });
+            // });
+        // },
     },
+
     mounted() {
         
       },
