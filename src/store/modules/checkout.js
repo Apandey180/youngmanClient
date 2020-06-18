@@ -3,6 +3,7 @@ import checkout from "../../api/checkout";
 // initial state
 const state = () => ({
     customer: null,
+    customer_id: null,
     customer_documents: null,
     shipping_details: null
 });
@@ -23,6 +24,10 @@ const actions = {
   
   submitShippingDetails({ commit, state }, shippingDetails) {
     commit("setShippingDetails", shippingDetails);
+  },
+  
+  setCustomerId({ commit, state }, customerId) {
+    commit("setCustomerId", customerId);
   }
 };
 
@@ -30,6 +35,9 @@ const actions = {
 const mutations = {
     setCustomerData(state, customerData) {
     state.customer = customerData;
+  },
+  setCustomerId(state, customerId) {
+    state.customer_id = customerId;
   },
   setCustomerDocuments(state, customerDocuments) {
     state.customer_documents = customerDocuments;

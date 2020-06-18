@@ -67,11 +67,11 @@ export default {
         };
     },
     mounted() {
-      if(this.$store.state.checkout.customer.id)
+      if(this.$store.state.checkout.customer_id != null)
       {
         this.shipping_details.company = this.$store.state.checkout.customer.company;
         this.shipping_details.gstn = this.$store.state.checkout.customer.gstn;
-        this.shipping_details.customer_id = this.$store.state.checkout.customer.id;
+        this.shipping_details.customer_id = this.$store.state.checkout.customer_id;
       }
       this.$events.$on('submitShippingDetailsForm', () => {
         this.$store.dispatch("checkout/submitShippingDetails", this.shipping_details);
