@@ -65,15 +65,6 @@ export default new Router({
           }
         },
         {
-          path: '/orders',
-          name: 'orders',
-          component:  () => import('../views/Pages/Orders'),
-          meta: {
-              requiresAuth: true,
-              is_admin: true
-          }
-        },
-        {
           path: '/vieworder',
           name: 'vieworder',
           component:  () => import('../views/Pages/OrderDetails'),

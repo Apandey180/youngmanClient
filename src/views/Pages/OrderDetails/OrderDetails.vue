@@ -5,12 +5,12 @@
     </base-header>
     <b-container fluid class="mt--6">
       <b-row>
-        <b-col lg="6">
+        <b-col lg="8">
           <card header-classes="bg-transparent"> 
             <h3 slot="header" class="mb-0">Order Details</h3>
           </card>
         </b-col>
-        <b-col lg="6">
+        <b-col lg="4">
           <card header-classes="bg-transparent">
             <h3 slot="header" class="mb-0">Order Timeline</h3>
 
@@ -91,7 +91,13 @@ export default {
           icon: "ni ni-html5",
           icon_type: "danger"
         }
-      ]
+      ],
+
+      order_details : {
+        documents: [],
+        challans: [],
+        invoices: []
+      },
     };
   },
   components: {

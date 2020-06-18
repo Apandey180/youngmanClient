@@ -1,13 +1,10 @@
 <template>
   <div>
-    <base-header class="pb-6" style="background-color:#ffe411 !important">
-      <b-row align-v="right" class="py-4"> </b-row>
-    </base-header>
-    <b-container fluid class="mt--6">
+    
       <b-card no-body>
         <b-card-header>
             <!-- Title -->
-            <h5 class="h3 mb-0">Your Orders</h5>
+            <h5 class="h3 mb-0">My Orders</h5>
         </b-card-header>
 <b-card-body>
             <!-- List group -->
@@ -34,7 +31,6 @@
             </b-list-group>
         </b-card-body>
       </b-card>
-    </b-container>
   </div>
 </template>
 

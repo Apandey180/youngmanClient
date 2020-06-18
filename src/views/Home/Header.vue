@@ -73,10 +73,6 @@
              <span class="nav-link-inner--text">Profile</span>
          </b-nav-item>
 
-         <b-nav-item to="/orders"  exact exact-active-class="active" v-if="isLoggedIn">
-             <span class="nav-link-inner--text">Orders</span>
-         </b-nav-item>
-
          <b-nav-item to="/logout"  exact exact-active-class="active" v-if="isLoggedIn">
              <span class="nav-link-inner--text">Logout</span>
          </b-nav-item>
