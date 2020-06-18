@@ -61,13 +61,18 @@ export default {
               site_contact_phone:'',
               delivery_address_line:'',
               delivery_address_state:'',
-              delivery_address_pincode:''
+              delivery_address_pincode:'',
+              customer_id:''
             }
         };
     },
     mounted() {
-      this.shipping_details.company = this.$store.state.checkout.customer.company;
-      this.shipping_details.gstn = this.$store.state.checkout.customer.company;
+      if(this.$store.state.checkout.customer.id)
+      {
+        this.shipping_details.company = this.$store.state.checkout.customer.company;
+        this.shipping_details.gstn = this.$store.state.checkout.customer.gstn;
+        this.shipping_details.customer_id = this.$store.state.checkout.customer.id;
+      }
       this.$events.$on('submitShippingDetailsForm', () => {
         this.$store.dispatch("checkout/submitShippingDetails", this.shipping_details);
       });

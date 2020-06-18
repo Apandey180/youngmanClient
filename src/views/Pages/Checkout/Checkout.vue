@@ -100,6 +100,7 @@ export default {
       const self = this; // Because of lexical scoping of js. https://stackoverflow.com/questions/55361714/javascript-classes-promises-how-to-access-an-outside-variable-inside-a-then-s
       return new Promise(function(resolve, reject) {
         checkoutApi.createCustomer(customerDetails).then(response => {
+          self.$store.state.checkout.customer.id = response.data.customer.id;
           self.notify('success', 'Customer details saved')
           resolve(true);
         }).catch(error => {
@@ -129,7 +130,6 @@ export default {
     submitShippingDetails() {
       this.$events.$emit('submitShippingDetailsForm');
       const shippingDetails = this.$store.state.checkout.shipping_details;
-
       const self = this; // Because of lexical scoping of js. https://stackoverflow.com/questions/55361714/javascript-classes-promises-how-to-access-an-outside-variable-inside-a-then-s
       return new Promise(function(resolve, reject) {
         checkoutApi.submitShippingDetailsForm(shippingDetails).then(response => {

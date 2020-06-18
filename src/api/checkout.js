@@ -21,13 +21,13 @@ export default {
     },
 
     submitDocuments(documents){
-      apiClient.defaults.headers= {
-        'Content-Type': 'multipart/form-data'
-      }
+      // apiClient.defaults.headers= {
+      //   'Content-Type': 'multipart/form-data'
+      // }
       return apiClient.post('api/documentupload',documents);
     },
 
-    submitShippingDetailsForm(documents){
-      return apiClient.post('api/createCustomer',documents);
+    submitShippingDetailsForm(shippingDetails){
+      return apiClient.post('api/addorder',shippingDetails);
     },
   }
