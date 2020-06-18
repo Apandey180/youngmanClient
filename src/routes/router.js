@@ -84,7 +84,7 @@ export default new Router({
   {
       path: '/admin/:page',
       name: 'admin-pages',
-      component:  () => import('../views/Components/Admin.vue'),
+      component:  () => import('../views/Pages/Admin'),
       meta: {
           requiresAuth: true,
           is_admin: true
@@ -93,7 +93,7 @@ export default new Router({
   {
       path: '/admin',
       name: 'admin',
-      component:  () => import('../views/Components/Admin.vue'),
+      component:  () => import('../views/Pages/Admin'),
       meta: {
           requiresAuth: true,
           is_admin: true
