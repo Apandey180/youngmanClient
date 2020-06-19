@@ -54,32 +54,41 @@ export default new Router({
           path: '/about',
           name: 'about',
           component: () => import('../views/Pages/About')
-        }
+        },
+        {
+          path: '/profile',
+          name: 'profile',
+          component:  () => import('../views/Pages/UserProfile.vue'),
+          meta: {
+              requiresAuth: true,
+              is_admin: true
+          }
+        },
+        {
+          path: '/vieworder',
+          name: 'vieworder',
+          component:  () => import('../views/Pages/OrderDetails'),
+          meta: {
+              requiresAuth: true,
+              is_admin: true
+          }
+        },
+        {
+          path: '/register',
+          name: 'register',
+          component: Register
+        },
+        {
+          path: '/login',
+          name: 'login',
+          component: () => import('../views/Pages/Login.vue')
+        },
       ]
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: Register
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('../views/Pages/Login.vue')
     },
     {
       path: '/confirmation',
       name: 'confirmation',
       component:  () => import('../views/Components/Confirmation.vue')
-  },
-  {
-      path: '/dashboard',
-      name: 'userboard',
-      component:  () => import('../views/Components/UserBoard.vue'),
-      meta: {
-          requiresAuth: true,
-          is_user: true
-      }
   },
   {
       path: '/admin/:page',
@@ -98,15 +107,6 @@ export default new Router({
           requiresAuth: true,
           is_admin: true
       }
-  },
-  {
-    path: '/profile',
-    name: 'profile',
-    component:  () => import('../views/Pages/UserProfile.vue'),
-    meta: {
-        requiresAuth: true,
-        is_admin: true
-    }
   },
   ],
   scrollBehavior: (to, from ,savedPosition) => {

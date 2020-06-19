@@ -6,10 +6,10 @@
   </base-header>
   <b-container fluid class="mt--6">
   <b-row>
-    <b-col align-v="left" sm="3" md="3" lg="3">
+    <!--b-col align-v="left" sm="3" md="3" lg="3">
       <product-filter></product-filter>
-    </b-col>
-    <b-col sm="9" md="9" lg="9">
+    </b-col-->
+    <b-col sm="12" md="12" lg="12">
       <b-row>
         <b-col sm="1" md="4" lg="4" v-for="item in lists" :key="item.id">
           <product-card v-bind:item="item"></product-card>
@@ -25,9 +25,9 @@
     </b-col>
   </b-row>
 
-  <b-row>
+  <!--b-row>
     <recently-searched></recently-searched>
-  </b-row>
+  </b-row-->
   <router-view></router-view>
   </b-container>
   </div>

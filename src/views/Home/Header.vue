@@ -49,16 +49,7 @@
        </b-navbar-nav>
        <hr class="d-lg-none">
        <b-navbar-nav  class="align-items-lg-center ml-lg-auto">
-         <b-nav-item link-classes="nav-link-icon" to="/cart" exact exact-active-class="active"
-              data-toggle="tooltip" data-original-title="Cart" >
-            
-             <span style="font-size: 24px; color: Grey;">
-             <i class="fas fa-shopping-cart mr-2"></i>
-             <span class="nav-link-inner--text d-lg-none">Cart</span>
-             
-            </span>
-         </b-nav-item>
-         
+        
          <!-- This item dont have <b-nav-item> because they add class 'nav-link' which is not needed here -->
          <li class="nav-item d-none d-lg-block ml-lg-4" v-if="!isLoggedIn">
            <a href="/login" 
@@ -74,14 +65,17 @@
            </a>
          </li>
 
-          <b-media no-body class="align-items-center" v-if="isLoggedIn">
-                  <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="img/theme/team-4.jpg">
-                  </span>
-            <b-media-body class="ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm  font-weight-bold">{{name}}</span>
-            </b-media-body>
-          </b-media>
+         <b-nav-item to="/cart"  exact exact-active-class="active" v-if="isLoggedIn">
+             <span class="nav-link-inner--text">Cart</span>
+         </b-nav-item>
+
+         <b-nav-item to="/profile"  exact exact-active-class="active" v-if="isLoggedIn">
+             <span class="nav-link-inner--text">Profile</span>
+         </b-nav-item>
+
+         <b-nav-item to="/logout"  exact exact-active-class="active" v-if="isLoggedIn">
+             <span class="nav-link-inner--text">Logout</span>
+         </b-nav-item>
        </b-navbar-nav>
      </template>
     </base-nav>

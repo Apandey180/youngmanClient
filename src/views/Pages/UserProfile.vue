@@ -19,13 +19,7 @@
     <b-container fluid class="mt--6">
       <b-row>
         <b-col xl="4" class="order-xl-2">
-          <user-card></user-card>
-
-          <!-- Progress track -->
-          <card>
-            <h5 slot="header" class="h3 mb-0">Progress track</h5>
-            <progress-track-list></progress-track-list>
-          </card>
+          <orders></orders>
         </b-col>
         <b-col xl="8" class="order-xl-1">
           <b-row>
@@ -80,14 +74,12 @@
 </template>
 <script>
   import EditProfileForm from './UserProfile/EditProfileForm.vue';
-  import UserCard from './UserProfile/UserCard.vue';
-  import ProgressTrackList from '@/views/Dashboard/ProgressTrackList';
+  import Orders from './Orders';
 
   export default {
     components: {
       EditProfileForm,
-      UserCard,
-      ProgressTrackList
+      Orders
     }
   };
 </script>

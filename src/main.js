@@ -21,6 +21,9 @@ import App from './App.vue';
 // router setup
 import router from "./routes/router";
 
+// google analytics
+import VueAnalytics from 'vue-analytics';
+
 // vuex setup
 import store from "./store";
 
@@ -41,6 +44,13 @@ Vue.prototype.$events = new Vue(); // Global event bus
 Vue.use(DashboardPlugin);
 Vue.filter('currency', currency)
 
+// use google analytics https://medium.com/js-dojo/how-to-use-google-analytics-in-your-vue-app-with-vue-analytics-9cdb913301d1
+/*
+Vue.use(VueAnalytics, {
+  id: 'UA-12345678-1',
+  router
+});
+*/
 
 const base = axios.create({
   baseURL: process.env.VUE_APP_URL,

@@ -6,11 +6,25 @@
     <b-container fluid class="mt--6">
       <b-row>
         <b-col lg="8">
-          <b-card>
+
+          <card gradient="success"
+      header-classes="bg-transparent"
+      footer-classes="bg-transparent"
+      body-classes="px-lg-7"
+      class="card-pricing border-0 text-center mb-4"
+      v-show="!products.length">
+  <!--Card Body-->
+  <div class="display-2 text-white">Your Cart is Empty</div>
+  <span class=" text-white">Please select some products</span>
+
+  <!--Footer-->
+   <router-link to="/products" slot="footer">
+  <base-button type="primary" class="mb-3">Start free trial</base-button>
+  </router-link>
+</card>
+
+          <b-card v-show="products.length">
             <h2>Your Cart</h2>
-            <p v-show="!products.length">
-              <i>Please add some products to cart.</i>
-            </p>
             <b-col sm="12" md="12" lg="12" v-for="item in products" :key="item.id"  style="width: 100%; height:30%;" >
               <cart-item v-bind:item="item"></cart-item >
             </b-col>
@@ -21,13 +35,6 @@
                   >Checkout</base-button
                 >
               </router-link>
-
-              <router-link to="/test">
-                <base-button type="primary" :disabled="!products.length"
-                  >Test</base-button
-                >
-              </router-link>
-
             </p>
             <p v-show="checkoutStatus">Checkout {{ checkoutStatus }}.</p>
           </b-card>
@@ -67,9 +74,6 @@
                 </div>
               </li>
             </ul>
-
-            <!--Footer-->
-            <a slot="footer" href="#!" class=" text-muted">Back to Cart</a>
           </card>
         </b-col>
       </b-row>
