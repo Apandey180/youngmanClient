@@ -18,7 +18,7 @@
 
     <div class="vhl-container" :style="_style.container">
       <div class="vhl-list" ref="list" :class="_options.list.class" :style="_style.list">
-        <div v-for="item in items" ref="item" class="vhl-item" :key="item.id" :class="_options.item.class" style="width: 300px; padding-left: 8px; padding-right: 8px;">
+        <div v-for="item in items" ref="item" class="vhl-item" :key="item.id" :class="_options.item.class" style="padding-left: 8px; padding-right: 8px;">
           <slot v-bind:item="item">{{item}}</slot>
         </div>
 
@@ -133,24 +133,24 @@
         const size = this._size
 
         // Full Screen Mode
-        //if (this.width.window < this._options.list.windowed) {
+        if (this.width.window < this._options.list.windowed) {
           style.container.marginLeft = `${this._options.list.padding}px`
           style.container.marginRight = `${this._options.list.padding}px`
-          style.container.width = `${screen.width - 100}px`;
+          //style.container.width = `${screen.width - 100}px`;
           style.item.width = `${(workingWidth - (size - 1) * this._options.item.padding) / size}px`
           style.item.paddingLeft = `${this._options.list.padding}px`
           style.item.paddingRight = `${this._options.item.padding}px`
           style.item.marginRight = `${this._options.list.padding}px`
-       // }
+        }
         // Windowed Mode
-       /* else {
+        else {
           style.item.paddingLeft = `${this._options.item.padding / 2}px`
           style.item.paddingRight = `${this._options.item.padding / 2}px`
           style.container.marginLeft = `${this._options.item.padding / 2}px`
-          style.container.width = `1300px`;
+          //style.container.width = `1300px`;
           style.container.marginRight = `${this._options.item.padding / 2}px`
           style.item.width = `${(workingWidth - (size - 1) * this._options.item.padding) / size}px`
-        }*/
+        }
         return style
       },
       _itemWidth() {
@@ -279,4 +279,10 @@
   .vhl-item {
     z-index: 1;
   }
+
+  .col-sm-4 {
+  
+    max-width: unset;
+}
+
 </style>
