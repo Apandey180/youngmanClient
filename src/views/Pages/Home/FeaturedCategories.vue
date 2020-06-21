@@ -7,16 +7,17 @@
       </b-row>
 
       <b-row>
-        <b-col v-for="item in featuredCategories" :key="item.id" xl="3" md="6">
-          <!-- Image-Text card -->
-          <b-card no-body :img-src="item.image" img-height=300 img-top  :alt="item.alt">
+        <horizontal-list :items="featuredCategories" :options="{responsive: [{size: 1}]}">
+        <template v-slot:default="{item}">
+          <b-card no-body :img-src="item.image" img-height=300 img-width=200 img-top  :alt="item.alt">
            
             <!-- Card body -->
             <b-card-body>
               <b-card-title class="h2 mb-0">{{item.name}}</b-card-title>
             </b-card-body>
           </b-card>
-        </b-col>
+        </template>
+      </horizontal-list>
       </b-row>
   
   </div>
@@ -25,8 +26,11 @@
 <script>
   import home from '../../../api/home';
 
+  import HorizontalList from '../../../components/HorizontalList';
+
   export default {
   components: {
+     HorizontalList
   },
   data() {
     return {
