@@ -12,9 +12,7 @@
           <b-card no-body :img-src="item.image" img-height=300 img-width=200 img-top  :alt="item.alt">
            
             <!-- Card body -->
-            <b-card-body>
-              <b-card-title class="h2 mb-0">{{item.name}}</b-card-title>
-            </b-card-body>
+            
           </b-card>
         </template>
       </horizontal-list>
