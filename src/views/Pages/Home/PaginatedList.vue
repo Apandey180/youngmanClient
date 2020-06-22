@@ -5,12 +5,21 @@
           <h6 class="h2 d-inline-block mb-0">Offers</h6>
         </b-col>
       </b-row>
-
       <b-row>
         <horizontal-list :items="offers" :options="options">
         <template v-slot:default="{item}">
-          <product-card v-bind:item="item"></product-card>
-        </template>
+<!--           <product-card v-bind:item="item"></product-card>
+ -->      <offer-card v-bind:item="item"></offer-card>  
+
+       </template>
+      </horizontal-list>
+
+       <horizontal-list :reviews="reviews" :options="options">
+                 <template v-slot:default="{review}">
+
+              <customer-review  v-bind:review="review"></customer-review>
+       </template>
+
       </horizontal-list>
       </b-row>
   
@@ -22,7 +31,8 @@
 import home from '../../../api/home';
 import HorizontalList from '../../../components/HorizontalList';
 import ProductCard from '../../Components/ProductCard';
-
+import OfferCard from '../../Components/OfferCard';
+import CustomerReview from '../../Components/CustomerReview';
 export default {
   data () {
     return { 
@@ -41,12 +51,21 @@ export default {
   },
   components: {
     HorizontalList,
-    ProductCard
+    ProductCard,
+    OfferCard,
+    CustomerReview
   },
   computed: {
    
     offers() {
             return this.$store.state.home.offers
+        },
+        reviews(){
+
+          return [  "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                    "when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        ]
         }
   },
   created () {

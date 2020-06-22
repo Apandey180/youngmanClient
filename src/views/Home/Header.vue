@@ -51,20 +51,22 @@
        <b-navbar-nav  class="align-items-lg-center ml-lg-auto">
         
          <!-- This item dont have <b-nav-item> because they add class 'nav-link' which is not needed here -->
-         <li class="nav-item d-none d-lg-block ml-lg-4" v-if="!isLoggedIn">
+
+           <form>
+            <input type="text" placeholder="Search.."></form>
+
+          <span style="font-size: 30px; color: Grey;"><i class="fas fa-cart-plus"></i></span>&nbsp;&nbsp;
+
+
+          <li class="nav-item d-none d-lg-block ml-lg-4" v-if="!isLoggedIn">
            <a href="/login" 
-              class="btn btn-neutral btn-icon">
+              class="btn btn-outline btn-icon">
              <span class="nav-link-inner--text">Sign In</span>
            </a>
          </li>
-         <li class="nav-item d-none d-lg-block ml-lg-4" v-if="!isLoggedIn">
-           <a href="/register"
-              class="btn btn-outline btn-icon">
-
-             <span class="nav-link-inner--text">Sign Up</span>
-           </a>
-         </li>
-
+		 
+         
+      
          <b-nav-item to="/cart"  exact exact-active-class="active" v-if="isLoggedIn">
              <span class="nav-link-inner--text">Cart</span>
          </b-nav-item>
