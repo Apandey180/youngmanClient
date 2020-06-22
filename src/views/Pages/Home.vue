@@ -13,6 +13,8 @@
       </b-row>
       
     </b-container>
+   <email-submit/>
+
   </div>
 </template>
 <script>
@@ -20,13 +22,15 @@
   import FeaturedCategories from './Home/FeaturedCategories';
   import Widgets from '../Widgets';
   import PaginatedList from './Home/PaginatedList';
-
+  import EmailSubmit from "./Home/EmailSubmit";
+ 
   export default {
     name: 'starter-page',
     components: {
       HomeCarousel,
       FeaturedCategories,
       PaginatedList,
+      EmailSubmit,
       Widgets
     },
     data() {
