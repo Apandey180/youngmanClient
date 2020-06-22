@@ -1,6 +1,6 @@
 <template>
   <div>
-    <base-header class="pb-6" style="background-color:#ffe411 !important">
+    <base-header class="pb-6" style="background-color:#f7dd38 !important">
       <b-row align-v="right" class="py-4">
        
       </b-row>

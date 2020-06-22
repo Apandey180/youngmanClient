@@ -41,24 +41,22 @@
           </center>
         </b-col>
         <b-col sm="12" md="6" lg="6">
-          <img src="https://picsum.photos/600/300/?image=25" height="150" width="600" />
-          <div>
-              
-        <span style="font-size: 24px; color: Grey;"><i class="fab fa-facebook-square"></i></span>&nbsp;&nbsp;
-        <span style="font-size: 24px; color: Grey;"><i class="fab fa-twitter"></i></span>&nbsp;&nbsp;
-       <span style="font-size: 24px; color: Grey;"><i class="fab fa-instagram"></i></span>&nbsp;&nbsp;
-        <span style="font-size: 24px; color: Grey;"><i class="fab fa-google-plus-g"></i></span>&nbsp;&nbsp;
-
-      
-
-          </div>
+          <b-row class="logo-footer col d-flex align-items-center justify-content-center">
+            <img src="img/brand/logo.png" class="col align-self-center"/>
+          </b-row>
+          
+          <b-row> 
+            <span style="font-size: 24px; color: Grey;" class="padding"><i class="fab fa-facebook-square"></i></span>
+            <span style="font-size: 24px; color: Grey;" class="padding"><i class="fab fa-twitter"></i></span>
+            <span style="font-size: 24px; color: Grey;" class="padding"><i class="fab fa-instagram"></i></span>
+            <span style="font-size: 24px; color: Grey;" class="padding"><i class="fab fa-google-plus-g"></i></span>
+          </b-row>
         </b-col>
       </b-row>
     </b-container>
     
   </footer>
 </template>
-<script src="/dist/vue-social-sharing.js"></script>
 
 <script>
 export default {
@@ -79,5 +77,15 @@ a {
 
 ul {
   list-style: none;
+}
+
+.padding{
+  padding: 9%;
+}
+
+.logo-footer{
+  padding-top: 8%;
+  height: 30%;
+  width: 85%;
 }
 </style>

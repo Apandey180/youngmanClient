@@ -7,12 +7,12 @@
       :transparent="true"
       menu-classes="justify-content-end"
       class="navbar-horizontal navbar-main"
-      style="background-color:#ffe411 !important"
+      style="background-color:#f7dd38 !important"
       expand="lg"
     >
       <div slot="brand" class="navbar-wrapper">
         <b-navbar-brand to="/">
-          <img src="img/brand/green.png">
+          <img src="img/brand/logo.png" class="shadow-sm logo"> 
         </b-navbar-brand>
       </div>
 
@@ -21,7 +21,7 @@
          <b-row>
            <b-col cols="6" class="collapse-brand">
              <router-link to="/">
-               <img src="img/brand/green.png">
+               <img src="img/brand/logo.png" class="logo">
              </router-link>
            </b-col>
            <b-col cols="6" class="collapse-close">
@@ -35,16 +35,16 @@
 
        <b-navbar-nav class="mr-auto">
          <b-nav-item to="/dashboard"  exact exact-active-class="active">
-             <span class="nav-link-inner--text">Home</span>
+             <dt><span class="nav-link-inner--text">Home</span></dt>
          </b-nav-item>
          <b-nav-item to="/products"  exact exact-active-class="active">
-             <span class="nav-link-inner--text">Products</span>
+             <dt><span class="nav-link-inner--text">Products</span></dt>
          </b-nav-item>
          <b-nav-item to="/training"  exact exact-active-class="active">
-             <span class="nav-link-inner--text">Training</span>
+             <dt><span class="nav-link-inner--text">Training</span></dt>
          </b-nav-item>
          <b-nav-item to="/about"  exact exact-active-class="active">
-             <span class="nav-link-inner--text">About</span>
+             <dt><span class="nav-link-inner--text">About</span></dt>
          </b-nav-item>
        </b-navbar-nav>
        <hr class="d-lg-none">
@@ -229,5 +229,10 @@
 
   .navbar-horizontal .navbar-nav .nav-link .nav-link-inner--text {
     color: rgba(0,0,0, 1);
+}
+
+.logo {
+  width: 60%;
+  height: auto !important;
 }
 </style>
