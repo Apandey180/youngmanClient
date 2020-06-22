@@ -1,22 +1,21 @@
 <template>
   <div>
-      <b-row align-v="center" class="py-4">
+      <b-row v-if="featuredCategories.length" align-v="center" class="py-4">
         <b-col lg="6" cols="7">
           <h6 class="h2 d-inline-block mb-0">Featured Categories</h6>
         </b-col>
       </b-row>
 
       <b-row>
-        <b-col v-for="item in featuredCategories" :key="item.id" xl="3" md="6">
-          <!-- Image-Text card -->
-          <b-card no-body :img-src="item.image" img-height=300 img-top  :alt="item.alt">
-           
-            <!-- Card body -->
-            <b-card-body>
-              <b-card-title class="h2 mb-0">{{item.name}}</b-card-title>
-            </b-card-body>
-          </b-card>
-        </b-col>
+        <horizontal-list :items="featuredCategories"
+                           :options="options">
+        <template v-slot:default="{item}">
+         
+            <div class="col-sm-4 col-lg-4 overflow-hidden">
+              <img :src="item.image"/>
+            </div>
+        </template>
+      </horizontal-list>
       </b-row>
   
   </div>
@@ -25,21 +24,46 @@
 <script>
   import home from '../../../api/home';
 
+  import HorizontalList from '../../../components/HorizontalList';
+
   export default {
   components: {
+     HorizontalList
   },
   data() {
     return {
+      options: {
+        responsive: [{end: 576, size: 1}, {start: 576, end: 768, size: 2},{start: 768, end: 992, size: 3},{size: 4}],
+        item: {class: 'col-sm-4 col-lg-4'},
+        list: {
+            // 1200 because @media (min-width: 1200px) and therefore I want to switch to windowed mode
+            windowed: 1200,
+            
+            // Because: #app {padding: 80px 24px;}
+            padding: 24
+          }
+        },
     };
   },
   computed: {
         featuredCategories() {
-            return this.$store.state.home.featuredCategories
+            return this.$store.state.home.featuredCategories;
         }
   },
-  created () {
+  beforeCreate () {
     this.$store.dispatch('home/getFeaturedCategories');
   }
 };
 </script>
 
+<style scoped>
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  .ImageBoxed {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+</style>

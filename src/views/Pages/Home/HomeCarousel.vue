@@ -1,12 +1,14 @@
 <template>
-  <div>
+  <div style="width:100%">
     <b-carousel
       id="home-carousel"
       v-model="slide"
       :interval="2000"
-      img-width="1024"
+      img-width="100%"
       img-height="480"
       controls
+      width="100%"
+      height="480"
       indicators
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
