@@ -10,8 +10,10 @@
         <home-carousel/>
         <featured-categories/>
         <paginated-list/>
-        <email-submit/>
         <customer-reviews/>
+      </b-row>
+      <b-row>
+        <email-submit/>
       </b-row>
     </b-container>
   </div>

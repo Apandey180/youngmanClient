@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer px-4 mx-2" style="background-color: #ffffff;">
+  <footer class="footer mar-top px-4 mx-2" style="background-color: #ffffff;">
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="12" md="3" lg="3">
@@ -44,7 +44,7 @@
           <b-row class="logo-footer col d-flex align-items-center justify-content-center">
             <img src="img/brand/logo.png" class="col align-self-center"/>
 
-            <div id="social">
+            <div id="social" class="padding">
             <a href="https://facebook.com" target="_blank"><span style="font-size: 24px; color: Grey;"><i class="fab fa-facebook-square"></i></span></a>
             <a href="https://twitter.com" target="_blank"><span style="font-size: 24px; color: Grey;"><i class="fab fa-twitter"></i></span></a>
             <a href="https://instagram.com" target="_blank"><span style="font-size: 24px; color: Grey;"><i class="fab fa-instagram"></i></span></a>
@@ -81,7 +81,7 @@ ul {
 }
 
 .padding{
-  padding: 9%;
+  padding: 5%;
 }
 
 .logo-footer{
@@ -94,5 +94,8 @@ ul {
     width: 85%;
     display: flex;
     justify-content: space-between;
+}
+.mar-top{
+  margin-top: 2%;
 }
 </style>
