@@ -8,19 +8,19 @@
           </center>
           <ul>
             <li>
-              <a href="#">View Our Catalogue</a>
+              <a href="!#" target="_blank">View Our Catalogue</a>
             </li>
             <li>
-              <a href="#">FAQs</a>
+              <a href="!#" target="_blank">FAQs</a>
             </li>
             <li>
-              <a href="#">Health and Safety</a>
+              <a href="!#" target="_blank">Health and Safety</a>
             </li>
             <li>
-              <a href="#">News</a>
+              <a href="!#" target="_blank">News</a>
             </li>
             <li>
-              <a href="#">About Us</a>
+              <a href="!#" target="_blank">About Us</a>
             </li>
             </ul>
         </b-col>
@@ -29,13 +29,13 @@
             <h2>WHAT WE DO</h2>
             <ul>
               <li>
-                <a href="#">Rent</a>
+                <a href="!#" target="_blank">Rent</a>
               </li>
               <li>
-                <a href="#">Lease</a>
+                <a href="!#" target="_blank">Lease</a>
               </li>
               <li>
-                <a href="#">Product Training</a>
+                <a href="!#" target="_blank">Product Training</a>
               </li>
             </ul>
           </center>
@@ -43,13 +43,14 @@
         <b-col sm="12" md="6" lg="6">
           <b-row class="logo-footer col d-flex align-items-center justify-content-center">
             <img src="img/brand/logo.png" class="col align-self-center"/>
-          </b-row>
-          
-          <b-row> 
-            <span style="font-size: 24px; color: Grey;" class="padding"><i class="fab fa-facebook-square"></i></span>
-            <span style="font-size: 24px; color: Grey;" class="padding"><i class="fab fa-twitter"></i></span>
-            <span style="font-size: 24px; color: Grey;" class="padding"><i class="fab fa-instagram"></i></span>
-            <span style="font-size: 24px; color: Grey;" class="padding"><i class="fab fa-google-plus-g"></i></span>
+
+            <div id="social">
+            <a href="https://facebook.com" target="_blank"><span style="font-size: 24px; color: Grey;"><i class="fab fa-facebook-square"></i></span></a>
+            <a href="https://twitter.com" target="_blank"><span style="font-size: 24px; color: Grey;"><i class="fab fa-twitter"></i></span></a>
+            <a href="https://instagram.com" target="_blank"><span style="font-size: 24px; color: Grey;"><i class="fab fa-instagram"></i></span></a>
+            <a href="https://google.com" target="_blank"><span style="font-size: 24px; color: Grey;"><i class="fab fa-google-plus-g"></i></span></a>
+            <span class="stretch"></span>
+            </div>
           </b-row>
         </b-col>
       </b-row>
@@ -87,5 +88,11 @@ ul {
   padding-top: 8%;
   height: 30%;
   width: 85%;
+}
+
+#social{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
 }
 </style>
