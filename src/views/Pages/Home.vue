@@ -11,6 +11,7 @@
         <featured-categories/>
         <paginated-list/>
         <email-submit/>
+        <customer-reviews/>
       </b-row>
     </b-container>
   </div>
@@ -21,6 +22,7 @@
   import Widgets from '../Widgets';
   import PaginatedList from './Home/PaginatedList';
   import EmailSubmit from "./Home/EmailSubmit";
+  import CustomerReviews from "./Home/CustomerReviews";
  
   export default {
     name: 'starter-page',
@@ -29,6 +31,7 @@
       FeaturedCategories,
       PaginatedList,
       EmailSubmit,
+      CustomerReviews,
       Widgets
     },
     data() {
