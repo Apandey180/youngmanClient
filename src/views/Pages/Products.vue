@@ -1,22 +1,17 @@
 <template>
 <div>
   <base-header class="pb-6" style="background-color:#ffe411 !important">
-  
-  <center>
-    <b-row align-v="right" class="py-4">
-      <sort></sort>
-    </b-row>
-</center>
-
-  </base-header>
+      <b-row align-v="right" class="py-4"> </b-row>
+    </base-header>
   <b-container fluid class="mt--6">
   <b-row>
-    <b-col align-v="left" sm="3" md="3" lg="3">
+    <b-col align-v="left" sm="12" md="3" lg="3">
       <product-filter></product-filter>
     </b-col>
-    <b-col sm="9" md="9" lg="9">
+    <b-col sm="12" md="9" lg="9">
+      <sort/>
       <b-row>
-        <b-col sm="1" md="4" lg="4" v-for="item in lists" :key="item.id">
+        <b-col sm="12" md="4" lg="4" v-for="item in lists" :key="item.id">
           <product-card v-bind:item="item"></product-card>
         </b-col>
       </b-row>
@@ -43,7 +38,7 @@
   import ProductFilter from './Products/ProductFilter';
   import ProductCard from '../Components/ProductCard';
   import RecentlySearched from './Products/RecentlySearchedProducts';
-import Sort from './Products/Sort';
+  import Sort from './Products/Sort';
   export default {
     components: {
       FadeTransition,

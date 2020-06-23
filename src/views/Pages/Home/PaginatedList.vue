@@ -8,19 +8,10 @@
       <b-row>
         <horizontal-list v-if="offers" :items="offers" :options="options">
         <template v-slot:default="{item}">
-<!--           <product-card v-bind:item="item"></product-card>
- -->      <offer-card v-bind:item="item"></offer-card>  
+         <offer-card v-bind:item="item"></offer-card>  
 
        </template>
       </horizontal-list>
-
-       <!-- <horizontal-list v-if="reviews" :reviews="reviews" :options="options">
-                 <template v-slot:default="{review}">
-
-              <customer-review  v-bind:review="review"></customer-review>
-       </template>
-
-      </horizontal-list> -->
       </b-row>
   
   </div>

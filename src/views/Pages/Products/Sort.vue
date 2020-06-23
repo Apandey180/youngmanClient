@@ -1,15 +1,11 @@
 <template>
     
-<div>
-  <b-navbar type="" variant="" style="padding-left:382px;margin-bottom:-35px ">
-    <b-navbar-nav>
-      <b-nav-item href="#">Sort By</b-nav-item>
-      <b-nav-item href="#">Popularity</b-nav-item>
-      <b-nav-item href="#">Price low to High</b-nav-item>
-      <b-nav-item href="#">Newest First</b-nav-item>
-    </b-navbar-nav>
-  </b-navbar>
+  <div style="display: flex; justify-content: left;">
+    <button type="button" class="btn btn-link">Sort By</button>
+      <button type="button" class="btn btn-link">Popularity</button>
+      <button type="button" class="btn btn-link">Price low to High</button>
+      <button type="button" class="btn btn-link">Newest First</button>
+  
 </div>
-
 
 </template>
