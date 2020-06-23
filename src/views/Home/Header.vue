@@ -65,12 +65,13 @@
             </span>
          </b-nav-item>
 
-
-          <span style="font-size: 30px; color: Grey;"><i class="fas fa-map-marker-alt" v-b-modal.modal-1 ></i></span>&nbsp;&nbsp;
-
+<b-nav-item link-classes="nav-link-icon" exact-active-class="active"
+              data-toggle="tooltip" data-original-title="Location" >
+          <span style="font-size: 30px; color: Grey;"><i class="fas fa-map-marker-alt" v-b-modal.modal-1 ></i>
+          <span class="nav-link-inner--text d-lg-none">Location</span></span>
+</b-nav-item>
            <b-modal id="modal-1" title="Location">
-
-         <b-form-input  placeholder="Enter Pincode"></b-form-input>
+            <b-form-input  placeholder="Enter Pincode"></b-form-input>
            </b-modal>
           <li class="nav-item d-none d-lg-block ml-lg-4" v-if="!isLoggedIn">
            <a href="/login" 
