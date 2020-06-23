@@ -1,12 +1,12 @@
 <template>
   <div>
-      <b-row align-v="center" class="py-4">
+      <b-row  v-if="offers" align-v="center" class="py-4">
         <b-col lg="6" cols="7">
           <h6 class="h2 d-inline-block mb-0">Offers</h6>
         </b-col>
       </b-row>
       <b-row>
-        <horizontal-list :items="offers" :options="options">
+        <horizontal-list v-if="offers" :items="offers" :options="options">
         <template v-slot:default="{item}">
 <!--           <product-card v-bind:item="item"></product-card>
  -->      <offer-card v-bind:item="item"></offer-card>  
@@ -14,7 +14,7 @@
        </template>
       </horizontal-list>
 
-       <horizontal-list :reviews="reviews" :options="options">
+       <horizontal-list v-if="reviews" :reviews="reviews" :options="options">
                  <template v-slot:default="{review}">
 
               <customer-review  v-bind:review="review"></customer-review>

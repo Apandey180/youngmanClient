@@ -14,13 +14,13 @@
       @sliding-end="onSlideEnd"
     >
       <!-- Text slides with image -->
-      <router-link to="/products">
+
       <b-carousel-slide
         v-for="item in carouselItems"
         :key="item.id"
         :img-src="item.image"
       ></b-carousel-slide>
-      </router-link>
+   
     </b-carousel>
   </div>
 </template>

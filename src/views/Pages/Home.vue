@@ -10,11 +10,9 @@
         <home-carousel/>
         <featured-categories/>
         <paginated-list/>
+        <email-submit/>
       </b-row>
-      
     </b-container>
-   <email-submit/>
-
   </div>
 </template>
 <script>

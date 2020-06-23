@@ -1,14 +1,10 @@
 <template>
 
-<b-container class="bv-example-row">
-  <b-row>
-      
-    <b-col>    <b-form-input  placeholder="Enter your Email"></b-form-input></b-col>
-    <b-col><button type="submit">submit</button></b-col>
-
-    </b-row>
-</b-container>
-
-
+<div class="input-group mb-3 col-lg-6  offset-lg-3" >
+  <input type="text" class="form-control" placeholder="Enter your Email" aria-label="Enter your Email" aria-describedby="useremail">
+  <div class="input-group-append">
+    <button class="btn btn-outline-primary" type="button" id="button-addon2">Submit</button>
+  </div>
+</div>
 
 </template>

@@ -1,13 +1,13 @@
 <template>
   <div>
-      <b-row v-if="featuredCategories.length" align-v="center" class="py-4">
+      <b-row v-if="featuredCategories" align-v="center" class="py-4">
         <b-col lg="6" cols="7">
           <h6 class="h2 d-inline-block mb-0">Featured Categories</h6>
         </b-col>
       </b-row>
 
       <b-row>
-        <horizontal-list :items="featuredCategories"
+        <horizontal-list v-if="featuredCategories"  :items="featuredCategories"
                            :options="options">
         <template v-slot:default="{item}">
          
