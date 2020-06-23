@@ -1,5 +1,6 @@
 <template>
   <div style="width:100%">
+    <router-link to="/products">
     <b-carousel
       id="home-carousel"
       v-model="slide"
@@ -22,6 +23,7 @@
       ></b-carousel-slide>
    
     </b-carousel>
+    </router-link>
   </div>
 </template>
 
