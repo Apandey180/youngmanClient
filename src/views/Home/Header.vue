@@ -53,6 +53,8 @@
            <form>
             <input type="text" class="form-control" placeholder="Search.."></form>
 
+
+
           <b-nav-item link-classes="nav-link-icon" to="/cart" exact exact-active-class="active"
               data-toggle="tooltip" data-original-title="Cart" >
             
@@ -63,6 +65,13 @@
             </span>
          </b-nav-item>
 
+
+          <span style="font-size: 30px; color: Grey;"><i class="fas fa-map-marker-alt" v-b-modal.modal-1 ></i></span>&nbsp;&nbsp;
+
+           <b-modal id="modal-1" title="Location">
+
+         <b-form-input  placeholder="Enter Pincode"></b-form-input>
+           </b-modal>
           <li class="nav-item d-none d-lg-block ml-lg-4" v-if="!isLoggedIn">
            <a href="/login" 
               class="btn btn-outline btn-icon">
@@ -78,7 +87,14 @@
              <span class="nav-link-inner--text">Logout</span>
          </b-nav-item>
        </b-navbar-nav>
+<br><br>
+
+      
+  		 
      </template>
+
+    
+
     </base-nav>
 
     <div class="main-content">
@@ -92,7 +108,12 @@
 
     <content-footer/>
   </div>
+
+  
 </template>
+
+<style>
+</style>
 <script>
   import { BaseNav } from '@/components';
   import { ZoomCenterTransition } from 'vue2-transitions';
