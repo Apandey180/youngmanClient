@@ -1,8 +1,13 @@
 <template>
 <div>
   <base-header class="pb-6" style="background-color:#ffe411 !important">
+  
+  <center>
     <b-row align-v="right" class="py-4">
+      <sort></sort>
     </b-row>
+</center>
+
   </base-header>
   <b-container fluid class="mt--6">
   <b-row>
@@ -25,9 +30,9 @@
     </b-col>
   </b-row>
 
-  <!--b-row>
+  <b-row>
     <recently-searched></recently-searched>
-  </b-row-->
+  </b-row>
   <router-view></router-view>
   </b-container>
   </div>
@@ -38,13 +43,14 @@
   import ProductFilter from './Products/ProductFilter';
   import ProductCard from '../Components/ProductCard';
   import RecentlySearched from './Products/RecentlySearchedProducts';
-
+import Sort from './Products/Sort';
   export default {
     components: {
       FadeTransition,
       ProductFilter,
       ProductCard,
-      RecentlySearched
+      RecentlySearched,
+      Sort
     },
     data() {
       return {
