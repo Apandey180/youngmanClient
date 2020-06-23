@@ -13,7 +13,7 @@
          
             <div class="col-sm-4 col-lg-4 overflow-hidden img-container">
               <router-link to="/products">
-                <img :src="item.image" class="image"/>
+                <img :src="item.image" class="image rounded"/>
                 <div class="middle">
                   <div class="text">{{item.name}}</div>
                 </div>

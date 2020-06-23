@@ -10,7 +10,7 @@
     <!-- Card body -->
     <b-card-body >
      <b-row>
-            <b-col sm="12" md="12" lg="12">
+            <b-col sm="12" md="12" lg="12" style="height:556px">
             <b-form-group label="Categories">
             <b-form-checkbox-group
                 v-model="categories_selected"
@@ -21,7 +21,7 @@
             </b-form-group>
             </b-col>
         </b-row>
-
+<!-- 
         <b-row>
             <b-col sm="12" md="12" lg="12">
             <label for="range-1">No. of Person Working</label>
@@ -67,7 +67,7 @@
             </b-form-group>
             </b-col>
         </b-row>
-
+ -->
     </b-card-body>
   </b-card>
 
