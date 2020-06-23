@@ -7,6 +7,7 @@
     width="300"
     img-top
     alt="Image placeholder"
+    class="card-lift--hover shadow border-0"
   >
     <!-- Card image -->
 
