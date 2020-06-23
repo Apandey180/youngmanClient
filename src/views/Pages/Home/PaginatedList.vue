@@ -14,13 +14,13 @@
        </template>
       </horizontal-list>
 
-       <horizontal-list v-if="reviews" :reviews="reviews" :options="options">
+       <!-- <horizontal-list v-if="reviews" :reviews="reviews" :options="options">
                  <template v-slot:default="{review}">
 
               <customer-review  v-bind:review="review"></customer-review>
        </template>
 
-      </horizontal-list>
+      </horizontal-list> -->
       </b-row>
   
   </div>
@@ -60,13 +60,9 @@ export default {
     offers() {
             return this.$store.state.home.offers
         },
-        reviews(){
+        // reviews(){
 
-          return [  "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
-                    "when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        ]
-        }
+        // }
   },
   created () {
     this.$store.dispatch('home/getOffers');

@@ -1,4 +1,5 @@
 <template>
+  <router-link :to="url">
   <b-card
     no-body
     :img-src="item.image"
@@ -54,6 +55,7 @@
         </b-row>
     </b-card-footer>
   </b-card>
+  </router-link>
 </template>
 
 <script>
