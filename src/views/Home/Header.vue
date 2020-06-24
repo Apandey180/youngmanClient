@@ -60,7 +60,7 @@
             
              <span style="font-size: 24px; color: Grey;">
              <i class="fas fa-shopping-cart mr-2"></i>
-             <span class="nav-link-inner--text d-lg-none">Cart</span>
+         <b>    <span class="nav-link-inner--text d-lg-none" style="font-size: 15px; color:#000000;" >Cart</span></b>
              
             </span>
          </b-nav-item>
@@ -68,7 +68,7 @@
 <b-nav-item link-classes="nav-link-icon" exact-active-class="active"
               data-toggle="tooltip" data-original-title="Location" >
           <span style="font-size: 30px; color: Grey;"><i class="fas fa-map-marker-alt" v-b-modal.modal-1 ></i>
-          <span class="nav-link-inner--text d-lg-none">Location</span></span>
+        <b>  <span class="nav-link-inner--text d-lg-none" style="font-size: 15px; color:#000000;"   >Location</span></b></span>
 </b-nav-item>
            <b-modal id="modal-1" title="Location">
             <b-form-input  placeholder="Enter Pincode"></b-form-input>
