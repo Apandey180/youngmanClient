@@ -2,11 +2,10 @@
   <footer class="footer mar-top px-4 mx-2" style="background-color: #ffffff;">
     <b-container class="bv-example-row">
       <b-row>
-        <b-col sm="12" md="3" lg="3">
-          <center>
+        <b-col sm="3" md="3" lg="3">
+          
             <h2>EXPLORE YOUNGMAN</h2>
-          </center>
-          <ul>
+            <ul>
             <li>
               <a href="!#" target="_blank">View Our Catalogue</a>
             </li>
@@ -23,9 +22,10 @@
               <a href="!#" target="_blank">About Us</a>
             </li>
             </ul>
+            
         </b-col>
-        <b-col sm="12" md="3" lg="3">
-          <center>
+        <b-col sm="3" md="3" lg="3">
+          
             <h2>WHAT WE DO</h2>
             <ul>
               <li>
@@ -38,7 +38,7 @@
                 <a href="!#" target="_blank">Product Training</a>
               </li>
             </ul>
-          </center>
+          
         </b-col>
         <b-col sm="12" md="6" lg="6">
           <b-row class="logo-footer col d-flex align-items-center justify-content-center">
