@@ -72,51 +72,10 @@ const _recent = [
 ]
   
   export default {
-    getProducts (cb) {
-      cb([
-        {
-            "id": 1,
-            "title": "Ladder",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                tempor incididunt ut labore et dolore magna aliqua consequat.",
-            "inventory": 21,
-            "price": 7500,
-            "original_price": 8000,
-            "image": "https://images-na.ssl-images-amazon.com/images/I/713kcEI7hjL._SL1500_.jpg",
-            "rating": 4,
-            "offer": "FLAT 5% Off",
-            "created_at": "2020-06-01T07:11:18.000000Z",
-            "updated_at": null,
-            "deleted_at": null
-        },
-        {
-            "id": 2,
-            "title": "Scaffolding",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                tempor incididunt ut labore et dolore magna aliqua consequat.",
-            "inventory": 21,
-            "price": 7500,
-            "original_price": 8000,
-            "image": "https://youngman.co.in/wp-content/uploads/2017/10/30233000_PI.jpeg",
-            "rating": 4,
-            "offer": "FLAT 5% Off",
-            "created_at": "2020-06-01T07:11:18.000000Z",
-            "updated_at": null,
-            "deleted_at": null
-        },
-        {
-            "id": 3,
-            "title": "WorkPlatform",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                tempor incididunt ut labore et dolore magna aliqua consequat.",
-            "inventory": 21,
-            "price": 8000,
-            "original_price": 8000,
-            "image": "https://images-na.ssl-images-amazon.com/images/I/717y8K5Tl2L._SL1500_.jpg",
-            "rating": 4,
-            "offer": null,
-            "created_at": "2020-06-01T07:11:18.000000Z",
-            "updated_at": null,
-            "deleted_at": null
-        }
-    ])
+    getProducts (filterProperties, cb) {
+      apiClient.get('/api/products').then(resp => {
+        cb(resp.data)
+    });
     },
   
     getProductById (id) {

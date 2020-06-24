@@ -40,9 +40,19 @@ const getters = {
 
 // actions
 const actions = {
-  getAllProducts ({ commit }) {
+  getAllProducts ({ commit, state }, filterProperties) {
     // Pass filter properties here
-    shop.getProducts(products => {
+
+    /*
+    {
+      sort_by: "RATING",
+      category: 5,  // Category id
+      material: 1,  // material id
+    }
+    */
+
+    shop.getProducts(filterProperties,
+      products => {
       commit('setProducts', products)
     })
   },
