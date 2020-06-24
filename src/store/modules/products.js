@@ -33,6 +33,7 @@ const getters = {
 
   getProductById: state => product_id => {
     shop.getProductById(product => {
+      console.log(product);
       return product;
     }, product_id);
   }
@@ -40,18 +41,15 @@ const getters = {
 
 // actions
 const actions = {
-  getAllProducts ({ commit, state }, filterProperties) {
+  getAllProducts ({ commit, state }, filterProperties = null) {
     // Pass filter properties here
-
-    /*
-    {
-      sort_by: "RATING",
-      category: 5,  // Category id
-      material: 1,  // material id
+    const params = new URLSearchParams();
+    if (filterProperties != null) {
+      params.append('order_by', filterProperties.sort_by);
     }
-    */
+    params.append('category', state.categories_selected);
 
-    shop.getProducts(filterProperties,
+    shop.getProducts(params,
       products => {
       commit('setProducts', products)
     })
