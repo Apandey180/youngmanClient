@@ -20,7 +20,7 @@ export default {
       this.$store.dispatch('products/getAllProducts', {sort_by: "PRICE"})
     },
     sortByDate() {
-      this.$store.dispatch('products/getAllProducts', {sort_by: "DATE"})
+      this.$store.dispatch('products/getAllProducts', {sort_by: "CREATED_AT"})
     }
   }
 }
