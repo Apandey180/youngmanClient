@@ -78,8 +78,10 @@ const _recent = [
     });
     },
   
-    getProductById (id) {
-      return apiClient.get('/api/product/'+id);
+    getProductById (id, cb) {
+      apiClient.get('/api/product/'+id).then(resp => {
+        cb(resp.data)
+    });
     },
 
     getAllCategories (cb) {
