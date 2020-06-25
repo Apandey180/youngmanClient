@@ -133,6 +133,7 @@ const mutations = {
   },
 
   setProductDetails(state, product) {
+    // debugger
     state.product = product
   }
 

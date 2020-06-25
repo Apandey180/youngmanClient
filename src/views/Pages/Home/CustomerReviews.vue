@@ -34,44 +34,12 @@ export default {
     CustomerReview
   },
   computed: {
-    //reviews() {
-    //    return this.$store.state.home.offers
-    //},
     reviews() {
-      return [
-        {
-          id: 1,
-          rating: 3.5,
-          text:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-          name: "Henry FOrd"
-        },
-        {
-          id: 2.0,
-          rating: 4.5,
-          text:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-          name: "Henry FOrd"
-        },
-        {
-          id: 3,
-          rating: 2,
-          text:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-          name: "Henry FOrd"
-        },
-        {
-          id: 4,
-          rating: 3,
-          text:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-          name: "Henry FOrd"
-        }
-      ];
+       return this.$store.state.home.topReviews
     }
   },
   created() {
-    //this.$store.dispatch('home/getOffers');
+    this.$store.dispatch('home/getTopReviews');
   }
 };
 </script>

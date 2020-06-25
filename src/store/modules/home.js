@@ -5,7 +5,8 @@ import home from '../../api/home'
 const state = () => ({
     featuredCategories: null,
     offers: null,
-    carousel: null
+    carousel: null,
+    topReviews: null
 })
 
 // getters
@@ -40,6 +41,12 @@ const actions = {
         home.getOffers(offers => {
           commit('setOffers', offers)
         })
+      },
+
+      getTopReviews({commit}) {
+        home.getTopReviews(reviews => {
+          commit('setTopReviews', reviews)
+        })
       }
 }
 
@@ -53,6 +60,9 @@ const mutations = {
       },
       setOffers (state, offers) {
         state.offers = offers
+      },
+      setTopReviews (state, topReviews) {
+        state.topReviews = topReviews
       },
 }
 
