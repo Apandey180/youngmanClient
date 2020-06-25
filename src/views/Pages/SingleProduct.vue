@@ -4,7 +4,6 @@
       <b-row align-v="right" class="py-4"> </b-row>
     </base-header>
     <b-container fluid class="mt--6">
-      {{product}}
       <b-card v-if="product">
         <h2 slot="header" class="mb-0">{{ product.item_name }}</h2>
 
@@ -73,10 +72,7 @@ export default {
 
   computed: {
     product() {
-      // let product_id = `${this.$route.params.id}`;
-      // return  shop.getProductById(product_id);
-      console.log(this.$store.state.product)
-      return this.$store.state.product;
+      return this.$store.state.products.product;
     }
   },
 
