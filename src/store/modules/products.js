@@ -86,7 +86,7 @@ const actions = {
 
   getProductById({commit}, product_id) {
     shop.getProductById(product_id, product => {
-      debugger
+      // debugger
       commit('setProductDetails',product )
     });
   }
@@ -134,6 +134,7 @@ const mutations = {
   },
 
   setProductDetails(state, product) {
+    // debugger
     state.product = product
   }
 

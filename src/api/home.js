@@ -17,5 +17,11 @@ export default {
         apiClient.get('/api/offers').then(resp => {
             cb(resp.data)
         });
+    },
+
+    getTopReviews(cb) {
+        apiClient.get('/api/getTopReviews').then(resp => {
+            cb(resp.data)
+        });
     }
 }

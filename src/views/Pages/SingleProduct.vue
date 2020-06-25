@@ -67,17 +67,19 @@ export default {
   data() {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
+      product: null
     };
   },
 
   computed: {
-    product() {
-      // let product_id = `${this.$route.params.id}`;
-      // return  shop.getProductById(product_id);
-      console.log(this.$store.state.product)
-      return this.$store.state.product;
-    }
+    // product() {
+    //   // let product_id = `${this.$route.params.id}`;
+    //   // return  shop.getProductById(product_id);
+    //   // console.log(this.$store.state.product)
+    //   const product =  this.getproduct();
+    //   return product;
+    // }
   },
 
   methods: {
@@ -90,14 +92,21 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
+    }, 
+    getproduct() {
+      console.log(this.$store.state.product)
+      return this.$store.state.product;
     }
   },
 
   mounted() {
   },
 
-  beforeMount() {
+  beforeCreate() {
     this.$store.dispatch('products/getProductById', `${this.$route.params.id}`);
+  },
+  created() {
+    this.product = this.getproduct();
   }
 };
 </script>
