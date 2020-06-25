@@ -133,7 +133,7 @@ const mutations = {
     product.inventory += quantity
   },
 
-  setProductDetails(state, {product}) {
+  setProductDetails(state, product) {
     state.product = product
   }
 
