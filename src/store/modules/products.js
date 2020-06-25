@@ -86,7 +86,6 @@ const actions = {
 
   getProductById({commit}, product_id) {
     shop.getProductById(product_id, product => {
-      // debugger
       commit('setProductDetails',product )
     });
   }
