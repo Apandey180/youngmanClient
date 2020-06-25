@@ -13,7 +13,9 @@ const state = () => ({
   additional_selected: [],
   width_selected: [], 
 
-  recent_products: []
+  recent_products: [],
+
+  product:null
 })
 
 // getters
@@ -31,11 +33,8 @@ const getters = {
     return state.width_selected;
   },
 
-  getProductById: state => product_id => {
-    shop.getProductById(product => {
-      console.log(product);
-      return product;
-    }, product_id);
+  getProductById: state => {
+    return state.product;
   }
 }
 
@@ -83,6 +82,13 @@ const actions = {
     shop.getRecentProducts(recentProducts => {
       commit('setRecentProducts', recentProducts)
     })
+  },
+
+  getProductById({commit}, product_id) {
+    shop.getProductById(product_id, product => {
+      debugger
+      commit('setProductDetails',product )
+    });
   }
 }
 
@@ -126,6 +132,10 @@ const mutations = {
     const product = state.all.find(product => product.id === id)
     product.inventory += quantity
   },
+
+  setProductDetails(state, {product}) {
+    state.product = product
+  }
 
 }
 
