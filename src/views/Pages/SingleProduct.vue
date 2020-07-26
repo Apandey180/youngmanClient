@@ -67,7 +67,6 @@ export default {
     return {
       slide: 0,
       sliding: null,
-      product: null
     };
   },
 
@@ -87,11 +86,7 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
-    }, 
-    getproduct() {
-      console.log(this.$store.state.product)
-      return this.$store.state.product;
-    }
+    },
   },
 
   mounted() {
@@ -99,9 +94,6 @@ export default {
 
   beforeCreate() {
     this.$store.dispatch('products/getProductById', `${this.$route.params.id}`);
-  },
-  created() {
-    this.product = this.getproduct();
   }
 };
 </script>

@@ -86,18 +86,19 @@ export default {
         },
         //try submitting from here instead of checkout
         // submitPaymentDetails() {
-            // this.$events.$emit('submitPaymentDetails');
-            // const shippingDetails = this.$store.state.checkout.shipping_details;
-            // const self = this; 
-            // return new Promise(function(resolve, reject) {
-            //     checkoutApi.submitShippingDetailsForm(shippingDetails).then(response => {
-            //     self.notify('success', 'Shipping Details added')
-            //     resolve(true);
-            //     }).catch(error => {
-            //     self.notify('danger', 'Some error occurred');
-            //     reject(false)
-            //     });
-            // });
+        //     console.log(this.payment);
+        //     this.$events.$emit('submitPaymentDetails');
+        //     const shippingDetails = this.$store.state.checkout.shipping_details;
+        //     const self = this; 
+        //     return new Promise(function(resolve, reject) {
+        //         checkoutApi.submitShippingDetailsForm(shippingDetails).then(response => {
+        //         self.notify('success', 'Shipping Details added')
+        //         resolve(true);
+        //         }).catch(error => {
+        //         self.notify('danger', 'Some error occurred');
+        //         reject(false)
+        //         });
+        //     });
         // },
     },
 
