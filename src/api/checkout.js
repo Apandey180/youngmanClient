@@ -17,7 +17,6 @@ export default {
     },
 
     createCustomer(customer){
-      console.log(apiClient.post('api/createCustomer',customer));
       return apiClient.post('api/createCustomer',customer);
     },
 

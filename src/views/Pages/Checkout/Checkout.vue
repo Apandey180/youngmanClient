@@ -152,6 +152,11 @@ export default {
           type
         });
       },
+  },
+  mounted() {
+    this.$events.$on('tabChange', () => {
+          this.$refs.wizard.nextTab();
+       });
   }
 };
 </script>
