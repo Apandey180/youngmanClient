@@ -1,0 +1,206 @@
+.pills_blk {
+  display: none !important;
+}
+.home-page {
+  position: relative;
+}
+.mobile_carousel {display: none !important;}
+.web_carousel {display: flex !important;}
+.slider_block {
+  border-radius: 20px;
+  padding: 5px;
+  margin: 0 auto;
+  width: 91%;
+  margin-top: 6%;
+}
+.carousel-item {
+  height: 350px;
+}
+.row_block {margin-top: 25px;}
+.row_block h6 {font-weight: bold;}
+.container-fluid{
+  padding-left: 0px;
+  margin-top: 20px;
+}
+.featured_grid .card {
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px 0px #ccc;
+  padding: 25px;
+  height: 356px;
+}
+.offer_grid .offer_card {
+  min-height: 160px;
+}
+.rating {
+  bottom: 6px;
+  position: absolute;
+  right: 15px;
+}
+.dollor {
+  position: absolute;
+  bottom: 6px;
+}
+.reviews_grid .card {
+  border: none;
+}
+.reviews_grid .card-body {
+  padding: 7px 12px;
+}
+.reviews_grid .b-icon {
+  margin-left: 5px;
+}
+.send_fb_blk {
+  margin-top: 60px;
+}
+.send_fb_blk .form-control {
+  border: none;
+  background: transparent;
+}
+.send_fb_blk .input-group {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 33%;
+}
+.send_fb_blk .btn {
+  border-radius: 20px !important;
+  padding: 5px 25px;
+  margin: 2px;
+  background: #fee501;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-color: #fee501;
+}
+.carousel {border-radius: 20px !important;box-shadow: 1px 1px 15px 1px #757575;}
+.carousel img{width: 100%;height: 123%;}
+.carousel-inner {height: 430px;}
+.carousel-item {border-radius: 20px !important;}
+.carousel-item img {border-radius: 20px !important;}
+.price_card {
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #ccc;
+}
+.home_slider_blk .VueCarousel-navigation-button {
+  font-size: 42px !important;
+  border-radius: 37px !important;
+  box-shadow: 1px 1px 10px 1px #757575;
+  padding: 0px 22px 6px 22px !important;
+  outline: none !important;
+}
+.home_slider_blk .VueCarousel-navigation-next {right: 25px !important;}
+.home_slider_blk .VueCarousel-navigation-prev {left: 45px !important;}
+.home_slider_blk .VueCarousel-slide {
+  padding: 10px;
+}
+.customercare_card {
+    border-radius: 0px !important;
+    background-color: #f6f0f0 !important;
+    border: none !important;
+    margin-bottom: 15px;
+    padding: 18px 2px;
+    margin-top: 30px;
+}
+.customercare_card h6 {
+    font-size: 15px;;
+    font-weight: bold;
+    opacity: 0.8;
+}
+.customercare_card ul li {
+    font-size: 14px;
+    list-style: none;
+    font-weight: bold;
+    opacity: 0.8;
+}
+.customercare_card ul {
+    margin-left: -40px;
+}
+.bi-box-seam, .bi-shop-window {
+    opacity: 0.8;
+    font-size: 20px;
+}
+.images_blk .card-body{text-align: center;}
+.images_blk .card {
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 0px #ccc;
+}
+.images_blk .card img {
+  width: 100px;
+  height: 100px;
+}
+
+@media only screen and (max-width: 768px) {
+  .home-page {margin-top: -68%;}
+  .send_fb_blk .input-group {
+    width: 100%;
+  }
+  .web_carousel {display: none !important;}
+  .mobile_carousel {display: flex !important;}
+  .slider_block {
+    margin-top: 13%;
+  }
+
+  .pills_blk {
+    display: table !important;
+    margin: 0 auto;
+  }
+  .pills_blk .badge-light {
+    padding: 13px 0px;
+    min-width: 100px;
+  }
+  .offer_grid .card img {
+    width: 100%;
+  }
+  .featured_grid img {
+    width: 100%;
+  }
+  .carousel_blk {
+    margin-top: 20px;
+  }
+  .VueCarousel-navigation-prev {
+    margin-left: 5px !important;
+  }
+  .VueCarousel-navigation-next {
+    margin-right: 5px !important;
+  }
+}
+
+/* image transition styles */
+.img-container {
+  position: relative;
+}
+
+.img__description_layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.6);
+  color: #000;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 36px;
+  cursor: pointer;
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.img-container:hover .img__description_layer {
+  visibility: visible;
+  opacity: 1;
+}
+
+.img__description {
+  transition: .2s;
+  transform: translateY(1em);
+}
+
+.img-container:hover .img__description {
+  transform: translateY(0);
+}

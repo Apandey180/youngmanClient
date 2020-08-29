@@ -46,6 +46,9 @@
     "vue-flatpickr-component": "^8.1.2",
     "vue-form-wizard": "^0.8.4",
     "vue-router": "^3.0.6",
+    "vue-slick-carousel": "^1.0.6",
+    "vue-slider-component": "^3.2.2",
+    "vue-smart-pagination": "^2.0.9",
     "vue2-transitions": "^0.2.3",
     "vuex": "^3.4.0"
   },

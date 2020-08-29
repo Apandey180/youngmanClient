@@ -1,27 +1,22 @@
 <template>
-  <div>
-      <b-row v-if="featuredCategories" align-v="center" class="py-4">
-        <b-col lg="6" cols="7">
-          <h6 class="h2 d-inline-block mb-0">Featured Categories</h6>
-        </b-col>
-      </b-row>
+  <div class="row_block featured_grid">
+      <h6 class="h2 d-inline-block mb-0">Featured Categories</h6>
 
-      <b-row>
-        <horizontal-list v-if="featuredCategories"  :items="featuredCategories"
-                           :options="options">
-        <template v-slot:default="{item}">
-         
-            <div class="col-sm-4 col-lg-4 overflow-hidden img-container">
-              <router-link to="/products">
-                <img :src="item.image" class="image rounded"/>
-                <div class="middle">
-                  <div class="text">{{item.name}}</div>
-                </div>
-              </router-link>
-            </div>
-        </template>
-      </horizontal-list>
-      </b-row>
+      <b-container fluid class="bv-example-row home_slider_blk">
+        <horizontal-list v-if="featuredCategories"  :items="featuredCategories" :options="options">
+          <template v-slot:default="{item}">
+          
+              <div class="col-sm-4 col-lg-4 overflow-hidden img-container">
+                <router-link to="/products">
+                  <img src="@/assets/images/product_1.png" class="image rounded img__img"/>
+                  <div class="img__description_layer">
+                    <p class="text">{{item.name}}</p>
+                  </div>
+                </router-link>
+              </div>
+          </template>
+        </horizontal-list>
+      </b-container>
   
   </div>
 </template>

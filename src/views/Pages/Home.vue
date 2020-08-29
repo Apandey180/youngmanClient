@@ -1,21 +1,20 @@
 <template>
-  <div>
-    <base-header class="pb-6" style="background-color:#f7dd38 !important">
-      <b-row align-v="right" class="py-4">
-       
-      </b-row>
-    </base-header>
-    <b-container fluid class="mt--6">
-      <b-row class="starter-page">
+  <div class="main-body home-page">
+    <div class="slider_block">
+      <div class="pills_blk">
+        <b-row>
+          <b-col><b-badge pill variant="light">Rent</b-badge></b-col>
+          <b-col><b-badge pill variant="light">Track Order</b-badge></b-col>
+          <b-col><b-badge pill variant="light">Offer Zone</b-badge></b-col>
+        </b-row>
+      </div>
+
         <home-carousel/>
         <featured-categories/>
         <paginated-list/>
         <customer-reviews/>
-      </b-row>
-      <b-row>
         <email-submit/>
-      </b-row>
-    </b-container>
+    </div>
   </div>
 </template>
 <script>
@@ -42,7 +41,5 @@
   };
 </script>
 <style>
-  .starter-page {
-    min-height: calc(100vh - 380px);
-  }
+ @import '../../assets/css/home.css';
 </style>

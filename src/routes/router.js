@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import DashboardLayout from '../views/Home/Header.vue';
+import DashboardLayout from '../views/Home/NewHeader.vue';
 import Starter from '../views/Pages/Home.vue';
 import Register from '../views/Pages/Register.vue';
 

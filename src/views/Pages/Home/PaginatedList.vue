@@ -1,10 +1,6 @@
 <template>
-  <div>
-      <b-row  v-if="offers" align-v="center" class="py-4">
-        <b-col lg="6" cols="7">
-          <h6 class="h2 d-inline-block mb-0">Offers</h6>
-        </b-col>
-      </b-row>
+  <div class="row_block offer_grid">
+    <b-container fluid class="bv-example-row">
       <b-row>
         <horizontal-list v-if="offers" :items="offers" :options="options">
         <template v-slot:default="{item}">
@@ -13,7 +9,7 @@
        </template>
       </horizontal-list>
       </b-row>
-  
+    </b-container>
   </div>
 </template>
 
