@@ -1,12 +1,16 @@
 import apiClient from "./apiclient";
   
 export default{ 
-  createOrder(){
-    return apiClient.post('api/createPaymentOrder');
+  createOrder(customer){
+    return apiClient.post('api/createPaymentOrder', customer);
   }, 
 
-  submitPaymentStatus(){
-    return apiClient.post('api/submitPaymentStatus', data);
+  submitPaymentDetails(data){
+    return apiClient.post('api/paymentDetails', data);
+  },
+  
+  createSubcription(){
+    return apiClient.post('api/createSubcription');
   },
 
 };

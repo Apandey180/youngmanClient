@@ -2,6 +2,7 @@
     <div>
         <div>
             <b-button block variant="primary" id="rzp-button" @click="showRazorPay">Pay Now</b-button>
+            <b-button block variant="primary" id="rzp-sub-button" @click="subscriptionRazorPay">Subscribe Now</b-button>
         </div>
     </div>
 </template>
@@ -13,11 +14,7 @@ export default {
         return {
             order:null,
             customer: null,
-            payment:{
-                razorpay_payment_id:null,
-                razorpay_order_id:null,
-                razorpay_signature:null
-            }
+            subscription:null,
         };
     },
     methods:{
@@ -46,19 +43,15 @@ export default {
             var self = this;
             
             var options = {
-                "key": process.env.VUE_RAZORPAY_ID, // Enter the Key ID generated from the Dashboard
-                "amount": this.order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "key": process.env.VUE_RAZORPAY_ID,
+                "amount": this.order.amount,
                 "currency": this.order.currency,
                 "name": "Youngman India",
                 "description": "Test Transaction",
-                "image": "https://example.com/your_logo",
-                "order_id": this.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                "image": "img/brand/logo.png",
+                "order_id": this.order.id,
                 "handler": function (response){
-                    self.payment.razorpay_payment_id = response.razorpay_payment_id;
-                    self.payment.razorpay_order_id = response.razorpay_order_id;
-                    self.payment.razorpay_signature = response.razorpay_signature;
-                    // self.submitPaymentDetails();
-                    // self.$refs.wizard.nextTab();
+                    self.submitPaymentDetails(response);
                 },
                 "prefill": {
                     "name": this.customer.company,
@@ -75,30 +68,64 @@ export default {
         createOrder(){
             return new Promise( (resolve) =>{
                 this.customer = this.$store.state.checkout.customer;
-                razorpay.createOrder().then(response => {
+                razorpay.createOrder({"user_id" : this.$store.state.checkout.customer_id}).then(response => {
                     resolve(true);
                     this.order = response.data;
                 }).catch(error => {
                     console.log(error);
-                    reject(false);
+                    resolve(false);
                 });
             });
         },
-        //try submitting from here instead of checkout
-        // submitPaymentDetails() {
-            // this.$events.$emit('submitPaymentDetails');
-            // const shippingDetails = this.$store.state.checkout.shipping_details;
-            // const self = this; 
-            // return new Promise(function(resolve, reject) {
-            //     checkoutApi.submitShippingDetailsForm(shippingDetails).then(response => {
-            //     self.notify('success', 'Shipping Details added')
-            //     resolve(true);
-            //     }).catch(error => {
-            //     self.notify('danger', 'Some error occurred');
-            //     reject(false)
-            //     });
-            // });
-        // },
+        submitPaymentDetails(data) {
+            data.user_id = this.$store.state.checkout.customer_id;
+            new Promise( (resolve) =>{
+                razorpay.submitPaymentDetails(data).then(response => {
+                    resolve(true);
+                    self.$events.$emit('tabChange');
+                }).catch(error => {
+                    console.log(error);
+                    resolve(false);
+                });
+            });
+        },
+        async subscriptionRazorPay(){
+            const res = await this.loadRazorPay('https://checkout.razorpay.com/v1/checkout.js');
+
+            if(!res){
+                alert("Razorpay failed to load");
+                return;
+            }
+            var self = this;
+            await this.createSubcription();
+            
+            var options = {
+                "key": "rzp_test_RvOGVVSf5LOp5C",
+                "subscription_id":this.subscription.id,
+                "name": "Youngman India",
+                "description": "Test Subscription",
+                "image": "img/brand/logo.png",
+                "handler": function (response){
+                    alert("Thanks :)")
+                },
+                "theme": {
+                    "color": "#ffd600"
+                }
+            };
+            var razorpayObj = new Razorpay(options);
+                razorpayObj.open();
+        },
+        createSubcription(){
+            return new Promise( (resolve) =>{
+                razorpay.createSubcription().then(response => {
+                    resolve(true);
+                    this.subscription = response.data;
+                }).catch(error => {
+                    console.log(error);
+                    resolve(false);
+                });
+            });
+        }
     },
 
     mounted() {
