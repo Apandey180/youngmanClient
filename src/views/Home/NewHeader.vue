@@ -2,7 +2,7 @@
 <div>
   <notifications></notifications>
   <div class="header">
-    <b-navbar toggleable="lg" type="dark" variant="info" fixed="scroll">
+    <b-navbar toggleable="lg" fixed="scroll">
       <b-navbar-toggle target="nav-collapse">
         <b-icon-list></b-icon-list>
       </b-navbar-toggle>
@@ -27,15 +27,15 @@
         <b-navbar-nav class="ml-auto">
             <b-nav-item class="location_icon" id="location-popover"><b-icon-geo-alt></b-icon-geo-alt></b-nav-item>
             <b-nav-item class="web_cart_icon cart_icon" to="/cart"><img src="@/assets/images/Cart_Icon1.png" alt="Shopping Cart Image" width="28px"></b-nav-item>
-            <b-nav-item>
-              <a href="/login" class="btn login_btn" style="color: white;">
+            <b-nav-item class="btn login_btn">
+              <router-link to="/login" style="color: white;">
                 <b-icon-person-circle></b-icon-person-circle> Create an account/Login
-              </a>
+              </router-link>
             </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <b-jumbotron>
+    <!-- <b-jumbotron>
     <b-row>
       <b-col offset-md="8">
         <b-input-group>
@@ -46,7 +46,7 @@
         </b-input-group>
       </b-col>
     </b-row>
-    </b-jumbotron>
+    </b-jumbotron> -->
     <!-- location popover -->
     <b-popover target="location-popover" triggers="focus" placement="bottom">
       <div class="popover_blk">
@@ -85,13 +85,16 @@ export default {
 </script>
 
 <style scoped>
+.header{
+      background-image: linear-gradient(to bottom,#ffeb3b 0%, #ffffff 100%) !important;
+}
   .navbar-brand img {
     width: 280px;
   }
   .navbar-brand {margin-top: 11px;}
-  .navbar-dark {
+  /* .navbar-dark {
     background-color: black !important;
-  }
+  } */
   .navbar-nav .nav-link {
     color: white !important;
     font-weight: bold;
@@ -113,12 +116,14 @@ export default {
     margin-left: 10px;
   }
   .jumbotron {
-    background-color: black;
+    /* background-color: black;
     padding: 10px 17px 20px 0px;
     border-radius: 0px;
     height: 350px;
     width: 100%;
-    margin-top: 0px;
+    margin-top: 0px; */
+    /* background-image: linear-gradient(to top, #434343 0%, black 100%); */
+    background-image: linear-gradient(to bottom,#c1c161 0%, #d4d4b1 100%);
   }
   .search_input {
     background-color: #757575;

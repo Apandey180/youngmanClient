@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel_blk">
+  <div class="carousel_blk" style="margin-top:300px">
     <router-link to="/products">
       <b-carousel
         id="carousel-1"
