@@ -1,41 +1,40 @@
 <template>
-
-<b-container class="bv-example-row oval-container oval shadow">
-  <b-row class="d-flex align-items-center justify-content-center">
-    <b-col class="align-self-center">    
-      <b-form-input class="btn-outline-secondary oval"  placeholder="Enter email for News & Updates"></b-form-input>
-    </b-col>
-    <b-col>
-      <button type="submit" class="btn btn-success oval float-right">Submit</button>
-    </b-col>
-  </b-row>
-</b-container>
-
-<!-- <div class="input-group mb-3 oval shadow">
-  <input type="text" class="form-control oval" placeholder="Enter your Email" aria-describedby="basic-addon2">
-  <div class="input-group-append">
-    <input type="submit" class="btn btn-outline-secondary oval" value="Search">
-  </div>
-</div> -->
-
-
+<div class="send_fb_blk">
+        <b-row>
+          <b-col>
+            <b-input-group style="margin: 0 auto;box-shadow: 1px 1px 5px 1px #ccc;" class="mt-3">
+              <b-form-input placeholder="Enter email for News & Updates"></b-form-input>
+              <b-input-group-append>
+                <b-button variant="info">Submit</b-button>
+              </b-input-group-append>
+            </b-input-group>
+          </b-col>
+        </b-row>
+      </div>
 
 </template>
 
 <style scoped>
-.oval{
-  border-radius: 50px 50px 50px 50px;
-  outline: none;
-  border: 0px solid;
+.send_fb_blk {
+  margin-top: 60px;
 }
-
-input:focus{
-  outline: none !important;
+.send_fb_blk .form-control {
+  border: none;
+  background: transparent;
 }
-
-.oval-container{
-  background-color: transparent;
-  color: white;
-  width: 40%;
+.send_fb_blk .input-group {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 33%;
+}
+.send_fb_blk .btn {
+  border-radius: 20px !important;
+  padding: 5px 25px;
+  margin: 2px;
+  background: #fee501;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-color: #fee501;
 }
 </style>
