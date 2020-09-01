@@ -8,7 +8,7 @@
       </b-navbar-toggle>
       <div class="navbar-header">
         <b-navbar-brand href="#">
-          <img src="@/assets/images/logo2.png" alt="Logo">
+          <img src="@/assets/images/logo.png" alt="Logo">
         </b-navbar-brand>
       </div>
 
@@ -16,37 +16,38 @@
       <!-- <b-icon-cart-fill></b-icon-cart-fill> -->
       <img class="mobile_cart_icon" src="@/assets/images/Cart_Icon1.png" alt="Shopping Cart Image" width="28px">
       <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="left_nav">
-            <b-nav-item to="/">Home</b-nav-item>
+        <b-navbar-nav class="left_nav" >
+            <b-nav-item to="/" style="margin-left:-130px">Home</b-nav-item>
             <b-nav-item to="/products">Products</b-nav-item>
             <b-nav-item to="/training">Training</b-nav-item>
             <b-nav-item href="#">About</b-nav-item>
         </b-navbar-nav>
+        <b-input-group >
+          <template v-slot:prepend>
+            <b-icon-search></b-icon-search>
+          </template>
+            <b-form-input class="search_input" placeholder="Search Product"></b-form-input>
+       </b-input-group>
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
             <b-nav-item class="location_icon" id="location-popover"><b-icon-geo-alt></b-icon-geo-alt></b-nav-item>
-            <b-nav-item class="web_cart_icon cart_icon" to="/cart"><img src="@/assets/images/Cart_Icon1.png" alt="Shopping Cart Image" width="28px"></b-nav-item>
-            <b-nav-item class="btn login_btn">
-              <router-link to="/login" style="color: white;">
-                <b-icon-person-circle></b-icon-person-circle> Create an account/Login
-              </router-link>
+            <b-nav-item class="web_cart_icon cart_icon" to="/cart"><img src="@/assets/images/shopping-cart.png" alt="Shopping Cart Image" width="28px"></b-nav-item>
+            <b-nav-item class="login_btn" to="/login">
+                <b-icon-person-circle></b-icon-person-circle> 
             </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
+      
     </b-navbar>
-    <!-- <b-jumbotron>
+    
+<!--    <b-jumbotron>
     <b-row>
       <b-col offset-md="8">
-        <b-input-group>
-          <template v-slot:prepend>
-            <b-icon-search></b-icon-search>
-          </template>
-            <b-form-input class="search_input" placeholder="Search Products"></b-form-input>
-        </b-input-group>
+        
       </b-col>
     </b-row>
-    </b-jumbotron> -->
+    </b-jumbotron> --> 
     <!-- location popover -->
     <b-popover target="location-popover" triggers="focus" placement="bottom">
       <div class="popover_blk">
@@ -64,7 +65,9 @@
   </div>
 
   <!-- MAIN BODY -->
-  <router-view></router-view>
+  <div class = "mbody">
+  <router-view ></router-view>
+  </div>
   <!-- FOOTER -->
   <content-footer/>
 </div>
@@ -86,7 +89,10 @@ export default {
 
 <style scoped>
 .header{
-      background-image: linear-gradient(to bottom,#ffeb3b 0%, #ffffff 100%) !important;
+      background-color:#ffeb3b !important;
+}
+.mbody{
+      background-image: linear-gradient(to bottom,#ffeb3b 80%, #ffffff 100%) !important;
 }
   .navbar-brand img {
     width: 280px;
@@ -96,7 +102,7 @@ export default {
     background-color: black !important;
   } */
   .navbar-nav .nav-link {
-    color: white !important;
+    color:black !important;
     font-weight: bold;
   }
   .navbar-nav {
@@ -109,7 +115,7 @@ export default {
     color: #757575 !important;
   }
   .login_btn {
-    background: #000;
+    background:white;
     border-radius: 25px;
     padding: 6px 40px 5px 10px;
     font-size: 14px;
@@ -123,7 +129,7 @@ export default {
     width: 100%;
     margin-top: 0px; */
     /* background-image: linear-gradient(to top, #434343 0%, black 100%); */
-    background-image: linear-gradient(to bottom,#c1c161 0%, #d4d4b1 100%);
+    background-image: linear-gradient(to bottom,#c1c161 100%, #d4d4b1 100%);
   }
   .search_input {
     background-color: #757575;
@@ -136,6 +142,7 @@ export default {
     background-color: #757575;
     color: #fff;
   }
+  
   .bi-search {opacity: 0.7;}
   .search_input::placeholder { 
     color: #fff;
@@ -162,7 +169,10 @@ export default {
   .address_blk {
     margin-top: 15px;
   }
-  .left_nav {margin-left: 17%;}
+  .left_nav {
+    margin-left: 17%;
+    color: #000;
+    }
   .left_nav li {margin-right: 30px;}
   .cart_icon a, .location_icon a {font-size: 20px !important;}
   .bi-personal-icon {color: #757575;}
