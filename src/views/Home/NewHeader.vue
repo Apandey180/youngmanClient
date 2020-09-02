@@ -128,13 +128,17 @@ export default {
     border-radius: 20px;
     font-size: 14px;
     border: none;
+    height: 80%;
+  }
+  .input-group-prepend {
+    height: 39px !important;
   }
   .search_input:focus {
     background-color: #757575;
     color: #fff;
   }
   
-  .bi-search {opacity: 0.7;}
+  .bi-search {opacity: 0.7; align-self: center; height: 70%;}
   .search_input::placeholder { 
     color: #fff;
     opacity: 0.7;
@@ -165,7 +169,8 @@ export default {
     color: #000;
     }
   .left_nav li {margin-right: 30px;}
-  .cart_icon a, .location_icon .login_btn a {font-size: 25px !important;}
+  /* .cart_icon a, .location_icon .login_btn a {font-size: 25px !important;} */
+  .b-icon {font-size:  150% !important;}
   .bi-personal-icon {color: #757575;}
   .input-group-prepend {
     background-color: #757575;
