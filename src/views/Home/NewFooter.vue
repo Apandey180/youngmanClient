@@ -49,9 +49,7 @@ export default {
 
 <style scoped>
     .footer-component {
-        margin-top: 50px;  
-        background-color:  #ffff80;
- 
+        margin-top: 50px;   
     }
     .footer-component .card {
         border-radius: 0px;

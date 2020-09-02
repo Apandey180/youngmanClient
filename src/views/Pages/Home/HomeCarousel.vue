@@ -1,15 +1,15 @@
 <template>
-  <div class="carousel_blk" style="margin-top:300px">
+  <div class="carousel_blk">
     <router-link to="/products">
       <b-carousel
         id="carousel-1"
         v-model="slide"
-        :interval="4000"
+        :interval="20000"
         controls
         indicators
         background="#ababab"
         img-width="1024"
-        img-height="480"
+        img-height="360"
         style="text-shadow: 1px 1px 2px #333;"
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd"
