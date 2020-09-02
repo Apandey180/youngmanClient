@@ -8,7 +8,7 @@
           
               <div class="col-sm-4 col-lg-4 overflow-hidden img-container">
                 <router-link to="/products">
-                  <img src="@/assets/images/product_1.png" class="image rounded img__img"/>
+                  <img :src="item.image" class="image rounded img__img"/>
                   <div class="img__description_layer">
                     <p class="text">{{item.name}}</p>
                   </div>

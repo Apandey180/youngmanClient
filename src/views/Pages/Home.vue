@@ -1,5 +1,4 @@
 <template>
-  <div class="main-body home-page">
     <div class="slider_block">
       <div class="pills_blk">
         <b-row>
@@ -97,7 +96,6 @@
 
 
     </div>
-  </div>
 </template>
 <script>
   import HomeCarousel from './Home/HomeCarousel';
