@@ -6,7 +6,8 @@ const state = () => ({
     featuredCategories: null,
     offers: null,
     carousel: null,
-    topReviews: null
+    topReviews: null,
+    specials: null
 })
 
 // getters
@@ -20,7 +21,10 @@ const getters = {
   },
   carousel: (state, getters) => {
     return state.carousel;
-  }
+  },
+  specials: (state, getters) => {
+    return state.specials;
+  },
 }
 
 // actions
@@ -47,6 +51,12 @@ const actions = {
         home.getTopReviews(reviews => {
           commit('setTopReviews', reviews)
         })
+      },
+      
+      getSpeciality({commit}) {
+        home.getSpeciality(specials => {
+          commit('setSpeciality', specials)
+        })
       }
 }
 
@@ -63,6 +73,9 @@ const mutations = {
       },
       setTopReviews (state, topReviews) {
         state.topReviews = topReviews
+      },
+      setSpeciality (state, specials) {
+        state.specials = specials
       },
 }
 

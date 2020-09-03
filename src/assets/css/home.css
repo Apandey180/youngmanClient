@@ -119,15 +119,17 @@
     opacity: 0.8;
     font-size: 20px;
 }
-.images_blk .card-body{text-align: center;}
+.images_blk .card-body{text-align: center; padding: 0%;}
 .images_blk .card {
   margin-bottom: 20px;
   border-radius: 15px;
   box-shadow: 0px 0px 10px 0px #ccc;
 }
 .images_blk .card img {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
 }
 
 @media only screen and (max-width: 768px) {

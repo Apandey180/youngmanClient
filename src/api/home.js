@@ -23,5 +23,11 @@ export default {
         apiClient.get('/api/getTopReviews').then(resp => {
             cb(resp.data)
         });
+    },
+    
+    getSpeciality(cb) {
+        apiClient.get('/api/speciality').then(resp => {
+            cb(resp.data)
+        });
     }
 }
