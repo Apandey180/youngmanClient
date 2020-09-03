@@ -11,32 +11,7 @@
         <home-carousel/>
         <featured-categories/>
         <paginated-list/>
-        <!-- SPECIALITY -->
-      <div class="images_blk">
-        <b-row>
-          <b-col sm="12" md="6">
-            <b-card>
-              <img src="@/assets/images/product_3.png" alt="Product Image">
-            </b-card>
-          </b-col>
-          <b-col sm="12" md="6">
-            <b-card>
-              <img src="@/assets/images/product_1.png" alt="Product Image">
-            </b-card>
-          </b-col>
-          <b-col sm="12" md="6">
-            <b-card>
-              <img src="@/assets/images/product_2.png" alt="Product Image">
-            </b-card>
-          </b-col>
-          <b-col sm="12" md="6">
-            <b-card>
-              <img src="@/assets/images/product_3.png" alt="Product Image">
-            </b-card>
-          </b-col>
-        </b-row>
-      </div>
-
+        <specials/>
         <customer-reviews/>
 
 
@@ -104,6 +79,7 @@
   import PaginatedList from './Home/PaginatedList';
   import EmailSubmit from "./Home/EmailSubmit";
   import CustomerReviews from "./Home/CustomerReviews";
+  import Specials from "./Home/Specials";
  
   export default {
     name: 'starter-page',
@@ -113,7 +89,8 @@
       PaginatedList,
       EmailSubmit,
       CustomerReviews,
-      Widgets
+      Widgets,
+      Specials
     },
     data() {
       return {};
