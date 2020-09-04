@@ -10,8 +10,9 @@
 
         <home-carousel/>
         <featured-categories/>
-        <paginated-list/>
-        <specials/>
+<!--         <paginated-list/>--> 
+<h2 style="font-weight:bold">Specials</h2>     
+       <specials/>
         <customer-reviews/>
 
 

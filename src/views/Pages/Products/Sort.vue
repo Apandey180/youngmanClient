@@ -1,10 +1,10 @@
 <template>
     
   <div style="display: flex; justify-content: left;">
-      <button type="button" class="btn btn-link text-black">Sort By</button>
-      <button type="button" class="btn btn-link" @click="sortByPopularity">Popularity</button>
-      <button type="button" class="btn btn-link" @click="sortByPrice">Price low to High</button>
-      <button type="button" class="btn btn-link" @click="sortByDate">Newest First</button>
+      <button type="button" class="btn btn-link text-black" style="margin-top:-8px;padding-bottom:0px">Sort By</button>
+      <button type="button" class="btn btn-link" @click="sortByPopularity" style="margin-top:-8px;padding-bottom:0px">Popularity</button>
+      <button type="button" class="btn btn-link" @click="sortByPrice" style="margin-top:-8px;padding-bottom:0px">Price low to High</button>
+      <button type="button" class="btn btn-link" @click="sortByDate" style="margin-top:-8px;padding-bottom:0px">Newest First</button>
   
 </div>
 

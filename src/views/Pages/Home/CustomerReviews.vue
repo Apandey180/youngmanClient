@@ -3,7 +3,7 @@
     <b-col>
       <b-row v-if="reviews" align-v="center" class="py-4">
         <b-col lg="6" cols="7">
-          <h6 class="h2 d-inline-block mb-0">Reviews</h6>
+          <h6 class="h2 d-inline-block mb-0" style="font-weight:bold">Reviews</h6>
         </b-col>
       </b-row>
       <b-row>

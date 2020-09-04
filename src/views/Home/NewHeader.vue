@@ -10,7 +10,7 @@
     </b-navbar-toggle>
     <div class="navbar-header">
       <b-navbar-brand href="#">
-        <img src="@/assets/images/logo.png" alt="Logo">
+        <img src="@/assets/images/logo.png" alt="Logo" style="margin-left:30px">
       </b-navbar-brand>
     </div>
 

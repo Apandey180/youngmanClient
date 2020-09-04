@@ -1,8 +1,8 @@
 <template>
   <div class="row_block featured_grid">
-      <h6 class="h2 d-inline-block mb-0">Featured Categories</h6>
+      <h6 class="h2 d-inline-block mb-0">Categories</h6>
 
-      <b-container fluid class="bv-example-row home_slider_blk">
+      <b-container fluid class="bv-example-row home_slider_blk" style="margin-top:-5px">
         <horizontal-list v-if="featuredCategories"  :items="featuredCategories" :options="options">
           <template v-slot:default="{item}">
           

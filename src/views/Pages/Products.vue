@@ -1,6 +1,6 @@
 <template>
 <div>
-  <base-header class="pb-6" style="background-color:#ffe411 !important">
+  <base-header class="pb-6" style="background-color:#ffeb3b !important;margin-top:-78px">
       <b-row align-v="right" class="py-4"> </b-row>
     </base-header>
   <b-container fluid class="mt--6">
@@ -11,7 +11,7 @@
     <b-col sm="12" md="9" lg="9">
       <sort/>
       <b-row>
-        <b-col sm="12" md="4" lg="4" v-for="item in lists" :key="item.id">
+        <b-col sm="12" md="4" lg="4" v-for="item in lists" :key="item.id" style="margin-top:10px">
           <product-card v-bind:item="item"></product-card>
         </b-col>
       </b-row>
@@ -26,7 +26,7 @@
   </b-row>
 
   <b-row>
-    <recently-searched></recently-searched>
+    <!-- <recently-searched></recently-searched> -->
   </b-row>
   <router-view></router-view>
   </b-container>
